@@ -696,10 +696,10 @@ class DeltaHedgedVolatilityStrategy:
 
 
 # Example usage for integration with existing framework
-class DeltaHedgedVolStrategy:
+class DeltaHedgedVolStrategy(Strategy):
     """
-    Wrapper class to integrate with existing strategy framework.
-    Simplified single-asset version for compatibility.
+    Delta-hedged volatility trading for crypto.
+    Simplified single-asset version for compatibility with backtest framework.
     """
     
     def __init__(
@@ -708,55 +708,71 @@ class DeltaHedgedVolStrategy:
         iv_threshold: float = 0.05,
         position_size: float = 100.0
     ):
-        self.strategy = DeltaHedgedVolatilityStrategy(
-            rv_lookback=rv_lookback,
-            iv_threshold=iv_threshold,
-            position_size=position_size
-        )
+        self.rv_lookback = rv_lookback
+        self.iv_threshold = iv_threshold
+        self.position_size = position_size
+        self.risk_free_rate = 0.05
+    
+    def calculate_realized_volatility(self, returns: pd.Series) -> float:
+        """Calculate annualized realized volatility."""
+        if len(returns) < 2:
+            return 0.0
+        rv = returns.std() * np.sqrt(365 * 24 * 12)  # Annualize for 5-min data
+        return rv
+    
+    def calculate_iv_proxy(self, returns: pd.Series) -> float:
+        """Proxy for implied volatility."""
+        if len(returns) < 10:
+            return 0.0
+        recent_rv = self.calculate_realized_volatility(returns.tail(10))
+        iv_premium = 0.10  # 10% premium
+        return recent_rv * (1 + iv_premium)
     
     def add_indicators(self, df: pd.DataFrame) -> pd.DataFrame:
         """Add volatility indicators."""
-        return self.strategy.add_indicators(df, asset='CRYPTO')
+        df['returns'] = np.log(df['Close'] / df['Close'].shift(1)).fillna(0)
+        
+        # Realized volatility
+        df['RV'] = df['returns'].rolling(
+            window=self.rv_lookback, 
+            min_periods=self.rv_lookback//2
+        ).apply(self.calculate_realized_volatility)
+        
+        # Implied volatility proxy
+        df['IV'] = df['returns'].rolling(
+            window=self.rv_lookback,
+            min_periods=self.rv_lookback//2
+        ).apply(self.calculate_iv_proxy)
+        
+        # IV-RV spread
+        df['IV_RV_spread'] = df['IV'] - df['RV']
+        df['IV_RV_ratio'] = np.where(df['RV'] > 0, df['IV'] / df['RV'], 1.0)
+        
+        return df
     
     def generate_signals(self, df: pd.DataFrame) -> pd.DataFrame:
-        """Generate trading signals for single asset."""
-        df = df.copy()
-        
-        # Initialize columns
+        """Generate trading signals based on IV vs RV."""
         df['signal'] = 0
         df['position'] = 0
         df['target_qty'] = 0.0
         
-        # Generate signals based on IV vs RV
         for idx in df.index:
-            if pd.notna(df.loc[idx, 'CRYPTO_IV']) and pd.notna(df.loc[idx, 'CRYPTO_RV']):
-                signal = self.strategy.generate_signal_iv_vs_rv(
-                    df.loc[idx, 'CRYPTO_IV'],
-                    df.loc[idx, 'CRYPTO_RV']
-                )
+            if pd.notna(df.loc[idx, 'IV']) and pd.notna(df.loc[idx, 'RV']):
+                iv = df.loc[idx, 'IV']
+                rv = df.loc[idx, 'RV']
                 
-                df.loc[idx, 'signal'] = signal
-                df.loc[idx, 'position'] = signal
-                df.loc[idx, 'target_qty'] = abs(signal) * self.strategy.position_size
+                if rv > 0:
+                    iv_rv_spread = (iv - rv) / rv
+                    
+                    if iv_rv_spread < -self.iv_threshold:
+                        # IV cheap -> Long volatility
+                        df.loc[idx, 'signal'] = 1
+                        df.loc[idx, 'position'] = 1
+                        df.loc[idx, 'target_qty'] = self.position_size
+                    elif iv_rv_spread > self.iv_threshold:
+                        # IV expensive -> Short volatility  
+                        df.loc[idx, 'signal'] = -1
+                        df.loc[idx, 'position'] = -1
+                        df.loc[idx, 'target_qty'] = self.position_size
         
         return df
-    
-    def run(self, df: pd.DataFrame) -> pd.DataFrame:
-        """Execute the full strategy pipeline."""
-        df = self.add_indicators(df)
-        df = self.generate_signals(df)
-        return df
-
-
-if __name__ == "__main__":
-    # Example: Create sample data and test the strategy
-    print("Delta-Hedged Volatility Strategy Implementation")
-    print("=" * 60)
-    print("\nStrategy Components:")
-    print("1. Realized Volatility Calculation")
-    print("2. Implied Volatility Proxy")
-    print("3. IV vs RV Signal Generation")
-    print("4. Relative Value Signals (BTC vs ETH)")
-    print("5. ATM Straddle Greeks Calculation")
-    print("6. Delta Hedging with Futures")
-    print("\nStrategy is ready for backtesting and live trading!")
