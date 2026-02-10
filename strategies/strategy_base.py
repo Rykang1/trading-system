@@ -230,4 +230,6 @@ class DemoStrategy(Strategy):
 ##
 ## To use your strategy:
 ##   python run_live.py --symbol AAPL --strategy mystrategy --live
-##
+## Lets goooooo
+
+#def skibidi(int): yessir
