@@ -233,4 +233,4 @@ class DemoStrategy(Strategy):
 ##   python run_live.py --symbol AAPL --strategy mystrategy --live
 ## Lets goooooo
 
-#def skibidi(int): yessir
+#def skibidi(int): yessir Bro bro bro
