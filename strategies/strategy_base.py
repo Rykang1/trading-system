@@ -1,4 +1,5 @@
 """
+Ryan Kang, Parth Halani, Hadrien Courbe, Youti Wan, Aadith Jerfy
 Strategy base classes and built-in strategies.
 
 To create your own strategy:
