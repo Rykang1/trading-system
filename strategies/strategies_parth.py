@@ -84,6 +84,15 @@ class Strategy:
     def run(self, df: pd.DataFrame) -> pd.DataFrame:
         """Execute the full strategy pipeline. Do not override."""
         df = df.copy()
+        # Add default options columns if not present (e.g. when running on stock data)
+        if "option_type" not in df.columns:
+            df["option_type"] = "call"
+        if "delta" not in df.columns:
+            df["delta"] = 0.5
+        if "iv" not in df.columns:
+            df["iv"] = 0.25
+        if "theta" not in df.columns:
+            df["theta"] = -0.05
         df = self.add_indicators(df)
         df = self.generate_signals(df)
         return df

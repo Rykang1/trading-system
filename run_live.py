@@ -30,7 +30,18 @@ import time
 from core.alpaca_trader import AlpacaTrader
 from core.logger import get_logger, get_trade_logger
 from pipeline.alpaca import clean_market_data, save_bars
-from strategies import MovingAverageStrategy, TemplateStrategy, CryptoTrendStrategy, DemoStrategy, get_strategy_class, list_strategies
+from strategies import (
+    MovingAverageStrategy,
+    TemplateStrategy,
+    CryptoTrendStrategy,
+    DemoStrategy,
+    MovingAverageOptionsStrategy,
+    TemplateOptionsStrategy,
+    CryptoTrendOptionsStrategy,
+    DemoOptionsStrategy,
+    get_strategy_class,
+    list_strategies,
+)
 
 logger = get_logger("run_live")
 
@@ -73,14 +84,12 @@ Examples:
 def main() -> None:
     args = parse_args()
 
-    # Handle --list-strategies
     if args.list_strategies:
         print("Available strategies:")
         for name in list_strategies():
             print(f"  - {name}")
         sys.exit(0)
 
-    # Build strategy
     strategy_cls = get_strategy_class(args.strategy)
     if strategy_cls is MovingAverageStrategy:
         strategy = MovingAverageStrategy(
@@ -105,6 +114,29 @@ def main() -> None:
         strategy = DemoStrategy(
             position_size=args.position_size,
         )
+    elif strategy_cls is MovingAverageOptionsStrategy:
+        strategy = MovingAverageOptionsStrategy(
+            short_window=args.short_window,
+            long_window=args.long_window,
+            position_size=args.position_size,
+        )
+    elif strategy_cls is TemplateOptionsStrategy:
+        strategy = TemplateOptionsStrategy(
+            lookback=args.momentum_lookback,
+            position_size=args.position_size,
+            buy_threshold=args.buy_threshold,
+            sell_threshold=args.sell_threshold,
+        )
+    elif strategy_cls is CryptoTrendOptionsStrategy:
+        strategy = CryptoTrendOptionsStrategy(
+            short_window=args.short_window,
+            long_window=args.long_window,
+            position_size=args.position_size,
+        )
+    elif strategy_cls is DemoOptionsStrategy:
+        strategy = DemoOptionsStrategy(
+            position_size=args.position_size,
+        )
     else:
         try:
             strategy = strategy_cls()
@@ -113,7 +145,6 @@ def main() -> None:
                 f"{strategy_cls.__name__} must support a no-arg constructor or use --strategy template."
             ) from exc
 
-    # Log startup
     mode = "DRY RUN" if args.dry_run else "LIVE"
     logger.info(f"Starting {mode} trading: {args.symbol} | strategy={args.strategy} | timeframe={args.timeframe}")
 
