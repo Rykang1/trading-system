@@ -14,6 +14,14 @@ from .strategy_base import (
     TemplateStrategy,
 )
 
+from . import strategies_base_ryan
+from .strategies_base_ryan import (
+    MovingAverageStrategy as MovingAverageOptionsStrategy,
+    TemplateStrategy as TemplateOptionsStrategy,
+    CryptoTrendStrategy as CryptoTrendOptionsStrategy,
+    DemoStrategy as DemoOptionsStrategy,
+)
+
 
 def _build_registry() -> Dict[str, Type[Strategy]]:
     registry: Dict[str, Type[Strategy]] = {}
@@ -32,6 +40,13 @@ def _build_registry() -> Dict[str, Type[Strategy]]:
     registry.setdefault("crypto_trend_ema", CryptoTrendStrategy)
     registry.setdefault("demo", DemoStrategy)
     registry.setdefault("fast", DemoStrategy)
+
+    registry.setdefault("ma_options", MovingAverageOptionsStrategy)
+    registry.setdefault("moving_average_options", MovingAverageOptionsStrategy)
+    registry.setdefault("template_options", TemplateOptionsStrategy)
+    registry.setdefault("crypto_options", CryptoTrendOptionsStrategy)
+    registry.setdefault("demo_options", DemoOptionsStrategy)
+
     return registry
 
 
@@ -58,6 +73,10 @@ __all__ = [
     "MovingAverageStrategy",
     "CryptoTrendStrategy",
     "DemoStrategy",
+    "MovingAverageOptionsStrategy",
+    "TemplateOptionsStrategy",
+    "CryptoTrendOptionsStrategy",
+    "DemoOptionsStrategy",
     "get_strategy_class",
     "list_strategies",
 ]
