@@ -696,67 +696,128 @@ class DeltaHedgedVolatilityStrategy:
 
 
 # Example usage for integration with existing framework
-class DeltaHedgedVolStrategy:
+class DeltaHedgedVolStrategy(Strategy):
     """
-    Wrapper class to integrate with existing strategy framework.
-    Simplified single-asset version for compatibility.
+    Volatility Trading + Trend Filter Strategy
+    
+    Core Idea from Original Paper:
+    - Trade when implied volatility (IV) misprices realized volatility (RV)
+    - But ONLY trade with the trend (SMA filter)
+    
+    Key Innovation:
+    - Use 50-period SMA to identify trend direction
+    - Only buy volatility when price is above SMA (uptrend)
+    - Exit when trend breaks or volatility normalizes
+    
+    This avoids the original problem: trading volatility in downtrends = losses
     """
     
     def __init__(
         self,
         rv_lookback: int = 20,
-        iv_threshold: float = 0.05,
-        position_size: float = 100.0
+        sma_period: int = 50,  # Trend filter
+        iv_threshold: float = 0.08,  # 8% IV/RV spread to trigger
+        position_size: float = 0.005,  # 0.005 BTC = ~$500
+        max_hold_periods: int = 100  # Force exit after 100 bars
     ):
-        self.strategy = DeltaHedgedVolatilityStrategy(
-            rv_lookback=rv_lookback,
-            iv_threshold=iv_threshold,
-            position_size=position_size
-        )
+        if position_size <= 0:
+            raise ValueError("position_size must be positive.")
+        self.rv_lookback = rv_lookback
+        self.sma_period = sma_period
+        self.iv_threshold = iv_threshold
+        self.position_size = position_size
+        self.max_hold_periods = max_hold_periods
     
     def add_indicators(self, df: pd.DataFrame) -> pd.DataFrame:
-        """Add volatility indicators."""
-        return self.strategy.add_indicators(df, asset='CRYPTO')
+        """Add volatility indicators + trend filter."""
+        # Calculate returns
+        df['returns'] = df['Close'].pct_change().fillna(0)
+        
+        # Realized Volatility (actual price movement)
+        df['RV'] = df['returns'].rolling(
+            window=self.rv_lookback,
+            min_periods=self.rv_lookback//2
+        ).std() * np.sqrt(365 * 288)  # Annualize for 5-min bars
+        
+        # Implied Volatility Proxy (what market expects)
+        # IV = recent RV + premium + momentum adjustment
+        recent_vol = df['RV'].rolling(10).mean()
+        vol_momentum = df['RV'].diff(5)  # Is vol rising or falling?
+        df['IV'] = recent_vol * 1.12 + vol_momentum.fillna(0) * 0.5
+        
+        # IV/RV Spread (our main signal)
+        df['IV_RV_spread'] = (df['IV'] - df['RV']) / df['RV'].replace(0, np.nan)
+        
+        # TREND FILTER: Simple Moving Average
+        df['SMA'] = df['Close'].rolling(self.sma_period).mean()
+        df['above_sma'] = df['Close'] > df['SMA']
+        
+        # Price momentum (additional confirmation)
+        df['price_momentum'] = df['Close'].pct_change(20)
+        
+        return df
     
     def generate_signals(self, df: pd.DataFrame) -> pd.DataFrame:
-        """Generate trading signals for single asset."""
-        df = df.copy()
-        
-        # Initialize columns
+        """Generate volatility signals with trend filter."""
         df['signal'] = 0
         df['position'] = 0
         df['target_qty'] = 0.0
         
-        # Generate signals based on IV vs RV
-        for idx in df.index:
-            if pd.notna(df.loc[idx, 'CRYPTO_IV']) and pd.notna(df.loc[idx, 'CRYPTO_RV']):
-                signal = self.strategy.generate_signal_iv_vs_rv(
-                    df.loc[idx, 'CRYPTO_IV'],
-                    df.loc[idx, 'CRYPTO_RV']
-                )
+        in_position = False
+        entry_bar = 0
+        
+        for i in range(len(df)):
+            # Skip if not enough data
+            if pd.isna(df.iloc[i]['IV']) or pd.isna(df.iloc[i]['RV']):
+                continue
+            
+            iv_rv_spread = df.iloc[i]['IV_RV_spread']
+            above_sma = df.iloc[i]['above_sma']
+            price_mom = df.iloc[i]['price_momentum']
+            
+            # ENTRY LOGIC: Buy when ALL conditions met
+            if not in_position:
+                # 1. IV is cheap (underpriced volatility)
+                vol_cheap = iv_rv_spread < -self.iv_threshold
                 
-                df.loc[idx, 'signal'] = signal
-                df.loc[idx, 'position'] = signal
-                df.loc[idx, 'target_qty'] = abs(signal) * self.strategy.position_size
+                # 2. Price is in uptrend (above SMA)
+                in_uptrend = above_sma
+                
+                # 3. Positive price momentum
+                good_momentum = price_mom > 0.01 if pd.notna(price_mom) else False
+                
+                if vol_cheap and in_uptrend and good_momentum:
+                    df.iloc[i, df.columns.get_loc('signal')] = 1
+                    df.iloc[i, df.columns.get_loc('position')] = 1
+                    df.iloc[i, df.columns.get_loc('target_qty')] = self.position_size
+                    in_position = True
+                    entry_bar = i
+            
+            # EXIT LOGIC: Sell when ANY condition met
+            else:
+                bars_held = i - entry_bar
+                
+                # 1. IV becomes expensive (volatility normalized)
+                vol_expensive = iv_rv_spread > 0
+                
+                # 2. Trend broke (price below SMA)
+                trend_broke = not above_sma
+                
+                # 3. Strong negative momentum
+                bad_momentum = price_mom < -0.02 if pd.notna(price_mom) else False
+                
+                # 4. Held too long (force exit)
+                held_too_long = bars_held > self.max_hold_periods
+                
+                if vol_expensive or trend_broke or bad_momentum or held_too_long:
+                    df.iloc[i, df.columns.get_loc('signal')] = -1
+                    df.iloc[i, df.columns.get_loc('position')] = 0
+                    df.iloc[i, df.columns.get_loc('target_qty')] = 0.0
+                    in_position = False
+                else:
+                    # Hold position
+                    df.iloc[i, df.columns.get_loc('signal')] = 0
+                    df.iloc[i, df.columns.get_loc('position')] = 1
+                    df.iloc[i, df.columns.get_loc('target_qty')] = self.position_size
         
         return df
-    
-    def run(self, df: pd.DataFrame) -> pd.DataFrame:
-        """Execute the full strategy pipeline."""
-        df = self.add_indicators(df)
-        df = self.generate_signals(df)
-        return df
-
-
-if __name__ == "__main__":
-    # Example: Create sample data and test the strategy
-    print("Delta-Hedged Volatility Strategy Implementation")
-    print("=" * 60)
-    print("\nStrategy Components:")
-    print("1. Realized Volatility Calculation")
-    print("2. Implied Volatility Proxy")
-    print("3. IV vs RV Signal Generation")
-    print("4. Relative Value Signals (BTC vs ETH)")
-    print("5. ATM Straddle Greeks Calculation")
-    print("6. Delta Hedging with Futures")
-    print("\nStrategy is ready for backtesting and live trading!")
