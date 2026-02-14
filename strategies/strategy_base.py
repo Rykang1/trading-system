@@ -235,23 +235,6 @@ class DemoStrategy(Strategy):
 
 #def skibidi(int): yessir Bro bro bro
 
-"""
-Delta-Hedged Volatility Trading Strategy for Crypto Options
-Ryan Kang, Parth Halani, Hadrien Courbe, Youti Wan, Aadith Jerfy
-
-A sophisticated volatility trading strategy that:
-1. Compares implied volatility (IV) to realized volatility (RV)
-2. Implements relative value trades between BTC and ETH
-3. Uses ATM straddles for long volatility exposure
-4. Maintains delta neutrality through perpetual futures hedging
-5. Operates on a strict 1-week trading horizon
-
-Strategy Logic:
-- Signal 1: Long vol when IV < RV (options underpriced)
-- Signal 2: Relative value - long cheap vol, short rich vol
-- Delta hedging: Continuous rebalancing to maintain zero delta
-- Position structure: ATM straddles (long call + long put)
-"""
 
 import numpy as np
 import pandas as pd
@@ -260,28 +243,21 @@ import warnings
 warnings.filterwarnings('ignore')
 
 
-class DeltaHedgedVolatilityStrategy:
+class MyStrategy(Strategy):
     """
-    Delta-hedged volatility trading strategy for BTC and ETH options.
-    
-    Parameters:
-    -----------
-    rv_lookback : int
-        Lookback period for realized volatility calculation (default: 20)
-    iv_threshold : float
-        Threshold for IV vs RV comparison (default: 0.05 = 5%)
-    position_size : float
-        Base position size in USD (default: 1000.0)
-    delta_rebalance_threshold : float
-        Delta threshold to trigger rebalancing (default: 0.1)
-    relative_vol_threshold : float
-        Threshold for relative volatility signal (default: 0.03 = 3%)
-    risk_free_rate : float
-        Annual risk-free rate for options pricing (default: 0.05)
+    Custom directional options strategy using EMA crossovers.
+    Same logic as CryptoTrendOptionsStrategy -- modify to your needs.
     """
-    
+
     def __init__(
         self,
+<<<<<<< HEAD
+        short_window: int = 7,
+        long_window: int = 21,
+        position_size: float = 1.0,
+        delta_min: float = 0.4,
+        delta_max: float = 0.6,
+=======
         rv_lookback: int = 20,
         iv_threshold: float = 0.05,
         position_size: float = 1000.0,
@@ -719,105 +695,46 @@ class _OldDeltaHedgedVolStrategy(Strategy):  # renamed to avoid conflict
         iv_threshold: float = 0.08,  # 8% IV/RV spread to trigger
         position_size: float = 0.005,  # 0.005 BTC = ~$500
         max_hold_periods: int = 100  # Force exit after 100 bars
+>>>>>>> 173d1d72039f63110dc933aa8fdccccf1f6b5f8b
     ):
+        if short_window >= long_window:
+            raise ValueError("short_window must be strictly less than long_window.")
         if position_size <= 0:
             raise ValueError("position_size must be positive.")
-        self.rv_lookback = rv_lookback
-        self.sma_period = sma_period
-        self.iv_threshold = iv_threshold
+        self.short_window = short_window
+        self.long_window = long_window
         self.position_size = position_size
-        self.max_hold_periods = max_hold_periods
-    
+        self.delta_min = delta_min
+        self.delta_max = delta_max
+
     def add_indicators(self, df: pd.DataFrame) -> pd.DataFrame:
-        """Add volatility indicators + trend filter."""
-        # Calculate returns
-        df['returns'] = df['Close'].pct_change().fillna(0)
-        
-        # Realized Volatility (actual price movement)
-        df['RV'] = df['returns'].rolling(
-            window=self.rv_lookback,
-            min_periods=self.rv_lookback//2
-        ).std() * np.sqrt(365 * 288)  # Annualize for 5-min bars
-        
-        # Implied Volatility Proxy (what market expects)
-        # IV = recent RV + premium + momentum adjustment
-        recent_vol = df['RV'].rolling(10).mean()
-        vol_momentum = df['RV'].diff(5)  # Is vol rising or falling?
-        df['IV'] = recent_vol * 1.12 + vol_momentum.fillna(0) * 0.5
-        
-        # IV/RV Spread (our main signal)
-        df['IV_RV_spread'] = (df['IV'] - df['RV']) / df['RV'].replace(0, np.nan)
-        
-        # TREND FILTER: Simple Moving Average
-        df['SMA'] = df['Close'].rolling(self.sma_period).mean()
-        df['above_sma'] = df['Close'] > df['SMA']
-        
-        # Price momentum (additional confirmation)
-        df['price_momentum'] = df['Close'].pct_change(20)
-        
+        df["EMA_fast"] = df["Close"].ewm(span=self.short_window, adjust=False).mean()
+        df["EMA_slow"] = df["Close"].ewm(span=self.long_window, adjust=False).mean()
         return df
-    
+
     def generate_signals(self, df: pd.DataFrame) -> pd.DataFrame:
-        """Generate volatility signals with trend filter."""
-        df['signal'] = 0
-        df['position'] = 0
-        df['target_qty'] = 0.0
-        
-        in_position = False
-        entry_bar = 0
-        
-        for i in range(len(df)):
-            # Skip if not enough data
-            if pd.isna(df.iloc[i]['IV']) or pd.isna(df.iloc[i]['RV']):
-                continue
-            
-            iv_rv_spread = df.iloc[i]['IV_RV_spread']
-            above_sma = df.iloc[i]['above_sma']
-            price_mom = df.iloc[i]['price_momentum']
-            
-            # ENTRY LOGIC: Buy when ALL conditions met
-            if not in_position:
-                # 1. IV is cheap (underpriced volatility)
-                vol_cheap = iv_rv_spread < -self.iv_threshold
-                
-                # 2. Price is in uptrend (above SMA)
-                in_uptrend = above_sma
-                
-                # 3. Positive price momentum
-                good_momentum = price_mom > 0.01 if pd.notna(price_mom) else False
-                
-                if vol_cheap and in_uptrend and good_momentum:
-                    df.iloc[i, df.columns.get_loc('signal')] = 1
-                    df.iloc[i, df.columns.get_loc('position')] = 1
-                    df.iloc[i, df.columns.get_loc('target_qty')] = self.position_size
-                    in_position = True
-                    entry_bar = i
-            
-            # EXIT LOGIC: Sell when ANY condition met
-            else:
-                bars_held = i - entry_bar
-                
-                # 1. IV becomes expensive (volatility normalized)
-                vol_expensive = iv_rv_spread > 0
-                
-                # 2. Trend broke (price below SMA)
-                trend_broke = not above_sma
-                
-                # 3. Strong negative momentum
-                bad_momentum = price_mom < -0.02 if pd.notna(price_mom) else False
-                
-                # 4. Held too long (force exit)
-                held_too_long = bars_held > self.max_hold_periods
-                
-                if vol_expensive or trend_broke or bad_momentum or held_too_long:
-                    df.iloc[i, df.columns.get_loc('signal')] = -1
-                    df.iloc[i, df.columns.get_loc('position')] = 0
-                    df.iloc[i, df.columns.get_loc('target_qty')] = 0.0
-                    in_position = False
-                else:
-                    # Hold position
-                    df.iloc[i, df.columns.get_loc('signal')] = 0
-                    df.iloc[i, df.columns.get_loc('position')] = 1
-                    df.iloc[i, df.columns.get_loc('target_qty')] = self.position_size
-        
+        df["signal"] = 0
+
+        bullish_regime = df["EMA_fast"] > df["EMA_slow"]
+        flips = bullish_regime.astype(int).diff().fillna(0)
+
+        near_atm_call = (
+            (df["option_type"] == "call") &
+            (df["delta"] >= self.delta_min) &
+            (df["delta"] <= self.delta_max)
+        )
+        near_atm_put = (
+            (df["option_type"] == "put") &
+            (df["delta"] >= -self.delta_max) &
+            (df["delta"] <= -self.delta_min)
+        )
+
+        df.loc[(flips > 0) & near_atm_call, "signal"] = 1
+        df.loc[(flips < 0) & near_atm_put, "signal"] = -1
+
+        df["position"] = 0
+        df.loc[bullish_regime & near_atm_call, "position"] = 1
+        df.loc[~bullish_regime & near_atm_put, "position"] = -1
+
+        df["target_qty"] = self.position_size
         return df
