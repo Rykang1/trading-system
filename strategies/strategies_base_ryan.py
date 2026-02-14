@@ -250,30 +250,105 @@ class DemoStrategy(Strategy):
 
 class MyStrategy(Strategy):
     """
-    Crypto trend-following strategy using fast/slow EMAs (long-only).
+    Volatility-based straddle strategy.
+    Buys ATM straddles (call + put) when implied volatility is low,
+    expecting a volatility expansion. Exits when volatility spikes.
     """
-
-    def __init__(self, short_window: int = 7, long_window: int = 21, position_size: float = 100.0):
-        if short_window >= long_window:
-            raise ValueError("short_window must be strictly less than long_window.")
+    def __init__(
+        self,
+        vol_lookback: int = 30,
+        vol_entry_threshold: float = 0.8,  # Enter when IV is 80% of average
+        vol_exit_threshold: float = 1.2,   # Exit when IV is 120% of average
+        position_size: float = 1.0,
+        delta_min: float = 0.45,
+        delta_max: float = 0.55,
+    ):
         if position_size <= 0:
             raise ValueError("position_size must be positive.")
-        self.short_window = short_window
-        self.long_window = long_window
+        if vol_entry_threshold >= vol_exit_threshold:
+            raise ValueError("vol_entry_threshold must be less than vol_exit_threshold.")
+        
+        self.vol_lookback = vol_lookback
+        self.vol_entry_threshold = vol_entry_threshold
+        self.vol_exit_threshold = vol_exit_threshold
         self.position_size = position_size
+        self.delta_min = delta_min
+        self.delta_max = delta_max
 
     def add_indicators(self, df: pd.DataFrame) -> pd.DataFrame:
-        #Uses exponential moving average --> more weight on recent prices
-        df["EMA_fast"] = df["Close"].ewm(span=self.short_window, adjust=False).mean()
-        df["EMA_slow"] = df["Close"].ewm(span=self.long_window, adjust=False).mean()
+        """
+        Calculate volatility indicators.
+        Assumes df has 'implied_volatility' column for each option.
+        """
+        # Average implied volatility over lookback period
+        df["IV_avg"] = df["implied_volatility"].rolling(self.vol_lookback, min_periods=1).mean()
+        
+        # Current IV as ratio of average IV
+        df["IV_ratio"] = df["implied_volatility"] / df["IV_avg"]
+        
+        # Also calculate historical volatility (realized vol) from price
+        df["returns"] = df["Close"].pct_change()
+        df["HV"] = df["returns"].rolling(self.vol_lookback).std() * np.sqrt(252)  # Annualized
+        
+        # Optional: IV rank (percentile over lookback period)
+        df["IV_rank"] = df["implied_volatility"].rolling(self.vol_lookback).apply(
+            lambda x: pd.Series(x).rank(pct=True).iloc[-1] if len(x) > 0 else 0
+        )
+        
         return df
 
     def generate_signals(self, df: pd.DataFrame) -> pd.DataFrame:
+        """
+        Generate straddle entry/exit signals based on volatility levels.
+        """
         df["signal"] = 0
-        long_regime = df["EMA_fast"] > df["EMA_slow"]
-        flips = long_regime.astype(int).diff().fillna(0)
-        df.loc[flips > 0, "signal"] = 1
-        df.loc[flips < 0, "signal"] = -1
-        df["position"] = long_regime.astype(int)
+        
+        # Identify near-ATM options (delta close to ±0.5)
+        near_atm_call = (
+            (df["option_type"] == "call") &
+            (df["delta"] >= self.delta_min) &
+            (df["delta"] <= self.delta_max)
+        )
+        
+        near_atm_put = (
+            (df["option_type"] == "put") &
+            (df["delta"] >= -self.delta_max) &
+            (df["delta"] <= -self.delta_min)
+        )
+        
+        # Volatility conditions
+        low_vol = df["IV_ratio"] < self.vol_entry_threshold  # IV is compressed
+        high_vol = df["IV_ratio"] > self.vol_exit_threshold  # IV has expanded
+        
+        # Detect when volatility crosses thresholds
+        vol_just_compressed = (
+            (df["IV_ratio"].shift(1) >= self.vol_entry_threshold) &
+            (df["IV_ratio"] < self.vol_entry_threshold)
+        )
+        
+        vol_just_expanded = (
+            (df["IV_ratio"].shift(1) <= self.vol_exit_threshold) &
+            (df["IV_ratio"] > self.vol_exit_threshold)
+        )
+        
+        # ENTRY SIGNALS: Buy straddle when volatility compresses
+        # Signal = 1 for calls, -1 for puts (both are BUYS in a straddle)
+        df.loc[vol_just_compressed & near_atm_call, "signal"] = 1   # Buy call leg
+        df.loc[vol_just_compressed & near_atm_put, "signal"] = -1   # Buy put leg
+        
+        # EXIT SIGNALS: Close straddle when volatility expands
+        # Signal = -1 for calls (sell), 1 for puts (sell) - opposite of entry
+        df.loc[vol_just_expanded & near_atm_call, "signal"] = -1   # Sell call leg
+        df.loc[vol_just_expanded & near_atm_put, "signal"] = 1     # Sell put leg
+        
+        # POSITION STATE: Hold both legs while in low vol regime
+        df["position"] = 0
+        df.loc[low_vol & near_atm_call, "position"] = 1   # Hold call leg
+        df.loc[low_vol & near_atm_put, "position"] = -1   # Hold put leg
+        
+        # When high vol, position = 0 (flat, no straddle)
+        
+        # Position size (1 contract of each leg)
         df["target_qty"] = self.position_size
+        
         return df
