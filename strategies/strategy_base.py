@@ -696,7 +696,7 @@ class DeltaHedgedVolatilityStrategy:
 
 
 # Example usage for integration with existing framework
-class DeltaHedgedVolStrategy(Strategy):
+class _OldDeltaHedgedVolStrategy(Strategy):  # renamed to avoid conflict
     """
     Volatility Trading + Trend Filter Strategy
     

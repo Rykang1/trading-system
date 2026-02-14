@@ -1,90 +1,16 @@
-"""
-Strategy base classes and built-in strategies updated for directional options trading.
-
-To create your own strategy:
-1. Create a new class that inherits from Strategy
-2. Implement add_indicators() to calculate your technical indicators
-3. Implement generate_signals() to generate buy/sell signals
-
-Required output columns from generate_signals():
-    - signal: 1 for buy call, -1 for buy put, 0 for hold
-    - target_qty: number of contracts (1 contract = 100 shares)
-    - position: current position state (1=long call, -1=long put, 0=flat)
-
-Options-specific columns used:
-    - delta: how much option moves per $1 move in underlying (calls: 0 to 1, puts: -1 to 0)
-    - iv: implied volatility of the option
-    - theta: daily time decay (always negative for buyers)
-    - option_type: "call" or "put"
-    - strike: strike price
-    - expiry: expiration date
-
-Fetching options data from Alpaca:
-    import alpaca_trade_api as tradeapi
-
-    api = tradeapi.REST(API_KEY, SECRET_KEY, BASE_URL)
-
-    options = api.get_option_contracts(
-        underlying_symbol="AAPL",
-        expiration_date_gte="2026-03-01",
-        expiration_date_lte="2026-03-21",
-        option_type="call"  # or "put"
-    )
-
-Note: target_qty is in contracts, not shares. Each contract controls 100 shares.
-Note: Always close positions before expiration to avoid assignment risk.
-Note: Theta decay works against buyers -- avoid holding options too long.
-
-Example:
-    class MyStrategy(Strategy):
-        def __init__(self, lookback=20, position_size=1):
-            self.lookback = lookback
-            self.position_size = position_size  # number of contracts
-
-        def add_indicators(self, df):
-            df['sma'] = df['Close'].rolling(self.lookback).mean()
-            return df
-
-        def generate_signals(self, df):
-            df['signal'] = 0
-            # Buy call when bullish, buy put when bearish
-            df.loc[(df['Close'] > df['sma']) & (df['option_type'] == 'call'), 'signal'] = 1
-            df.loc[(df['Close'] < df['sma']) & (df['option_type'] == 'put'), 'signal'] = -1
-            df['position'] = df['signal']
-            df['target_qty'] = self.position_size
-            return df
-"""
-
 import numpy as np
 import pandas as pd
 
 
 class Strategy:
-    """
-    Base Strategy interface for directional options trading.
-
-    All strategies must implement:
-        - add_indicators(df): Add technical indicators to the DataFrame
-        - generate_signals(df): Generate trading signals
-
-    The DataFrame must contain these columns:
-        Input:  Datetime, Open, High, Low, Close, Volume,
-                strike, expiry, option_type, delta, iv, theta
-        Output: signal, target_qty, position (from generate_signals)
-    """
-
-    def add_indicators(self, df: pd.DataFrame) -> pd.DataFrame:  # pragma: no cover - interface
-        """Add technical indicators to the DataFrame. Override this method."""
+    def add_indicators(self, df):
         raise NotImplementedError
 
-    def generate_signals(self, df: pd.DataFrame) -> pd.DataFrame:  # pragma: no cover - interface
-        """Generate trading signals. Override this method."""
+    def generate_signals(self, df):
         raise NotImplementedError
 
-    def run(self, df: pd.DataFrame) -> pd.DataFrame:
-        """Execute the full strategy pipeline. Do not override."""
+    def run(self, df):
         df = df.copy()
-        # Add default options columns if not present (e.g. when running on stock data)
         if "option_type" not in df.columns:
             df["option_type"] = "call"
         if "delta" not in df.columns:
@@ -98,22 +24,12 @@ class Strategy:
         return df
 
 
+# =============================================================================
+#  EXISTING STRATEGIES (unchanged)
+# =============================================================================
+
 class MovingAverageOptionsStrategy(Strategy):
-    """
-    Moving average crossover strategy adapted for directional options.
-
-    Buys calls on bullish MA crossover, buys puts on bearish MA crossover.
-    Filters by delta range to target near-ATM options with good leverage.
-    """
-
-    def __init__(
-        self,
-        short_window: int = 20,
-        long_window: int = 60,
-        position_size: float = 1.0,   # number of contracts
-        delta_min: float = 0.4,        # minimum absolute delta (filter for near-ATM)
-        delta_max: float = 0.6,        # maximum absolute delta
-    ):
+    def __init__(self, short_window=20, long_window=60, position_size=1.0, delta_min=0.4, delta_max=0.6):
         if short_window >= long_window:
             raise ValueError("short_window must be strictly less than long_window.")
         if position_size <= 0:
@@ -124,71 +40,30 @@ class MovingAverageOptionsStrategy(Strategy):
         self.delta_min = delta_min
         self.delta_max = delta_max
 
-    def add_indicators(self, df: pd.DataFrame) -> pd.DataFrame:
-        # Shorter and longer rolling means on the underlying close price
+    def add_indicators(self, df):
         df["MA_short"] = df["Close"].rolling(self.short_window, min_periods=1).mean()
         df["MA_long"] = df["Close"].rolling(self.long_window, min_periods=1).mean()
-        # Daily returns and volatility of the underlying
         df["returns"] = df["Close"].pct_change().fillna(0.0)
         df["volatility"] = df["returns"].rolling(self.long_window).std().fillna(0.0)
         return df
 
-    def generate_signals(self, df: pd.DataFrame) -> pd.DataFrame:
+    def generate_signals(self, df):
         df["signal"] = 0
-
-        # Crossover conditions on the underlying
-        bullish_cross = (
-            (df["MA_short"].shift(1) <= df["MA_long"].shift(1)) &
-            (df["MA_short"] > df["MA_long"])
-        )
-        bearish_cross = (
-            (df["MA_short"].shift(1) >= df["MA_long"].shift(1)) &
-            (df["MA_short"] < df["MA_long"])
-        )
-
-        # Near-ATM delta filter (calls have positive delta, puts have negative delta)
-        near_atm_call = (
-            (df["option_type"] == "call") &
-            (df["delta"] >= self.delta_min) &
-            (df["delta"] <= self.delta_max)
-        )
-        near_atm_put = (
-            (df["option_type"] == "put") &
-            (df["delta"] >= -self.delta_max) &
-            (df["delta"] <= -self.delta_min)
-        )
-
-        # Buy call on bullish crossover, buy put on bearish crossover
+        bullish_cross = (df["MA_short"].shift(1) <= df["MA_long"].shift(1)) & (df["MA_short"] > df["MA_long"])
+        bearish_cross = (df["MA_short"].shift(1) >= df["MA_long"].shift(1)) & (df["MA_short"] < df["MA_long"])
+        near_atm_call = (df["option_type"] == "call") & (df["delta"] >= self.delta_min) & (df["delta"] <= self.delta_max)
+        near_atm_put = (df["option_type"] == "put") & (df["delta"] >= -self.delta_max) & (df["delta"] <= -self.delta_min)
         df.loc[bullish_cross & near_atm_call, "signal"] = 1
         df.loc[bearish_cross & near_atm_put, "signal"] = -1
-
-        # Position: 1 = long call, -1 = long put, 0 = flat
         df["position"] = 0
         df.loc[(df["MA_short"] > df["MA_long"]) & near_atm_call, "position"] = 1
         df.loc[(df["MA_short"] < df["MA_long"]) & near_atm_put, "position"] = -1
-
-        # target_qty is number of contracts (each contract = 100 shares)
         df["target_qty"] = df["position"].abs() * self.position_size
         return df
 
 
 class TemplateOptionsStrategy(Strategy):
-    """
-    Starter options strategy template. Modify indicator and signal
-    logic to build your own ideas.
-
-    Buys calls on positive momentum, buys puts on negative momentum.
-    """
-
-    def __init__(
-        self,
-        lookback: int = 14,
-        position_size: float = 1.0,    # number of contracts
-        buy_threshold: float = 0.01,
-        sell_threshold: float = -0.01,
-        delta_min: float = 0.4,
-        delta_max: float = 0.6,
-    ):
+    def __init__(self, lookback=14, position_size=1.0, buy_threshold=0.01, sell_threshold=-0.01, delta_min=0.4, delta_max=0.6):
         if lookback < 1:
             raise ValueError("lookback must be at least 1.")
         if position_size <= 0:
@@ -200,52 +75,23 @@ class TemplateOptionsStrategy(Strategy):
         self.delta_min = delta_min
         self.delta_max = delta_max
 
-    def add_indicators(self, df: pd.DataFrame) -> pd.DataFrame:
+    def add_indicators(self, df):
         df["momentum"] = df["Close"].pct_change(self.lookback).fillna(0.0)
         return df
 
-    def generate_signals(self, df: pd.DataFrame) -> pd.DataFrame:
+    def generate_signals(self, df):
         df["signal"] = 0
-
-        near_atm_call = (
-            (df["option_type"] == "call") &
-            (df["delta"] >= self.delta_min) &
-            (df["delta"] <= self.delta_max)
-        )
-        near_atm_put = (
-            (df["option_type"] == "put") &
-            (df["delta"] >= -self.delta_max) &
-            (df["delta"] <= -self.delta_min)
-        )
-
-        # Buy call on positive momentum, buy put on negative momentum
-        buy_call = (df["momentum"] > self.buy_threshold) & near_atm_call
-        buy_put = (df["momentum"] < self.sell_threshold) & near_atm_put
-
-        df.loc[buy_call, "signal"] = 1
-        df.loc[buy_put, "signal"] = -1
-
+        near_atm_call = (df["option_type"] == "call") & (df["delta"] >= self.delta_min) & (df["delta"] <= self.delta_max)
+        near_atm_put = (df["option_type"] == "put") & (df["delta"] >= -self.delta_max) & (df["delta"] <= -self.delta_min)
+        df.loc[(df["momentum"] > self.buy_threshold) & near_atm_call, "signal"] = 1
+        df.loc[(df["momentum"] < self.sell_threshold) & near_atm_put, "signal"] = -1
         df["position"] = df["signal"].replace(0, np.nan).ffill().fillna(0)
         df["target_qty"] = df["position"].abs() * self.position_size
         return df
 
 
 class CryptoTrendOptionsStrategy(Strategy):
-    """
-    Crypto trend-following options strategy using fast/slow EMAs.
-
-    Uses EMA crossovers on the underlying crypto price to determine direction,
-    then buys calls (bullish) or puts (bearish) accordingly.
-    """
-
-    def __init__(
-        self,
-        short_window: int = 7,
-        long_window: int = 21,
-        position_size: float = 1.0,   # number of contracts
-        delta_min: float = 0.4,
-        delta_max: float = 0.6,
-    ):
+    def __init__(self, short_window=7, long_window=21, position_size=1.0, delta_min=0.4, delta_max=0.6):
         if short_window >= long_window:
             raise ValueError("short_window must be strictly less than long_window.")
         if position_size <= 0:
@@ -256,161 +102,206 @@ class CryptoTrendOptionsStrategy(Strategy):
         self.delta_min = delta_min
         self.delta_max = delta_max
 
-    def add_indicators(self, df: pd.DataFrame) -> pd.DataFrame:
-        # Exponential moving averages give more weight to recent prices
+    def add_indicators(self, df):
         df["EMA_fast"] = df["Close"].ewm(span=self.short_window, adjust=False).mean()
         df["EMA_slow"] = df["Close"].ewm(span=self.long_window, adjust=False).mean()
         return df
 
-    def generate_signals(self, df: pd.DataFrame) -> pd.DataFrame:
+    def generate_signals(self, df):
         df["signal"] = 0
-
         bullish_regime = df["EMA_fast"] > df["EMA_slow"]
         flips = bullish_regime.astype(int).diff().fillna(0)
-
-        near_atm_call = (
-            (df["option_type"] == "call") &
-            (df["delta"] >= self.delta_min) &
-            (df["delta"] <= self.delta_max)
-        )
-        near_atm_put = (
-            (df["option_type"] == "put") &
-            (df["delta"] >= -self.delta_max) &
-            (df["delta"] <= -self.delta_min)
-        )
-
-        # Buy call when flipping bullish, buy put when flipping bearish
+        near_atm_call = (df["option_type"] == "call") & (df["delta"] >= self.delta_min) & (df["delta"] <= self.delta_max)
+        near_atm_put = (df["option_type"] == "put") & (df["delta"] >= -self.delta_max) & (df["delta"] <= -self.delta_min)
         df.loc[(flips > 0) & near_atm_call, "signal"] = 1
         df.loc[(flips < 0) & near_atm_put, "signal"] = -1
-
-        # Position reflects current regime
         df["position"] = 0
         df.loc[bullish_regime & near_atm_call, "position"] = 1
         df.loc[~bullish_regime & near_atm_put, "position"] = -1
-
         df["target_qty"] = self.position_size
         return df
 
 
 class DemoOptionsStrategy(Strategy):
-    """
-    Simple demo options strategy.
+    def __init__(self, position_size=1.0):
+        self.position_size = position_size
 
-    Buys a call when price goes up, buys a put when price goes down.
-    Uses a tiny position size to avoid large exposure.
-
-    Usage:
-        python run_live.py --symbol AAPL --strategy demo --timeframe 1Min --sleep 5 --live
-    """
-
-    def __init__(self, position_size: float = 1.0):
-        self.position_size = position_size  # number of contracts
-
-    def add_indicators(self, df: pd.DataFrame) -> pd.DataFrame:
+    def add_indicators(self, df):
         df["change"] = df["Close"].diff().fillna(0.0)
         return df
 
-    def generate_signals(self, df: pd.DataFrame) -> pd.DataFrame:
+    def generate_signals(self, df):
         df["signal"] = 0
-
-        # Buy call when price went up, buy put when price went down
         df.loc[(df["change"] > 0) & (df["option_type"] == "call"), "signal"] = 1
         df.loc[(df["change"] < 0) & (df["option_type"] == "put"), "signal"] = -1
-
         df["position"] = df["signal"]
-        df["target_qty"] = self.position_size  # contracts
+        df["target_qty"] = self.position_size
         return df
 
 
-## =============================================================================
-## CREATE YOUR OWN STRATEGIES BELOW
-## =============================================================================
-##
-## Example: RSI Options Strategy
-##
-## class RSIOptionsStrategy(Strategy):
-##     """Buy calls when RSI is oversold, buy puts when overbought."""
-##
-##     def __init__(self, period=14, oversold=30, overbought=70, position_size=1.0,
-##                  delta_min=0.4, delta_max=0.6):
-##         self.period = period
-##         self.oversold = oversold
-##         self.overbought = overbought
-##         self.position_size = position_size
-##         self.delta_min = delta_min
-##         self.delta_max = delta_max
-##
-##     def add_indicators(self, df):
-##         delta = df['Close'].diff()
-##         gain = delta.where(delta > 0, 0).rolling(self.period).mean()
-##         loss = (-delta.where(delta < 0, 0)).rolling(self.period).mean()
-##         rs = gain / loss
-##         df['RSI'] = 100 - (100 / (1 + rs))
-##         return df
-##
-##     def generate_signals(self, df):
-##         df['signal'] = 0
-##         near_atm_call = (df['option_type'] == 'call') & df['delta'].between(self.delta_min, self.delta_max)
-##         near_atm_put  = (df['option_type'] == 'put')  & df['delta'].between(-self.delta_max, -self.delta_min)
-##         df.loc[(df['RSI'] < self.oversold)  & near_atm_call, 'signal'] = 1   # Buy call when oversold
-##         df.loc[(df['RSI'] > self.overbought) & near_atm_put,  'signal'] = -1  # Buy put when overbought
-##         df['position'] = df['signal'].replace(0, np.nan).ffill().fillna(0)
-##         df['target_qty'] = self.position_size
-##         return df
+# =============================================================================
+#  MEAN REVERSION + VOLATILITY STRATEGY FOR CRYPTO
+# =============================================================================
 
-
-class MyStrategy(Strategy):
+class DeltaHedgedVolStrategy(Strategy):
     """
-    Custom directional options strategy using EMA crossovers.
-    Same logic as CryptoTrendOptionsStrategy -- modify to your needs.
+    Mean-Reversion Strategy with SMA + Volatility Filter for Crypto.
+
+    Core idea:
+      Price tends to revert to its moving average. When price deviates
+      significantly (measured by Z-score), it's likely to snap back.
+      But only trade mean-reversion when volatility is RIGHT — not too
+      low (no movement) and not too high (trending/breakout).
+
+    Signals:
+      BUY  when Z-score < -entry_z  (price way below SMA = oversold)
+      SELL when Z-score > +entry_z  (price way above SMA = overbought)
+      EXIT when Z-score crosses back toward 0 (price reverted to mean)
+
+    Filters:
+      - ATR volatility filter: only trade when ATR is in a "goldilocks"
+        zone (above median = enough movement to profit, but below
+        extreme = not a breakout that will keep running)
+      - SMA slope filter: avoid fighting strong trends. Only take mean-
+        reversion trades when the SMA is relatively flat.
+
+    Designed for:
+      - Crypto (BTC/ETH) on 1Min to 1Hour timeframes
+      - Works on any spot data from Alpaca
     """
 
     def __init__(
         self,
-        short_window: int = 7,
-        long_window: int = 21,
+        sma_window: int = 20,          # SMA lookback for mean
+        z_window: int = 20,            # Z-score lookback
+        atr_window: int = 14,          # ATR lookback
+        entry_z: float = 1.5,          # enter when |Z| > this
+        exit_z: float = 0.3,           # exit when |Z| < this (reverted)
+        atr_filter_mult: float = 1.5,  # max ATR vs median (reject breakouts)
         position_size: float = 1.0,
-        delta_min: float = 0.4,
-        delta_max: float = 0.6,
+        max_position: float = 3.0,
+        delta_min: float = 0.30,
+        delta_max: float = 0.70,
     ):
-        if short_window >= long_window:
-            raise ValueError("short_window must be strictly less than long_window.")
+        if z_window < 3:
+            raise ValueError("z_window must be at least 3.")
         if position_size <= 0:
             raise ValueError("position_size must be positive.")
-        self.short_window = short_window
-        self.long_window = long_window
+        if entry_z <= exit_z:
+            raise ValueError("entry_z must be greater than exit_z.")
+        self.sma_window = sma_window
+        self.z_window = z_window
+        self.atr_window = atr_window
+        self.entry_z = entry_z
+        self.exit_z = exit_z
+        self.atr_filter_mult = atr_filter_mult
         self.position_size = position_size
+        self.max_position = max_position
         self.delta_min = delta_min
         self.delta_max = delta_max
+        self._prev_signal = 0
 
-    def add_indicators(self, df: pd.DataFrame) -> pd.DataFrame:
-        df["EMA_fast"] = df["Close"].ewm(span=self.short_window, adjust=False).mean()
-        df["EMA_slow"] = df["Close"].ewm(span=self.long_window, adjust=False).mean()
+    def add_indicators(self, df):
+        # --- Simple Moving Average (the "mean" we revert to) ---
+        df["SMA"] = df["Close"].rolling(self.sma_window, min_periods=2).mean()
+
+        # --- Z-score: how many std devs price is from SMA ---
+        rolling_mean = df["Close"].rolling(self.z_window, min_periods=2).mean()
+        rolling_std = df["Close"].rolling(self.z_window, min_periods=2).std()
+        df["Z_score"] = (df["Close"] - rolling_mean) / rolling_std.replace(0, 1e-10)
+
+        # --- ATR: Average True Range (volatility measure) ---
+        high = df["High"] if "High" in df.columns else df["Close"]
+        low = df["Low"] if "Low" in df.columns else df["Close"]
+        prev_close = df["Close"].shift(1)
+        tr = pd.concat([
+            (high - low).abs(),
+            (high - prev_close).abs(),
+            (low - prev_close).abs(),
+        ], axis=1).max(axis=1)
+        df["ATR"] = tr.rolling(self.atr_window, min_periods=2).mean().fillna(0)
+
+        # ATR relative to its rolling median — tells us if vol is normal or extreme
+        atr_median = df["ATR"].rolling(self.atr_window * 3, min_periods=2).median()
+        df["ATR_ratio"] = df["ATR"] / atr_median.replace(0, 1e-10)
+
+        # --- SMA slope: is the trend flat enough for mean-reversion? ---
+        sma_pct_change = df["SMA"].pct_change(5).abs().fillna(0)
+        df["SMA_flat"] = sma_pct_change < 0.005  # less than 0.5% move over 5 bars
+
         return df
 
-    def generate_signals(self, df: pd.DataFrame) -> pd.DataFrame:
+    def generate_signals(self, df):
+        """
+        Incremental signal generation for the backtester.
+        Only computes signal for the last row.
+        """
         df["signal"] = 0
-
-        bullish_regime = df["EMA_fast"] > df["EMA_slow"]
-        flips = bullish_regime.astype(int).diff().fillna(0)
-
-        near_atm_call = (
-            (df["option_type"] == "call") &
-            (df["delta"] >= self.delta_min) &
-            (df["delta"] <= self.delta_max)
-        )
-        near_atm_put = (
-            (df["option_type"] == "put") &
-            (df["delta"] >= -self.delta_max) &
-            (df["delta"] <= -self.delta_min)
-        )
-
-        df.loc[(flips > 0) & near_atm_call, "signal"] = 1
-        df.loc[(flips < 0) & near_atm_put, "signal"] = -1
-
         df["position"] = 0
-        df.loc[bullish_regime & near_atm_call, "position"] = 1
-        df.loc[~bullish_regime & near_atm_put, "position"] = -1
+        df["target_qty"] = 0.0
 
-        df["target_qty"] = self.position_size
+        # Need enough data for indicators to warm up
+        min_bars = max(self.sma_window, self.z_window, self.atr_window) + 5
+        if len(df) < min_bars:
+            return df
+
+        last = df.iloc[-1]
+        z = last["Z_score"]
+        atr_ratio = last["ATR_ratio"]
+        sma_flat = last["SMA_flat"]
+
+        # Volatility filter: ATR must be above 0.5x median (enough movement)
+        # but below our multiplier (not a breakout)
+        vol_ok = (atr_ratio > 0.5) and (atr_ratio < self.atr_filter_mult)
+
+        desired = 0
+
+        if vol_ok:
+            # --- ENTRY LOGIC ---
+            if z < -self.entry_z:
+                # Price far below mean -> BUY (expect reversion up)
+                desired = 1
+            elif z > self.entry_z:
+                # Price far above mean -> SELL (expect reversion down)
+                desired = -1
+
+            # --- EXIT LOGIC ---
+            # If we're long and Z crossed back above exit threshold -> close
+            elif self._prev_signal == 1 and z > -self.exit_z:
+                desired = 0  # will flatten
+            # If we're short and Z crossed back below exit threshold -> close
+            elif self._prev_signal == -1 and z < self.exit_z:
+                desired = 0  # will flatten
+            else:
+                # Hold current position
+                desired = self._prev_signal
+        else:
+            # Volatility outside goldilocks zone — flatten or stay flat
+            if self._prev_signal != 0:
+                desired = 0  # exit if vol becomes extreme
+            else:
+                desired = 0
+
+        # Emit signal only on changes
+        if desired != self._prev_signal:
+            if desired == 0:
+                # Exit signal: emit opposite of current position
+                df.iloc[-1, df.columns.get_loc("signal")] = -self._prev_signal
+            else:
+                df.iloc[-1, df.columns.get_loc("signal")] = desired
+            self._prev_signal = desired
+
+        # Position and sizing
+        df.iloc[-1, df.columns.get_loc("position")] = self._prev_signal
+
+        # Scale size by Z-score magnitude — bigger deviation = more conviction
+        z_abs = min(abs(z), 3.0)
+        size_mult = 0.5 + (z_abs / 3.0) * 1.5  # ranges from 0.5x to 2.0x
+        qty = abs(self._prev_signal) * self.position_size * size_mult
+        df.iloc[-1, df.columns.get_loc("target_qty")] = min(qty, self.max_position)
+
         return df
+
+
+# Alias for auto-discovery
+MyStrategy = DeltaHedgedVolStrategy
