@@ -172,14 +172,14 @@ class DeltaHedgedVolStrategy(Strategy):
 
     def __init__(
         self,
-        sma_window: int = 20,          # SMA lookback for mean
-        z_window: int = 20,            # Z-score lookback
-        atr_window: int = 14,          # ATR lookback
-        entry_z: float = 1.5,          # enter when |Z| > this
-        exit_z: float = 0.3,           # exit when |Z| < this (reverted)
-        atr_filter_mult: float = 1.5,  # max ATR vs median (reject breakouts)
-        position_size: float = 1.0,
-        max_position: float = 3.0,
+        sma_window: int = 24,          # 1 day of hourly bars
+        z_window: int = 24,            # Z-score over 1 day
+        atr_window: int = 24,          # ATR over 1 day
+        entry_z: float = 0.8,          # enter when |Z| > this (slightly aggressive)
+        exit_z: float = 0.2,           # exit when |Z| < this (tight profit-taking)
+        atr_filter_mult: float = 3.0,  # crypto is volatile, allow wider range
+        position_size: float = 5000.0,  # $5K USD per trade (notional for live crypto)
+        max_position: float = 15000.0,  # max $15K exposure (15% of $100K account)
         delta_min: float = 0.30,
         delta_max: float = 0.70,
     ):
@@ -252,7 +252,7 @@ class DeltaHedgedVolStrategy(Strategy):
 
         # Volatility filter: ATR must be above 0.5x median (enough movement)
         # but below our multiplier (not a breakout)
-        vol_ok = (atr_ratio > 0.5) and (atr_ratio < self.atr_filter_mult)
+        vol_ok = (atr_ratio > 0.2) and (atr_ratio < self.atr_filter_mult)
 
         desired = 0
 

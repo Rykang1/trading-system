@@ -197,24 +197,7 @@ class AlpacaTrader:
     def _adjust_qty_for_position(
         self, decision: TradeDecision, net_position: float
     ) -> Tuple[float, Optional[str]]:
-        qty = decision.qty
-
-        # Simple logic: just trade the requested quantity
-        # Skip if we'd be doubling down in same direction
-        if decision.side == "buy" and net_position > 0:
-            return 0.0, "already long"
-        if decision.side == "sell" and net_position < 0:
-            return 0.0, "already short"
-
-        # For crypto, don't allow shorting
-        if self.asset_class == "crypto" and decision.side == "sell" and net_position <= 0:
-            return 0.0, "crypto shorting disabled"
-
-        if self.asset_class == "stock":
-            qty = float(int(qty))
-            if qty <= 0:
-                return 0.0, "share quantity too small"
-        return qty, None
+        return decision.qty, None
 
     def _cap_qty_for_notional(self, decision: TradeDecision, qty: float) -> float:
         if qty <= 0:

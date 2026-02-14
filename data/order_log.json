@@ -4381,3 +4381,1440 @@
 {"event": "rejected", "timestamp": 1771099463.221707, "data": {"order_id": "order_162", "reason": "Order rate limit exceeded"}}
 {"event": "rejected", "timestamp": 1771099463.2905548, "data": {"order_id": "order_163", "reason": "Order rate limit exceeded"}}
 {"event": "rejected", "timestamp": 1771099463.311938, "data": {"order_id": "order_164", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099631.598825, "data": {"order_id": "order_0", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771099631.625313, "data": {"order_id": "order_1", "side": "sell", "price": 95224.65, "qty": 10, "timestamp": 1768726800.0}}
+{"event": "execution", "timestamp": 1771099631.62543, "data": {"order_id": "order_1", "status": "filled", "filled_qty": 10, "avg_price": 95224.65}}
+{"event": "submitted", "timestamp": 1771099631.643239, "data": {"order_id": "order_2", "side": "buy", "price": 94915.113, "qty": 1, "timestamp": 1768744800.0}}
+{"event": "execution", "timestamp": 1771099631.643413, "data": {"order_id": "order_2", "status": "filled", "filled_qty": 1, "avg_price": 94915.113}}
+{"event": "submitted", "timestamp": 1771099631.6470232, "data": {"order_id": "order_3", "side": "sell", "price": 95101.6215, "qty": 10, "timestamp": 1768748400.0}}
+{"event": "execution", "timestamp": 1771099631.6471522, "data": {"order_id": "order_3", "status": "filled", "filled_qty": 10, "avg_price": 95101.6215}}
+{"event": "submitted", "timestamp": 1771099631.656847, "data": {"order_id": "order_4", "side": "sell", "price": 95405.975, "qty": 1, "timestamp": 1768759200.0}}
+{"event": "execution", "timestamp": 1771099631.656937, "data": {"order_id": "order_4", "status": "filled", "filled_qty": 1, "avg_price": 95405.975}}
+{"event": "submitted", "timestamp": 1771099631.673219, "data": {"order_id": "order_5", "side": "buy", "price": 93621.97, "qty": 10, "timestamp": 1768777200.0}}
+{"event": "execution", "timestamp": 1771099631.673387, "data": {"order_id": "order_5", "status": "partial", "filled_qty": 1, "avg_price": 93621.97}}
+{"event": "submitted", "timestamp": 1771099631.750054, "data": {"order_id": "order_6", "side": "buy", "price": 92477.31, "qty": 1, "timestamp": 1768860000.0}}
+{"event": "execution", "timestamp": 1771099631.7502909, "data": {"order_id": "order_6", "status": "filled", "filled_qty": 1, "avg_price": 92477.31}}
+{"event": "submitted", "timestamp": 1771099631.771359, "data": {"order_id": "order_7", "side": "sell", "price": 92475.4, "qty": 10, "timestamp": 1768874400.0}}
+{"event": "execution", "timestamp": 1771099631.77169, "data": {"order_id": "order_7", "status": "filled", "filled_qty": 10, "avg_price": 92475.4}}
+{"event": "submitted", "timestamp": 1771099631.805946, "data": {"order_id": "order_8", "side": "buy", "price": 91528.245, "qty": 1, "timestamp": 1768885200.0}}
+{"event": "execution", "timestamp": 1771099631.8066099, "data": {"order_id": "order_8", "status": "partial", "filled_qty": 1, "avg_price": 91528.245}}
+{"event": "submitted", "timestamp": 1771099631.896638, "data": {"order_id": "order_9", "side": "sell", "price": 89860.34, "qty": 10, "timestamp": 1768971600.0}}
+{"event": "execution", "timestamp": 1771099631.8969998, "data": {"order_id": "order_9", "status": "filled", "filled_qty": 10, "avg_price": 89860.34}}
+{"event": "submitted", "timestamp": 1771099631.931797, "data": {"order_id": "order_10", "side": "sell", "price": 90192.6185, "qty": 1, "timestamp": 1769007600.0}}
+{"event": "execution", "timestamp": 1771099631.932152, "data": {"order_id": "order_10", "status": "filled", "filled_qty": 1, "avg_price": 90192.6185}}
+{"event": "submitted", "timestamp": 1771099631.9357471, "data": {"order_id": "order_11", "side": "buy", "price": 87513.4085, "qty": 1, "timestamp": 1769011200.0}}
+{"event": "execution", "timestamp": 1771099631.9358358, "data": {"order_id": "order_11", "status": "partial", "filled_qty": 1, "avg_price": 87513.4085}}
+{"event": "submitted", "timestamp": 1771099631.942645, "data": {"order_id": "order_12", "side": "sell", "price": 88403.295, "qty": 10, "timestamp": 1769018400.0}}
+{"event": "execution", "timestamp": 1771099631.942742, "data": {"order_id": "order_12", "status": "filled", "filled_qty": 10, "avg_price": 88403.295}}
+{"event": "submitted", "timestamp": 1771099632.012606, "data": {"order_id": "order_13", "side": "buy", "price": 88904.84, "qty": 1, "timestamp": 1769094000.0}}
+{"event": "execution", "timestamp": 1771099632.012856, "data": {"order_id": "order_13", "status": "cancelled", "filled_qty": 0, "avg_price": 88904.84}}
+{"event": "cancelled", "timestamp": 1771099632.013105, "data": {"order_id": "order_13"}}
+{"event": "submitted", "timestamp": 1771099632.026231, "data": {"order_id": "order_14", "side": "sell", "price": 89700.18, "qty": 10, "timestamp": 1769108400.0}}
+{"event": "execution", "timestamp": 1771099632.026313, "data": {"order_id": "order_14", "status": "partial", "filled_qty": 6, "avg_price": 89700.18}}
+{"event": "submitted", "timestamp": 1771099632.07249, "data": {"order_id": "order_15", "side": "buy", "price": 88853.38, "qty": 1, "timestamp": 1769158800.0}}
+{"event": "execution", "timestamp": 1771099632.072693, "data": {"order_id": "order_15", "status": "filled", "filled_qty": 1, "avg_price": 88853.38}}
+{"event": "submitted", "timestamp": 1771099632.092355, "data": {"order_id": "order_16", "side": "sell", "price": 89634.0565, "qty": 10, "timestamp": 1769180400.0}}
+{"event": "execution", "timestamp": 1771099632.092475, "data": {"order_id": "order_16", "status": "filled", "filled_qty": 10, "avg_price": 89634.0565}}
+{"event": "submitted", "timestamp": 1771099632.096017, "data": {"order_id": "order_17", "side": "sell", "price": 90010.9895, "qty": 1, "timestamp": 1769184000.0}}
+{"event": "execution", "timestamp": 1771099632.096119, "data": {"order_id": "order_17", "status": "filled", "filled_qty": 1, "avg_price": 90010.9895}}
+{"event": "submitted", "timestamp": 1771099632.1098082, "data": {"order_id": "order_18", "side": "buy", "price": 89406.2075, "qty": 10, "timestamp": 1769198400.0}}
+{"event": "execution", "timestamp": 1771099632.109925, "data": {"order_id": "order_18", "status": "filled", "filled_qty": 10, "avg_price": 89406.2075}}
+{"event": "submitted", "timestamp": 1771099632.199323, "data": {"order_id": "order_19", "side": "buy", "price": 89085.755, "qty": 1, "timestamp": 1769295600.0}}
+{"event": "execution", "timestamp": 1771099632.1995342, "data": {"order_id": "order_19", "status": "filled", "filled_qty": 1, "avg_price": 89085.755}}
+{"event": "submitted", "timestamp": 1771099632.247463, "data": {"order_id": "order_20", "side": "sell", "price": 88812.184, "qty": 10, "timestamp": 1769346000.0}}
+{"event": "execution", "timestamp": 1771099632.247614, "data": {"order_id": "order_20", "status": "filled", "filled_qty": 10, "avg_price": 88812.184}}
+{"event": "submitted", "timestamp": 1771099632.346486, "data": {"order_id": "order_21", "side": "sell", "price": 88323.716, "qty": 1, "timestamp": 1769450400.0}}
+{"event": "execution", "timestamp": 1771099632.3467221, "data": {"order_id": "order_21", "status": "filled", "filled_qty": 1, "avg_price": 88323.716}}
+{"event": "submitted", "timestamp": 1771099632.35389, "data": {"order_id": "order_22", "side": "buy", "price": 87549.495, "qty": 10, "timestamp": 1769457600.0}}
+{"event": "execution", "timestamp": 1771099632.353982, "data": {"order_id": "order_22", "status": "filled", "filled_qty": 10, "avg_price": 87549.495}}
+{"event": "submitted", "timestamp": 1771099632.36478, "data": {"order_id": "order_23", "side": "sell", "price": 88265.7235, "qty": 1, "timestamp": 1769468400.0}}
+{"event": "execution", "timestamp": 1771099632.3649511, "data": {"order_id": "order_23", "status": "cancelled", "filled_qty": 0, "avg_price": 88265.7235}}
+{"event": "cancelled", "timestamp": 1771099632.3650079, "data": {"order_id": "order_23"}}
+{"event": "submitted", "timestamp": 1771099632.396439, "data": {"order_id": "order_24", "side": "buy", "price": 88041.601, "qty": 10, "timestamp": 1769500800.0}}
+{"event": "execution", "timestamp": 1771099632.3965812, "data": {"order_id": "order_24", "status": "filled", "filled_qty": 10, "avg_price": 88041.601}}
+{"event": "submitted", "timestamp": 1771099632.428148, "data": {"order_id": "order_25", "side": "buy", "price": 87416.755, "qty": 1, "timestamp": 1769533200.0}}
+{"event": "execution", "timestamp": 1771099632.428423, "data": {"order_id": "order_25", "status": "filled", "filled_qty": 1, "avg_price": 87416.755}}
+{"event": "submitted", "timestamp": 1771099632.432263, "data": {"order_id": "order_26", "side": "sell", "price": 88170.6, "qty": 10, "timestamp": 1769536800.0}}
+{"event": "execution", "timestamp": 1771099632.432348, "data": {"order_id": "order_26", "status": "partial", "filled_qty": 4, "avg_price": 88170.6}}
+{"event": "submitted", "timestamp": 1771099632.439404, "data": {"order_id": "order_27", "side": "sell", "price": 89297.5595, "qty": 1, "timestamp": 1769544000.0}}
+{"event": "execution", "timestamp": 1771099632.439504, "data": {"order_id": "order_27", "status": "cancelled", "filled_qty": 0, "avg_price": 89297.5595}}
+{"event": "cancelled", "timestamp": 1771099632.4395561, "data": {"order_id": "order_27"}}
+{"event": "submitted", "timestamp": 1771099632.481314, "data": {"order_id": "order_28", "side": "buy", "price": 88794.91, "qty": 10, "timestamp": 1769587200.0}}
+{"event": "execution", "timestamp": 1771099632.481496, "data": {"order_id": "order_28", "status": "filled", "filled_qty": 10, "avg_price": 88794.91}}
+{"event": "submitted", "timestamp": 1771099632.4923992, "data": {"order_id": "order_29", "side": "sell", "price": 89960.5255, "qty": 1, "timestamp": 1769598000.0}}
+{"event": "execution", "timestamp": 1771099632.492631, "data": {"order_id": "order_29", "status": "filled", "filled_qty": 1, "avg_price": 89960.5255}}
+{"event": "submitted", "timestamp": 1771099632.5070531, "data": {"order_id": "order_30", "side": "buy", "price": 89371.689, "qty": 10, "timestamp": 1769612400.0}}
+{"event": "execution", "timestamp": 1771099632.507236, "data": {"order_id": "order_30", "status": "filled", "filled_qty": 10, "avg_price": 89371.689}}
+{"event": "rejected", "timestamp": 1771099632.514575, "data": {"order_id": "order_31", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099632.518304, "data": {"order_id": "order_32", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099632.542516, "data": {"order_id": "order_33", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099632.6061141, "data": {"order_id": "order_34", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099632.687837, "data": {"order_id": "order_35", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099632.730834, "data": {"order_id": "order_36", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099632.755709, "data": {"order_id": "order_37", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099632.773439, "data": {"order_id": "order_38", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099632.8474398, "data": {"order_id": "order_39", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099632.87642, "data": {"order_id": "order_40", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099632.887542, "data": {"order_id": "order_41", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099632.912746, "data": {"order_id": "order_42", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099632.927114, "data": {"order_id": "order_43", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099632.9740229, "data": {"order_id": "order_44", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099633.0312839, "data": {"order_id": "order_45", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099633.0637188, "data": {"order_id": "order_46", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099633.103455, "data": {"order_id": "order_47", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099633.207526, "data": {"order_id": "order_48", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099633.2154062, "data": {"order_id": "order_49", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099633.219404, "data": {"order_id": "order_50", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099633.285192, "data": {"order_id": "order_51", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099633.349681, "data": {"order_id": "order_52", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099633.361289, "data": {"order_id": "order_53", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099633.391949, "data": {"order_id": "order_54", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099633.4457338, "data": {"order_id": "order_55", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099633.507394, "data": {"order_id": "order_56", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099633.542321, "data": {"order_id": "order_57", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099633.573469, "data": {"order_id": "order_58", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099633.6475048, "data": {"order_id": "order_59", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099633.663342, "data": {"order_id": "order_60", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099633.710498, "data": {"order_id": "order_61", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099633.769736, "data": {"order_id": "order_62", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099633.8334332, "data": {"order_id": "order_63", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099633.849544, "data": {"order_id": "order_64", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099633.858119, "data": {"order_id": "order_65", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099633.899969, "data": {"order_id": "order_66", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099633.936426, "data": {"order_id": "order_67", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099634.016222, "data": {"order_id": "order_68", "reason": "Order rate limit exceeded"}}
+{"event": "submitted", "timestamp": 1771099731.318154, "data": {"order_id": "order_0", "side": "sell", "price": 3317.884, "qty": 1, "timestamp": 1768665600.0}}
+{"event": "execution", "timestamp": 1771099731.3191319, "data": {"order_id": "order_0", "status": "filled", "filled_qty": 1, "avg_price": 3317.884}}
+{"event": "submitted", "timestamp": 1771099731.340451, "data": {"order_id": "order_1", "side": "buy", "price": 3301.4345, "qty": 10, "timestamp": 1768687200.0}}
+{"event": "execution", "timestamp": 1771099731.340728, "data": {"order_id": "order_1", "status": "filled", "filled_qty": 10, "avg_price": 3301.4345}}
+{"event": "submitted", "timestamp": 1771099731.395811, "data": {"order_id": "order_2", "side": "sell", "price": 3332.8665, "qty": 1, "timestamp": 1768748400.0}}
+{"event": "execution", "timestamp": 1771099731.3960571, "data": {"order_id": "order_2", "status": "partial", "filled_qty": 1, "avg_price": 3332.8665}}
+{"event": "rejected", "timestamp": 1771099731.4225988, "data": {"order_id": "order_3", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771099731.495939, "data": {"order_id": "order_4", "side": "buy", "price": 3185.265, "qty": 1, "timestamp": 1768860000.0}}
+{"event": "execution", "timestamp": 1771099731.496181, "data": {"order_id": "order_4", "status": "filled", "filled_qty": 1, "avg_price": 3185.265}}
+{"event": "submitted", "timestamp": 1771099731.580582, "data": {"order_id": "order_5", "side": "sell", "price": 2956.18, "qty": 10, "timestamp": 1768953600.0}}
+{"event": "execution", "timestamp": 1771099731.580837, "data": {"order_id": "order_5", "status": "filled", "filled_qty": 10, "avg_price": 2956.18}}
+{"event": "submitted", "timestamp": 1771099731.619797, "data": {"order_id": "order_6", "side": "buy", "price": 2928.13, "qty": 1, "timestamp": 1768996800.0}}
+{"event": "execution", "timestamp": 1771099731.6199832, "data": {"order_id": "order_6", "status": "filled", "filled_qty": 1, "avg_price": 2928.13}}
+{"event": "submitted", "timestamp": 1771099731.6264682, "data": {"order_id": "order_7", "side": "sell", "price": 2978.57, "qty": 10, "timestamp": 1769004000.0}}
+{"event": "execution", "timestamp": 1771099731.6265972, "data": {"order_id": "order_7", "status": "filled", "filled_qty": 10, "avg_price": 2978.57}}
+{"event": "submitted", "timestamp": 1771099731.630261, "data": {"order_id": "order_8", "side": "sell", "price": 2999.6395, "qty": 1, "timestamp": 1769007600.0}}
+{"event": "execution", "timestamp": 1771099731.6303868, "data": {"order_id": "order_8", "status": "partial", "filled_qty": 1, "avg_price": 2999.6395}}
+{"event": "submitted", "timestamp": 1771099731.6339421, "data": {"order_id": "order_9", "side": "buy", "price": 2890.5845, "qty": 1, "timestamp": 1769011200.0}}
+{"event": "execution", "timestamp": 1771099731.634062, "data": {"order_id": "order_9", "status": "partial", "filled_qty": 1, "avg_price": 2890.5845}}
+{"event": "submitted", "timestamp": 1771099731.644297, "data": {"order_id": "order_10", "side": "sell", "price": 3051.86, "qty": 10, "timestamp": 1769022000.0}}
+{"event": "execution", "timestamp": 1771099731.644496, "data": {"order_id": "order_10", "status": "filled", "filled_qty": 10, "avg_price": 3051.86}}
+{"event": "submitted", "timestamp": 1771099731.7078269, "data": {"order_id": "order_11", "side": "buy", "price": 2937.68, "qty": 1, "timestamp": 1769090400.0}}
+{"event": "execution", "timestamp": 1771099731.7080479, "data": {"order_id": "order_11", "status": "partial", "filled_qty": 1, "avg_price": 2937.68}}
+{"event": "submitted", "timestamp": 1771099731.7451148, "data": {"order_id": "order_12", "side": "sell", "price": 2966.125, "qty": 10, "timestamp": 1769130000.0}}
+{"event": "execution", "timestamp": 1771099731.745258, "data": {"order_id": "order_12", "status": "filled", "filled_qty": 10, "avg_price": 2966.125}}
+{"event": "submitted", "timestamp": 1771099731.7694058, "data": {"order_id": "order_13", "side": "buy", "price": 2924.05, "qty": 1, "timestamp": 1769155200.0}}
+{"event": "execution", "timestamp": 1771099731.7695842, "data": {"order_id": "order_13", "status": "partial", "filled_qty": 1, "avg_price": 2924.05}}
+{"event": "submitted", "timestamp": 1771099731.793001, "data": {"order_id": "order_14", "side": "sell", "price": 2947.846, "qty": 10, "timestamp": 1769180400.0}}
+{"event": "execution", "timestamp": 1771099731.7931688, "data": {"order_id": "order_14", "status": "filled", "filled_qty": 10, "avg_price": 2947.846}}
+{"event": "submitted", "timestamp": 1771099731.8000991, "data": {"order_id": "order_15", "side": "sell", "price": 2984.455, "qty": 1, "timestamp": 1769187600.0}}
+{"event": "execution", "timestamp": 1771099731.8001852, "data": {"order_id": "order_15", "status": "cancelled", "filled_qty": 0, "avg_price": 2984.455}}
+{"event": "cancelled", "timestamp": 1771099731.8002381, "data": {"order_id": "order_15"}}
+{"event": "submitted", "timestamp": 1771099731.810337, "data": {"order_id": "order_16", "side": "buy", "price": 2936.76, "qty": 10, "timestamp": 1769198400.0}}
+{"event": "execution", "timestamp": 1771099731.810463, "data": {"order_id": "order_16", "status": "filled", "filled_qty": 10, "avg_price": 2936.76}}
+{"event": "submitted", "timestamp": 1771099731.912158, "data": {"order_id": "order_17", "side": "buy", "price": 2938.4275, "qty": 1, "timestamp": 1769310000.0}}
+{"event": "execution", "timestamp": 1771099731.912395, "data": {"order_id": "order_17", "status": "filled", "filled_qty": 1, "avg_price": 2938.4275}}
+{"event": "submitted", "timestamp": 1771099731.9561799, "data": {"order_id": "order_18", "side": "sell", "price": 2894.45, "qty": 10, "timestamp": 1769356800.0}}
+{"event": "execution", "timestamp": 1771099731.956366, "data": {"order_id": "order_18", "status": "cancelled", "filled_qty": 0, "avg_price": 2894.45}}
+{"event": "cancelled", "timestamp": 1771099731.956425, "data": {"order_id": "order_18"}}
+{"event": "submitted", "timestamp": 1771099732.0446641, "data": {"order_id": "order_19", "side": "sell", "price": 2928.2, "qty": 1, "timestamp": 1769450400.0}}
+{"event": "execution", "timestamp": 1771099732.0448031, "data": {"order_id": "order_19", "status": "filled", "filled_qty": 1, "avg_price": 2928.2}}
+{"event": "submitted", "timestamp": 1771099732.051743, "data": {"order_id": "order_20", "side": "buy", "price": 2897.955, "qty": 10, "timestamp": 1769457600.0}}
+{"event": "execution", "timestamp": 1771099732.0518231, "data": {"order_id": "order_20", "status": "filled", "filled_qty": 10, "avg_price": 2897.955}}
+{"event": "submitted", "timestamp": 1771099732.072784, "data": {"order_id": "order_21", "side": "sell", "price": 2942.2765, "qty": 1, "timestamp": 1769479200.0}}
+{"event": "execution", "timestamp": 1771099732.072957, "data": {"order_id": "order_21", "status": "filled", "filled_qty": 1, "avg_price": 2942.2765}}
+{"event": "submitted", "timestamp": 1771099732.0941792, "data": {"order_id": "order_22", "side": "buy", "price": 2919.465, "qty": 10, "timestamp": 1769500800.0}}
+{"event": "execution", "timestamp": 1771099732.094357, "data": {"order_id": "order_22", "status": "filled", "filled_qty": 10, "avg_price": 2919.465}}
+{"event": "submitted", "timestamp": 1771099732.121665, "data": {"order_id": "order_23", "side": "sell", "price": 2987.2355, "qty": 2, "timestamp": 1769529600.0}}
+{"event": "execution", "timestamp": 1771099732.121836, "data": {"order_id": "order_23", "status": "filled", "filled_qty": 2, "avg_price": 2987.2355}}
+{"event": "submitted", "timestamp": 1771099732.1256661, "data": {"order_id": "order_24", "side": "buy", "price": 2926.3605, "qty": 10, "timestamp": 1769533200.0}}
+{"event": "execution", "timestamp": 1771099732.125799, "data": {"order_id": "order_24", "status": "partial", "filled_qty": 4, "avg_price": 2926.3605}}
+{"event": "submitted", "timestamp": 1771099732.12957, "data": {"order_id": "order_25", "side": "sell", "price": 2974.605, "qty": 1, "timestamp": 1769536800.0}}
+{"event": "execution", "timestamp": 1771099732.129654, "data": {"order_id": "order_25", "status": "cancelled", "filled_qty": 0, "avg_price": 2974.605}}
+{"event": "cancelled", "timestamp": 1771099732.129707, "data": {"order_id": "order_25"}}
+{"event": "submitted", "timestamp": 1771099732.1779509, "data": {"order_id": "order_26", "side": "buy", "price": 2986.0075, "qty": 10, "timestamp": 1769587200.0}}
+{"event": "execution", "timestamp": 1771099732.178096, "data": {"order_id": "order_26", "status": "partial", "filled_qty": 1, "avg_price": 2986.0075}}
+{"event": "submitted", "timestamp": 1771099732.236393, "data": {"order_id": "order_27", "side": "buy", "price": 2988.922, "qty": 1, "timestamp": 1769648400.0}}
+{"event": "execution", "timestamp": 1771099732.236577, "data": {"order_id": "order_27", "status": "filled", "filled_qty": 1, "avg_price": 2988.922}}
+{"event": "submitted", "timestamp": 1771099732.3193018, "data": {"order_id": "order_28", "side": "sell", "price": 2742.466, "qty": 10, "timestamp": 1769734800.0}}
+{"event": "execution", "timestamp": 1771099732.3194518, "data": {"order_id": "order_28", "status": "filled", "filled_qty": 10, "avg_price": 2742.466}}
+{"event": "submitted", "timestamp": 1771099732.4244359, "data": {"order_id": "order_29", "side": "buy", "price": 2674.589, "qty": 1, "timestamp": 1769842800.0}}
+{"event": "execution", "timestamp": 1771099732.4246342, "data": {"order_id": "order_29", "status": "partial", "filled_qty": 1, "avg_price": 2674.589}}
+{"event": "submitted", "timestamp": 1771099732.439392, "data": {"order_id": "order_30", "side": "sell", "price": 2635.115, "qty": 10, "timestamp": 1769857200.0}}
+{"event": "execution", "timestamp": 1771099732.4395552, "data": {"order_id": "order_30", "status": "partial", "filled_qty": 7, "avg_price": 2635.115}}
+{"event": "rejected", "timestamp": 1771099732.450701, "data": {"order_id": "order_31", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099732.4618409, "data": {"order_id": "order_32", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099732.5357041, "data": {"order_id": "order_33", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099732.581665, "data": {"order_id": "order_34", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099732.585336, "data": {"order_id": "order_35", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099732.5925, "data": {"order_id": "order_36", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099732.6244018, "data": {"order_id": "order_37", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099732.663338, "data": {"order_id": "order_38", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099732.688449, "data": {"order_id": "order_39", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099732.727644, "data": {"order_id": "order_40", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099732.791926, "data": {"order_id": "order_41", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099732.86017, "data": {"order_id": "order_42", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099732.867564, "data": {"order_id": "order_43", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099732.914625, "data": {"order_id": "order_44", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099732.9656472, "data": {"order_id": "order_45", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099733.023982, "data": {"order_id": "order_46", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099733.068792, "data": {"order_id": "order_47", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099733.113544, "data": {"order_id": "order_48", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099733.1323352, "data": {"order_id": "order_49", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099733.1511428, "data": {"order_id": "order_50", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099733.185042, "data": {"order_id": "order_51", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099733.192739, "data": {"order_id": "order_52", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099733.207907, "data": {"order_id": "order_53", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099733.2390468, "data": {"order_id": "order_54", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099733.247649, "data": {"order_id": "order_55", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099733.286667, "data": {"order_id": "order_56", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099733.2984772, "data": {"order_id": "order_57", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099733.3408482, "data": {"order_id": "order_58", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099733.383439, "data": {"order_id": "order_59", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099733.426284, "data": {"order_id": "order_60", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099733.4961731, "data": {"order_id": "order_61", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099733.519618, "data": {"order_id": "order_62", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099733.5236669, "data": {"order_id": "order_63", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099733.5513878, "data": {"order_id": "order_64", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099733.608588, "data": {"order_id": "order_65", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099733.6776152, "data": {"order_id": "order_66", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099733.689996, "data": {"order_id": "order_67", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099742.728742, "data": {"order_id": "order_0", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771099742.7702882, "data": {"order_id": "order_1", "side": "sell", "price": 69226.435, "qty": 10, "timestamp": 1770507600.0}}
+{"event": "execution", "timestamp": 1771099742.770436, "data": {"order_id": "order_1", "status": "filled", "filled_qty": 10, "avg_price": 69226.435}}
+{"event": "submitted", "timestamp": 1771099742.8684108, "data": {"order_id": "order_2", "side": "sell", "price": 69385.4, "qty": 1, "timestamp": 1770515400.0}}
+{"event": "execution", "timestamp": 1771099742.868614, "data": {"order_id": "order_2", "status": "filled", "filled_qty": 1, "avg_price": 69385.4}}
+{"event": "submitted", "timestamp": 1771099742.896395, "data": {"order_id": "order_3", "side": "buy", "price": 69299.615, "qty": 10, "timestamp": 1770517800.0}}
+{"event": "execution", "timestamp": 1771099742.896592, "data": {"order_id": "order_3", "status": "filled", "filled_qty": 10, "avg_price": 69299.615}}
+{"event": "submitted", "timestamp": 1771099742.9527092, "data": {"order_id": "order_4", "side": "buy", "price": 69120.916, "qty": 1, "timestamp": 1770522300.0}}
+{"event": "execution", "timestamp": 1771099742.952883, "data": {"order_id": "order_4", "status": "filled", "filled_qty": 1, "avg_price": 69120.916}}
+{"event": "submitted", "timestamp": 1771099742.977618, "data": {"order_id": "order_5", "side": "sell", "price": 69227.6, "qty": 10, "timestamp": 1770524400.0}}
+{"event": "execution", "timestamp": 1771099742.977817, "data": {"order_id": "order_5", "status": "partial", "filled_qty": 1, "avg_price": 69227.6}}
+{"event": "submitted", "timestamp": 1771099743.010966, "data": {"order_id": "order_6", "side": "sell", "price": 69335.85, "qty": 1, "timestamp": 1770527400.0}}
+{"event": "execution", "timestamp": 1771099743.011151, "data": {"order_id": "order_6", "status": "filled", "filled_qty": 1, "avg_price": 69335.85}}
+{"event": "rejected", "timestamp": 1771099743.024658, "data": {"order_id": "order_7", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771099743.044945, "data": {"order_id": "order_8", "side": "buy", "price": 69062.44, "qty": 1, "timestamp": 1770530400.0}}
+{"event": "execution", "timestamp": 1771099743.045145, "data": {"order_id": "order_8", "status": "filled", "filled_qty": 1, "avg_price": 69062.44}}
+{"event": "submitted", "timestamp": 1771099743.052115, "data": {"order_id": "order_9", "side": "sell", "price": 69291.902, "qty": 10, "timestamp": 1770531000.0}}
+{"event": "execution", "timestamp": 1771099743.052207, "data": {"order_id": "order_9", "status": "cancelled", "filled_qty": 0, "avg_price": 69291.902}}
+{"event": "cancelled", "timestamp": 1771099743.052261, "data": {"order_id": "order_9"}}
+{"event": "submitted", "timestamp": 1771099743.055731, "data": {"order_id": "order_10", "side": "sell", "price": 69340.275, "qty": 1, "timestamp": 1770531300.0}}
+{"event": "execution", "timestamp": 1771099743.055798, "data": {"order_id": "order_10", "status": "partial", "filled_qty": 1, "avg_price": 69340.275}}
+{"event": "rejected", "timestamp": 1771099743.0660381, "data": {"order_id": "order_11", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771099743.096101, "data": {"order_id": "order_12", "side": "sell", "price": 69401.55, "qty": 1, "timestamp": 1770534900.0}}
+{"event": "execution", "timestamp": 1771099743.09626, "data": {"order_id": "order_12", "status": "filled", "filled_qty": 1, "avg_price": 69401.55}}
+{"event": "rejected", "timestamp": 1771099743.139086, "data": {"order_id": "order_13", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771099743.215931, "data": {"order_id": "order_14", "side": "buy", "price": 69942.95, "qty": 1, "timestamp": 1770546000.0}}
+{"event": "execution", "timestamp": 1771099743.216074, "data": {"order_id": "order_14", "status": "partial", "filled_qty": 1, "avg_price": 69942.95}}
+{"event": "submitted", "timestamp": 1771099743.2265038, "data": {"order_id": "order_15", "side": "sell", "price": 70194.926, "qty": 10, "timestamp": 1770546900.0}}
+{"event": "execution", "timestamp": 1771099743.2266612, "data": {"order_id": "order_15", "status": "cancelled", "filled_qty": 0, "avg_price": 70194.926}}
+{"event": "cancelled", "timestamp": 1771099743.226719, "data": {"order_id": "order_15"}}
+{"event": "submitted", "timestamp": 1771099743.24644, "data": {"order_id": "order_16", "side": "sell", "price": 70389.388, "qty": 1, "timestamp": 1770548700.0}}
+{"event": "execution", "timestamp": 1771099743.246542, "data": {"order_id": "order_16", "status": "filled", "filled_qty": 1, "avg_price": 70389.388}}
+{"event": "rejected", "timestamp": 1771099743.30401, "data": {"order_id": "order_17", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771099743.314523, "data": {"order_id": "order_18", "side": "sell", "price": 71014.28, "qty": 1, "timestamp": 1770554700.0}}
+{"event": "execution", "timestamp": 1771099743.314655, "data": {"order_id": "order_18", "status": "filled", "filled_qty": 1, "avg_price": 71014.28}}
+{"event": "rejected", "timestamp": 1771099743.375154, "data": {"order_id": "order_19", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771099743.421546, "data": {"order_id": "order_20", "side": "buy", "price": 70868.09, "qty": 1, "timestamp": 1770564300.0}}
+{"event": "execution", "timestamp": 1771099743.4216971, "data": {"order_id": "order_20", "status": "filled", "filled_qty": 1, "avg_price": 70868.09}}
+{"event": "submitted", "timestamp": 1771099743.4420962, "data": {"order_id": "order_21", "side": "sell", "price": 71138.43, "qty": 10, "timestamp": 1770566100.0}}
+{"event": "execution", "timestamp": 1771099743.44225, "data": {"order_id": "order_21", "status": "filled", "filled_qty": 10, "avg_price": 71138.43}}
+{"event": "submitted", "timestamp": 1771099743.472163, "data": {"order_id": "order_22", "side": "buy", "price": 70758.54, "qty": 1, "timestamp": 1770568800.0}}
+{"event": "execution", "timestamp": 1771099743.472333, "data": {"order_id": "order_22", "status": "partial", "filled_qty": 1, "avg_price": 70758.54}}
+{"event": "submitted", "timestamp": 1771099743.514365, "data": {"order_id": "order_23", "side": "sell", "price": 70765.261, "qty": 10, "timestamp": 1770572400.0}}
+{"event": "execution", "timestamp": 1771099743.514561, "data": {"order_id": "order_23", "status": "filled", "filled_qty": 10, "avg_price": 70765.261}}
+{"event": "submitted", "timestamp": 1771099743.549396, "data": {"order_id": "order_24", "side": "sell", "price": 71199.05, "qty": 1, "timestamp": 1770575400.0}}
+{"event": "execution", "timestamp": 1771099743.549558, "data": {"order_id": "order_24", "status": "filled", "filled_qty": 1, "avg_price": 71199.05}}
+{"event": "submitted", "timestamp": 1771099743.5901492, "data": {"order_id": "order_25", "side": "buy", "price": 71123.5995, "qty": 10, "timestamp": 1770579000.0}}
+{"event": "execution", "timestamp": 1771099743.590333, "data": {"order_id": "order_25", "status": "filled", "filled_qty": 10, "avg_price": 71123.5995}}
+{"event": "submitted", "timestamp": 1771099743.604841, "data": {"order_id": "order_26", "side": "sell", "price": 71441.395, "qty": 1, "timestamp": 1770580200.0}}
+{"event": "execution", "timestamp": 1771099743.6049888, "data": {"order_id": "order_26", "status": "filled", "filled_qty": 1, "avg_price": 71441.395}}
+{"event": "submitted", "timestamp": 1771099743.612176, "data": {"order_id": "order_27", "side": "buy", "price": 71011.66, "qty": 1, "timestamp": 1770580800.0}}
+{"event": "execution", "timestamp": 1771099743.612285, "data": {"order_id": "order_27", "status": "filled", "filled_qty": 1, "avg_price": 71011.66}}
+{"event": "submitted", "timestamp": 1771099743.665903, "data": {"order_id": "order_28", "side": "sell", "price": 70997.125, "qty": 10, "timestamp": 1770585300.0}}
+{"event": "execution", "timestamp": 1771099743.666123, "data": {"order_id": "order_28", "status": "partial", "filled_qty": 1, "avg_price": 70997.125}}
+{"event": "submitted", "timestamp": 1771099743.682273, "data": {"order_id": "order_29", "side": "buy", "price": 70694.563, "qty": 1, "timestamp": 1770586500.0}}
+{"event": "execution", "timestamp": 1771099743.6824691, "data": {"order_id": "order_29", "status": "filled", "filled_qty": 1, "avg_price": 70694.563}}
+{"event": "submitted", "timestamp": 1771099743.712103, "data": {"order_id": "order_30", "side": "sell", "price": 70800.572, "qty": 10, "timestamp": 1770588600.0}}
+{"event": "execution", "timestamp": 1771099743.712322, "data": {"order_id": "order_30", "status": "filled", "filled_qty": 10, "avg_price": 70800.572}}
+{"event": "submitted", "timestamp": 1771099743.74882, "data": {"order_id": "order_31", "side": "sell", "price": 71020.254, "qty": 1, "timestamp": 1770591300.0}}
+{"event": "execution", "timestamp": 1771099743.749077, "data": {"order_id": "order_31", "status": "filled", "filled_qty": 1, "avg_price": 71020.254}}
+{"event": "submitted", "timestamp": 1771099743.758402, "data": {"order_id": "order_32", "side": "buy", "price": 71883.4315, "qty": 10, "timestamp": 1770591900.0}}
+{"event": "execution", "timestamp": 1771099743.758623, "data": {"order_id": "order_32", "status": "filled", "filled_qty": 10, "avg_price": 71883.4315}}
+{"event": "submitted", "timestamp": 1771099743.867747, "data": {"order_id": "order_33", "side": "sell", "price": 70844.256, "qty": 1, "timestamp": 1770600000.0}}
+{"event": "execution", "timestamp": 1771099743.8679879, "data": {"order_id": "order_33", "status": "filled", "filled_qty": 1, "avg_price": 70844.256}}
+{"event": "submitted", "timestamp": 1771099743.8808188, "data": {"order_id": "order_34", "side": "buy", "price": 70450.457, "qty": 10, "timestamp": 1770600900.0}}
+{"event": "execution", "timestamp": 1771099743.8810308, "data": {"order_id": "order_34", "status": "filled", "filled_qty": 10, "avg_price": 70450.457}}
+{"event": "submitted", "timestamp": 1771099743.8850172, "data": {"order_id": "order_35", "side": "buy", "price": 70206.2, "qty": 1, "timestamp": 1770601200.0}}
+{"event": "execution", "timestamp": 1771099743.885098, "data": {"order_id": "order_35", "status": "partial", "filled_qty": 1, "avg_price": 70206.2}}
+{"event": "rejected", "timestamp": 1771099743.9132679, "data": {"order_id": "order_36", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099743.931714, "data": {"order_id": "order_37", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099744.01937, "data": {"order_id": "order_38", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099744.039124, "data": {"order_id": "order_39", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099744.0608158, "data": {"order_id": "order_40", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099744.082277, "data": {"order_id": "order_41", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099744.1335301, "data": {"order_id": "order_42", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099744.1808991, "data": {"order_id": "order_43", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099744.320052, "data": {"order_id": "order_44", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099744.346359, "data": {"order_id": "order_45", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099744.3913128, "data": {"order_id": "order_46", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099744.3989692, "data": {"order_id": "order_47", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099744.4141319, "data": {"order_id": "order_48", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099744.425569, "data": {"order_id": "order_49", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099744.4558342, "data": {"order_id": "order_50", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099744.5581598, "data": {"order_id": "order_51", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099744.634596, "data": {"order_id": "order_52", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099744.692228, "data": {"order_id": "order_53", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099744.723706, "data": {"order_id": "order_54", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099744.7626722, "data": {"order_id": "order_55", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099744.797929, "data": {"order_id": "order_56", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099744.8722298, "data": {"order_id": "order_57", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099744.998991, "data": {"order_id": "order_58", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099745.017997, "data": {"order_id": "order_59", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099745.082742, "data": {"order_id": "order_60", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099745.09487, "data": {"order_id": "order_61", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099745.174332, "data": {"order_id": "order_62", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099745.209613, "data": {"order_id": "order_63", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099745.229293, "data": {"order_id": "order_64", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099745.237199, "data": {"order_id": "order_65", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099745.402842, "data": {"order_id": "order_66", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099745.4292622, "data": {"order_id": "order_67", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099745.476911, "data": {"order_id": "order_68", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099745.5314329, "data": {"order_id": "order_69", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099745.579307, "data": {"order_id": "order_70", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099745.588028, "data": {"order_id": "order_71", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099745.604631, "data": {"order_id": "order_72", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099745.6726038, "data": {"order_id": "order_73", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099745.722969, "data": {"order_id": "order_74", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099745.879797, "data": {"order_id": "order_75", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099745.8924532, "data": {"order_id": "order_76", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099745.921289, "data": {"order_id": "order_77", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099745.9847481, "data": {"order_id": "order_78", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099746.0316758, "data": {"order_id": "order_79", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099746.0403259, "data": {"order_id": "order_80", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099746.078923, "data": {"order_id": "order_81", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099746.1098838, "data": {"order_id": "order_82", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099746.196727, "data": {"order_id": "order_83", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099747.055348, "data": {"order_id": "order_84", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099747.288085, "data": {"order_id": "order_85", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099747.386724, "data": {"order_id": "order_86", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099747.455606, "data": {"order_id": "order_87", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099747.470793, "data": {"order_id": "order_88", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099747.489297, "data": {"order_id": "order_89", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099747.5298188, "data": {"order_id": "order_90", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099747.543864, "data": {"order_id": "order_91", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099747.5664809, "data": {"order_id": "order_92", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099747.620688, "data": {"order_id": "order_93", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099747.639182, "data": {"order_id": "order_94", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099747.65712, "data": {"order_id": "order_95", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099747.692922, "data": {"order_id": "order_96", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099747.697675, "data": {"order_id": "order_97", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099747.7380512, "data": {"order_id": "order_98", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099747.742914, "data": {"order_id": "order_99", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099747.8153431, "data": {"order_id": "order_100", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099747.846785, "data": {"order_id": "order_101", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099747.86021, "data": {"order_id": "order_102", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099747.878159, "data": {"order_id": "order_103", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099748.005852, "data": {"order_id": "order_104", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099748.029557, "data": {"order_id": "order_105", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099748.126796, "data": {"order_id": "order_106", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099748.23891, "data": {"order_id": "order_107", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099748.2437792, "data": {"order_id": "order_108", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099748.262154, "data": {"order_id": "order_109", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099748.294535, "data": {"order_id": "order_110", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099748.3324091, "data": {"order_id": "order_111", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099748.401352, "data": {"order_id": "order_112", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099748.447953, "data": {"order_id": "order_113", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099748.4802198, "data": {"order_id": "order_114", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099748.546284, "data": {"order_id": "order_115", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099748.607871, "data": {"order_id": "order_116", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099748.660424, "data": {"order_id": "order_117", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099748.6883972, "data": {"order_id": "order_118", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099748.7636359, "data": {"order_id": "order_119", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099748.806595, "data": {"order_id": "order_120", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099748.8397582, "data": {"order_id": "order_121", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099748.90918, "data": {"order_id": "order_122", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099748.9190242, "data": {"order_id": "order_123", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099748.9287, "data": {"order_id": "order_124", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099748.9533498, "data": {"order_id": "order_125", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099748.9820879, "data": {"order_id": "order_126", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099749.1332211, "data": {"order_id": "order_127", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099749.1981828, "data": {"order_id": "order_128", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099749.222486, "data": {"order_id": "order_129", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099749.232468, "data": {"order_id": "order_130", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099749.237489, "data": {"order_id": "order_131", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099749.247305, "data": {"order_id": "order_132", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099749.27208, "data": {"order_id": "order_133", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099749.296561, "data": {"order_id": "order_134", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099749.301596, "data": {"order_id": "order_135", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099749.306565, "data": {"order_id": "order_136", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099749.316424, "data": {"order_id": "order_137", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099749.6246169, "data": {"order_id": "order_138", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099749.655838, "data": {"order_id": "order_139", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099749.691921, "data": {"order_id": "order_140", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099749.742927, "data": {"order_id": "order_141", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099749.7776499, "data": {"order_id": "order_142", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099749.798188, "data": {"order_id": "order_143", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099749.888993, "data": {"order_id": "order_144", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099749.9699929, "data": {"order_id": "order_145", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099750.001226, "data": {"order_id": "order_146", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099750.052906, "data": {"order_id": "order_147", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099750.084034, "data": {"order_id": "order_148", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099750.1838012, "data": {"order_id": "order_149", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099750.209416, "data": {"order_id": "order_150", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099750.2198021, "data": {"order_id": "order_151", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099750.260865, "data": {"order_id": "order_152", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099750.327517, "data": {"order_id": "order_153", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099750.353487, "data": {"order_id": "order_154", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099750.4095201, "data": {"order_id": "order_155", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099750.4305012, "data": {"order_id": "order_156", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099750.456667, "data": {"order_id": "order_157", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099750.531013, "data": {"order_id": "order_158", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099750.630757, "data": {"order_id": "order_159", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099750.65215, "data": {"order_id": "order_160", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099750.673457, "data": {"order_id": "order_161", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099750.7262661, "data": {"order_id": "order_162", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099750.747623, "data": {"order_id": "order_163", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099750.7892978, "data": {"order_id": "order_164", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099750.8055072, "data": {"order_id": "order_165", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099750.821546, "data": {"order_id": "order_166", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099750.858423, "data": {"order_id": "order_167", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099751.156856, "data": {"order_id": "order_168", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099751.1839218, "data": {"order_id": "order_169", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099751.226944, "data": {"order_id": "order_170", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099751.275224, "data": {"order_id": "order_171", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099751.389345, "data": {"order_id": "order_172", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099751.405921, "data": {"order_id": "order_173", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099751.433434, "data": {"order_id": "order_174", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099751.4613729, "data": {"order_id": "order_175", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099751.515177, "data": {"order_id": "order_176", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099751.520868, "data": {"order_id": "order_177", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099751.5319302, "data": {"order_id": "order_178", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099751.53749, "data": {"order_id": "order_179", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099751.5540328, "data": {"order_id": "order_180", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099751.614162, "data": {"order_id": "order_181", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099751.663605, "data": {"order_id": "order_182", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099751.719017, "data": {"order_id": "order_183", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099751.792659, "data": {"order_id": "order_184", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099751.807821, "data": {"order_id": "order_185", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099751.846582, "data": {"order_id": "order_186", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099751.887615, "data": {"order_id": "order_187", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099751.910305, "data": {"order_id": "order_188", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099751.956021, "data": {"order_id": "order_189", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099751.9675462, "data": {"order_id": "order_190", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099752.07759, "data": {"order_id": "order_191", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099752.297733, "data": {"order_id": "order_192", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099752.382108, "data": {"order_id": "order_193", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099752.416288, "data": {"order_id": "order_194", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099752.42209, "data": {"order_id": "order_195", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099752.544924, "data": {"order_id": "order_196", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099752.630155, "data": {"order_id": "order_197", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099752.658716, "data": {"order_id": "order_198", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099752.6997929, "data": {"order_id": "order_199", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099752.850422, "data": {"order_id": "order_200", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099752.862587, "data": {"order_id": "order_201", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099752.8746, "data": {"order_id": "order_202", "reason": "Order rate limit exceeded"}}
+{"event": "submitted", "timestamp": 1771099763.260364, "data": {"order_id": "order_0", "side": "buy", "price": 189.55, "qty": 1, "timestamp": 1770669360.0}}
+{"event": "execution", "timestamp": 1771099763.261238, "data": {"order_id": "order_0", "status": "filled", "filled_qty": 1, "avg_price": 189.55}}
+{"event": "submitted", "timestamp": 1771099763.268414, "data": {"order_id": "order_1", "side": "sell", "price": 189.865, "qty": 10, "timestamp": 1770669480.0}}
+{"event": "execution", "timestamp": 1771099763.268493, "data": {"order_id": "order_1", "status": "filled", "filled_qty": 10, "avg_price": 189.865}}
+{"event": "submitted", "timestamp": 1771099763.2928221, "data": {"order_id": "order_2", "side": "sell", "price": 190.14, "qty": 1, "timestamp": 1770669900.0}}
+{"event": "execution", "timestamp": 1771099763.2930171, "data": {"order_id": "order_2", "status": "filled", "filled_qty": 1, "avg_price": 190.14}}
+{"event": "submitted", "timestamp": 1771099763.315907, "data": {"order_id": "order_3", "side": "buy", "price": 190.065, "qty": 10, "timestamp": 1770670320.0}}
+{"event": "execution", "timestamp": 1771099763.316065, "data": {"order_id": "order_3", "status": "filled", "filled_qty": 10, "avg_price": 190.065}}
+{"event": "submitted", "timestamp": 1771099763.3437362, "data": {"order_id": "order_4", "side": "buy", "price": 189.85, "qty": 1, "timestamp": 1770670920.0}}
+{"event": "execution", "timestamp": 1771099763.343908, "data": {"order_id": "order_4", "status": "filled", "filled_qty": 1, "avg_price": 189.85}}
+{"event": "submitted", "timestamp": 1771099763.347332, "data": {"order_id": "order_5", "side": "sell", "price": 191.38, "qty": 2, "timestamp": 1770728580.0}}
+{"event": "execution", "timestamp": 1771099763.347402, "data": {"order_id": "order_5", "status": "filled", "filled_qty": 2, "avg_price": 191.38}}
+{"event": "submitted", "timestamp": 1771099763.3510451, "data": {"order_id": "order_6", "side": "buy", "price": 191.09, "qty": 10, "timestamp": 1770729000.0}}
+{"event": "execution", "timestamp": 1771099763.351116, "data": {"order_id": "order_6", "status": "cancelled", "filled_qty": 0, "avg_price": 191.09}}
+{"event": "cancelled", "timestamp": 1771099763.35116, "data": {"order_id": "order_6"}}
+{"event": "submitted", "timestamp": 1771099763.354679, "data": {"order_id": "order_7", "side": "sell", "price": 191.0, "qty": 1, "timestamp": 1770729060.0}}
+{"event": "execution", "timestamp": 1771099763.3547719, "data": {"order_id": "order_7", "status": "filled", "filled_qty": 1, "avg_price": 191.0}}
+{"event": "submitted", "timestamp": 1771099763.40305, "data": {"order_id": "order_8", "side": "buy", "price": 191.485, "qty": 10, "timestamp": 1770733920.0}}
+{"event": "execution", "timestamp": 1771099763.403316, "data": {"order_id": "order_8", "status": "filled", "filled_qty": 10, "avg_price": 191.485}}
+{"event": "submitted", "timestamp": 1771099763.538902, "data": {"order_id": "order_9", "side": "buy", "price": 188.56, "qty": 1, "timestamp": 1770736380.0}}
+{"event": "execution", "timestamp": 1771099763.5391328, "data": {"order_id": "order_9", "status": "partial", "filled_qty": 1, "avg_price": 188.56}}
+{"event": "submitted", "timestamp": 1771099763.556004, "data": {"order_id": "order_10", "side": "sell", "price": 188.91, "qty": 10, "timestamp": 1770736680.0}}
+{"event": "execution", "timestamp": 1771099763.556153, "data": {"order_id": "order_10", "status": "filled", "filled_qty": 10, "avg_price": 188.91}}
+{"event": "submitted", "timestamp": 1771099763.6361248, "data": {"order_id": "order_11", "side": "sell", "price": 189.28, "qty": 1, "timestamp": 1770738120.0}}
+{"event": "execution", "timestamp": 1771099763.636359, "data": {"order_id": "order_11", "status": "cancelled", "filled_qty": 0, "avg_price": 189.28}}
+{"event": "cancelled", "timestamp": 1771099763.636582, "data": {"order_id": "order_11"}}
+{"event": "submitted", "timestamp": 1771099763.6823711, "data": {"order_id": "order_12", "side": "buy", "price": 189.33, "qty": 10, "timestamp": 1770738960.0}}
+{"event": "execution", "timestamp": 1771099763.682503, "data": {"order_id": "order_12", "status": "partial", "filled_qty": 6, "avg_price": 189.33}}
+{"event": "submitted", "timestamp": 1771099763.6894138, "data": {"order_id": "order_13", "side": "sell", "price": 190.19, "qty": 1, "timestamp": 1770739080.0}}
+{"event": "execution", "timestamp": 1771099763.689497, "data": {"order_id": "order_13", "status": "filled", "filled_qty": 1, "avg_price": 190.19}}
+{"event": "submitted", "timestamp": 1771099763.713567, "data": {"order_id": "order_14", "side": "buy", "price": 189.94, "qty": 10, "timestamp": 1770739500.0}}
+{"event": "execution", "timestamp": 1771099763.7137349, "data": {"order_id": "order_14", "status": "cancelled", "filled_qty": 0, "avg_price": 189.94}}
+{"event": "cancelled", "timestamp": 1771099763.713791, "data": {"order_id": "order_14"}}
+{"event": "submitted", "timestamp": 1771099763.746667, "data": {"order_id": "order_15", "side": "buy", "price": 189.53, "qty": 1, "timestamp": 1770740100.0}}
+{"event": "execution", "timestamp": 1771099763.7468271, "data": {"order_id": "order_15", "status": "filled", "filled_qty": 1, "avg_price": 189.53}}
+{"event": "submitted", "timestamp": 1771099763.757857, "data": {"order_id": "order_16", "side": "sell", "price": 189.89, "qty": 10, "timestamp": 1770740280.0}}
+{"event": "execution", "timestamp": 1771099763.758024, "data": {"order_id": "order_16", "status": "filled", "filled_qty": 10, "avg_price": 189.89}}
+{"event": "submitted", "timestamp": 1771099763.764931, "data": {"order_id": "order_17", "side": "buy", "price": 189.6, "qty": 1, "timestamp": 1770740400.0}}
+{"event": "execution", "timestamp": 1771099763.765009, "data": {"order_id": "order_17", "status": "filled", "filled_qty": 1, "avg_price": 189.6}}
+{"event": "submitted", "timestamp": 1771099763.8247309, "data": {"order_id": "order_18", "side": "sell", "price": 189.3, "qty": 10, "timestamp": 1770741480.0}}
+{"event": "execution", "timestamp": 1771099763.824948, "data": {"order_id": "order_18", "status": "cancelled", "filled_qty": 0, "avg_price": 189.3}}
+{"event": "cancelled", "timestamp": 1771099763.825186, "data": {"order_id": "order_18"}}
+{"event": "submitted", "timestamp": 1771099763.848313, "data": {"order_id": "order_19", "side": "sell", "price": 189.56, "qty": 1, "timestamp": 1770741900.0}}
+{"event": "execution", "timestamp": 1771099763.848392, "data": {"order_id": "order_19", "status": "filled", "filled_qty": 1, "avg_price": 189.56}}
+{"event": "submitted", "timestamp": 1771099763.86589, "data": {"order_id": "order_20", "side": "buy", "price": 189.26, "qty": 10, "timestamp": 1770742200.0}}
+{"event": "execution", "timestamp": 1771099763.8660731, "data": {"order_id": "order_20", "status": "partial", "filled_qty": 5, "avg_price": 189.26}}
+{"event": "submitted", "timestamp": 1771099763.9213219, "data": {"order_id": "order_21", "side": "sell", "price": 189.51, "qty": 1, "timestamp": 1770743160.0}}
+{"event": "execution", "timestamp": 1771099763.921553, "data": {"order_id": "order_21", "status": "filled", "filled_qty": 1, "avg_price": 189.51}}
+{"event": "submitted", "timestamp": 1771099763.99041, "data": {"order_id": "order_22", "side": "buy", "price": 189.8, "qty": 10, "timestamp": 1770744360.0}}
+{"event": "execution", "timestamp": 1771099763.990617, "data": {"order_id": "order_22", "status": "filled", "filled_qty": 10, "avg_price": 189.8}}
+{"event": "submitted", "timestamp": 1771099764.004809, "data": {"order_id": "order_23", "side": "buy", "price": 189.46, "qty": 1, "timestamp": 1770744600.0}}
+{"event": "execution", "timestamp": 1771099764.004958, "data": {"order_id": "order_23", "status": "partial", "filled_qty": 1, "avg_price": 189.46}}
+{"event": "submitted", "timestamp": 1771099764.040297, "data": {"order_id": "order_24", "side": "sell", "price": 189.73, "qty": 10, "timestamp": 1770745200.0}}
+{"event": "execution", "timestamp": 1771099764.040552, "data": {"order_id": "order_24", "status": "filled", "filled_qty": 10, "avg_price": 189.73}}
+{"event": "submitted", "timestamp": 1771099764.0510652, "data": {"order_id": "order_25", "side": "sell", "price": 190.075, "qty": 1, "timestamp": 1770745380.0}}
+{"event": "execution", "timestamp": 1771099764.051156, "data": {"order_id": "order_25", "status": "filled", "filled_qty": 1, "avg_price": 190.075}}
+{"event": "submitted", "timestamp": 1771099764.0917718, "data": {"order_id": "order_26", "side": "buy", "price": 190.055, "qty": 10, "timestamp": 1770746040.0}}
+{"event": "execution", "timestamp": 1771099764.091947, "data": {"order_id": "order_26", "status": "filled", "filled_qty": 10, "avg_price": 190.055}}
+{"event": "submitted", "timestamp": 1771099764.169479, "data": {"order_id": "order_27", "side": "buy", "price": 189.73, "qty": 2, "timestamp": 1770747360.0}}
+{"event": "execution", "timestamp": 1771099764.169635, "data": {"order_id": "order_27", "status": "filled", "filled_qty": 2, "avg_price": 189.73}}
+{"event": "submitted", "timestamp": 1771099764.249701, "data": {"order_id": "order_28", "side": "sell", "price": 189.365, "qty": 10, "timestamp": 1770748680.0}}
+{"event": "execution", "timestamp": 1771099764.24986, "data": {"order_id": "order_28", "status": "cancelled", "filled_qty": 0, "avg_price": 189.365}}
+{"event": "cancelled", "timestamp": 1771099764.2499142, "data": {"order_id": "order_28"}}
+{"event": "submitted", "timestamp": 1771099764.307019, "data": {"order_id": "order_29", "side": "buy", "price": 189.18, "qty": 1, "timestamp": 1770749640.0}}
+{"event": "execution", "timestamp": 1771099764.307189, "data": {"order_id": "order_29", "status": "filled", "filled_qty": 1, "avg_price": 189.18}}
+{"event": "rejected", "timestamp": 1771099764.315994, "data": {"order_id": "order_30", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099764.3314629, "data": {"order_id": "order_31", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099764.413666, "data": {"order_id": "order_32", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099764.4386292, "data": {"order_id": "order_33", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099764.4496121, "data": {"order_id": "order_34", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099764.475258, "data": {"order_id": "order_35", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099764.479048, "data": {"order_id": "order_36", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099764.486611, "data": {"order_id": "order_37", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099764.4904902, "data": {"order_id": "order_38", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099764.512419, "data": {"order_id": "order_39", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099764.5599098, "data": {"order_id": "order_40", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099764.599987, "data": {"order_id": "order_41", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099764.611209, "data": {"order_id": "order_42", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099764.6408808, "data": {"order_id": "order_43", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099764.6777432, "data": {"order_id": "order_44", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099764.696094, "data": {"order_id": "order_45", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099764.717929, "data": {"order_id": "order_46", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099764.732584, "data": {"order_id": "order_47", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099764.7399838, "data": {"order_id": "order_48", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099764.743784, "data": {"order_id": "order_49", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099764.765516, "data": {"order_id": "order_50", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099764.7913039, "data": {"order_id": "order_51", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099764.851525, "data": {"order_id": "order_52", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099764.967905, "data": {"order_id": "order_53", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.0804439, "data": {"order_id": "order_54", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.103787, "data": {"order_id": "order_55", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.1458611, "data": {"order_id": "order_56", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.1575649, "data": {"order_id": "order_57", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.199441, "data": {"order_id": "order_58", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.299208, "data": {"order_id": "order_59", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.342229, "data": {"order_id": "order_60", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.424339, "data": {"order_id": "order_61", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.4478762, "data": {"order_id": "order_62", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.467406, "data": {"order_id": "order_63", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.581413, "data": {"order_id": "order_64", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.5938802, "data": {"order_id": "order_65", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.598117, "data": {"order_id": "order_66", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.6023319, "data": {"order_id": "order_67", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.622528, "data": {"order_id": "order_68", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.642758, "data": {"order_id": "order_69", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.647041, "data": {"order_id": "order_70", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.659446, "data": {"order_id": "order_71", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.6637042, "data": {"order_id": "order_72", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.732671, "data": {"order_id": "order_73", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.7890801, "data": {"order_id": "order_74", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.814023, "data": {"order_id": "order_75", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.851325, "data": {"order_id": "order_76", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.917623, "data": {"order_id": "order_77", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.9467058, "data": {"order_id": "order_78", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.959188, "data": {"order_id": "order_79", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099765.9675572, "data": {"order_id": "order_80", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099766.02915, "data": {"order_id": "order_81", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099766.07483, "data": {"order_id": "order_82", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099766.0791948, "data": {"order_id": "order_83", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099766.091947, "data": {"order_id": "order_84", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099766.096549, "data": {"order_id": "order_85", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099766.114004, "data": {"order_id": "order_86", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099766.219777, "data": {"order_id": "order_87", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099766.236793, "data": {"order_id": "order_88", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099766.2619488, "data": {"order_id": "order_89", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099766.326097, "data": {"order_id": "order_90", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099766.330485, "data": {"order_id": "order_91", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099766.3599339, "data": {"order_id": "order_92", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099766.368476, "data": {"order_id": "order_93", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099766.4070132, "data": {"order_id": "order_94", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099766.55563, "data": {"order_id": "order_95", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099766.616361, "data": {"order_id": "order_96", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099766.642619, "data": {"order_id": "order_97", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099766.651805, "data": {"order_id": "order_98", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099766.713633, "data": {"order_id": "order_99", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099766.7970529, "data": {"order_id": "order_100", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099766.8152971, "data": {"order_id": "order_101", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099766.8509262, "data": {"order_id": "order_102", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099766.899303, "data": {"order_id": "order_103", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099766.993817, "data": {"order_id": "order_104", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099767.030114, "data": {"order_id": "order_105", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099767.107609, "data": {"order_id": "order_106", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099767.116721, "data": {"order_id": "order_107", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099767.1532302, "data": {"order_id": "order_108", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099767.193928, "data": {"order_id": "order_109", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099767.198702, "data": {"order_id": "order_110", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099767.230803, "data": {"order_id": "order_111", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099767.313041, "data": {"order_id": "order_112", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099767.327008, "data": {"order_id": "order_113", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099767.336386, "data": {"order_id": "order_114", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099767.350463, "data": {"order_id": "order_115", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099767.414571, "data": {"order_id": "order_116", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099767.456618, "data": {"order_id": "order_117", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099767.503216, "data": {"order_id": "order_118", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099767.5500932, "data": {"order_id": "order_119", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099767.612094, "data": {"order_id": "order_120", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099767.6643, "data": {"order_id": "order_121", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099767.683158, "data": {"order_id": "order_122", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099767.711301, "data": {"order_id": "order_123", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099767.7487261, "data": {"order_id": "order_124", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099767.790947, "data": {"order_id": "order_125", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099767.810325, "data": {"order_id": "order_126", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099767.900508, "data": {"order_id": "order_127", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.0085142, "data": {"order_id": "order_128", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.051153, "data": {"order_id": "order_129", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.0756009, "data": {"order_id": "order_130", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.095305, "data": {"order_id": "order_131", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.119295, "data": {"order_id": "order_132", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.138434, "data": {"order_id": "order_133", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.143585, "data": {"order_id": "order_134", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.14866, "data": {"order_id": "order_135", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.182911, "data": {"order_id": "order_136", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.187946, "data": {"order_id": "order_137", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.197707, "data": {"order_id": "order_138", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.422174, "data": {"order_id": "order_139", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.4777658, "data": {"order_id": "order_140", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.520552, "data": {"order_id": "order_141", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.543355, "data": {"order_id": "order_142", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.610811, "data": {"order_id": "order_143", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.6659122, "data": {"order_id": "order_144", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.706731, "data": {"order_id": "order_145", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.7470562, "data": {"order_id": "order_146", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.8084722, "data": {"order_id": "order_147", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.8289962, "data": {"order_id": "order_148", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.839413, "data": {"order_id": "order_149", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.84972, "data": {"order_id": "order_150", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.8802009, "data": {"order_id": "order_151", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.915786, "data": {"order_id": "order_152", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099768.941182, "data": {"order_id": "order_153", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099769.078448, "data": {"order_id": "order_154", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099769.1795552, "data": {"order_id": "order_155", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099769.300116, "data": {"order_id": "order_156", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099769.3225238, "data": {"order_id": "order_157", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099769.359746, "data": {"order_id": "order_158", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099769.387649, "data": {"order_id": "order_159", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099769.491317, "data": {"order_id": "order_160", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099769.528641, "data": {"order_id": "order_161", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099769.560361, "data": {"order_id": "order_162", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099769.57609, "data": {"order_id": "order_163", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099769.665098, "data": {"order_id": "order_164", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099769.7277708, "data": {"order_id": "order_165", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099769.749418, "data": {"order_id": "order_166", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099769.7864351, "data": {"order_id": "order_167", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099769.8340821, "data": {"order_id": "order_168", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099769.860588, "data": {"order_id": "order_169", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099769.876673, "data": {"order_id": "order_170", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099769.88741, "data": {"order_id": "order_171", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099769.977403, "data": {"order_id": "order_172", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099770.009366, "data": {"order_id": "order_173", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099770.046632, "data": {"order_id": "order_174", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099770.083911, "data": {"order_id": "order_175", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099770.094839, "data": {"order_id": "order_176", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099770.148234, "data": {"order_id": "order_177", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099770.153754, "data": {"order_id": "order_178", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099770.1699479, "data": {"order_id": "order_179", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099770.18611, "data": {"order_id": "order_180", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099770.202312, "data": {"order_id": "order_181", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099770.352847, "data": {"order_id": "order_182", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099770.396072, "data": {"order_id": "order_183", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099770.489745, "data": {"order_id": "order_184", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099770.517018, "data": {"order_id": "order_185", "reason": "Order rate limit exceeded"}}
+{"event": "submitted", "timestamp": 1771099775.562742, "data": {"order_id": "order_0", "side": "sell", "price": 209.38, "qty": 1, "timestamp": 1770669720.0}}
+{"event": "execution", "timestamp": 1771099775.563749, "data": {"order_id": "order_0", "status": "cancelled", "filled_qty": 0, "avg_price": 209.38}}
+{"event": "cancelled", "timestamp": 1771099775.563817, "data": {"order_id": "order_0"}}
+{"event": "submitted", "timestamp": 1771099775.582273, "data": {"order_id": "order_1", "side": "buy", "price": 209.13, "qty": 10, "timestamp": 1770670080.0}}
+{"event": "execution", "timestamp": 1771099775.582352, "data": {"order_id": "order_1", "status": "partial", "filled_qty": 2, "avg_price": 209.13}}
+{"event": "submitted", "timestamp": 1771099775.5886521, "data": {"order_id": "order_2", "side": "buy", "price": 208.98, "qty": 1, "timestamp": 1770670200.0}}
+{"event": "execution", "timestamp": 1771099775.588716, "data": {"order_id": "order_2", "status": "cancelled", "filled_qty": 0, "avg_price": 208.98}}
+{"event": "cancelled", "timestamp": 1771099775.588763, "data": {"order_id": "order_2"}}
+{"event": "submitted", "timestamp": 1771099775.623894, "data": {"order_id": "order_3", "side": "sell", "price": 208.05, "qty": 10, "timestamp": 1770733800.0}}
+{"event": "execution", "timestamp": 1771099775.624109, "data": {"order_id": "order_3", "status": "filled", "filled_qty": 10, "avg_price": 208.05}}
+{"event": "submitted", "timestamp": 1771099775.70306, "data": {"order_id": "order_4", "side": "sell", "price": 208.71, "qty": 1, "timestamp": 1770735240.0}}
+{"event": "execution", "timestamp": 1771099775.703261, "data": {"order_id": "order_4", "status": "partial", "filled_qty": 1, "avg_price": 208.71}}
+{"event": "submitted", "timestamp": 1771099775.7637398, "data": {"order_id": "order_5", "side": "buy", "price": 210.57, "qty": 10, "timestamp": 1770736380.0}}
+{"event": "execution", "timestamp": 1771099775.763935, "data": {"order_id": "order_5", "status": "partial", "filled_qty": 5, "avg_price": 210.57}}
+{"event": "submitted", "timestamp": 1771099775.821395, "data": {"order_id": "order_6", "side": "sell", "price": 212.14, "qty": 1, "timestamp": 1770737460.0}}
+{"event": "execution", "timestamp": 1771099775.821589, "data": {"order_id": "order_6", "status": "filled", "filled_qty": 1, "avg_price": 212.14}}
+{"event": "submitted", "timestamp": 1771099775.8351018, "data": {"order_id": "order_7", "side": "buy", "price": 211.71, "qty": 10, "timestamp": 1770737700.0}}
+{"event": "execution", "timestamp": 1771099775.8352158, "data": {"order_id": "order_7", "status": "filled", "filled_qty": 10, "avg_price": 211.71}}
+{"event": "submitted", "timestamp": 1771099775.8741918, "data": {"order_id": "order_8", "side": "buy", "price": 211.295, "qty": 1, "timestamp": 1770738420.0}}
+{"event": "execution", "timestamp": 1771099775.8743832, "data": {"order_id": "order_8", "status": "cancelled", "filled_qty": 0, "avg_price": 211.295}}
+{"event": "cancelled", "timestamp": 1771099775.8744378, "data": {"order_id": "order_8"}}
+{"event": "submitted", "timestamp": 1771099775.925882, "data": {"order_id": "order_9", "side": "sell", "price": 211.08, "qty": 10, "timestamp": 1770739380.0}}
+{"event": "execution", "timestamp": 1771099775.9260201, "data": {"order_id": "order_9", "status": "cancelled", "filled_qty": 0, "avg_price": 211.08}}
+{"event": "cancelled", "timestamp": 1771099775.926083, "data": {"order_id": "order_9"}}
+{"event": "submitted", "timestamp": 1771099775.9359832, "data": {"order_id": "order_10", "side": "buy", "price": 210.52, "qty": 1, "timestamp": 1770739560.0}}
+{"event": "execution", "timestamp": 1771099775.936061, "data": {"order_id": "order_10", "status": "cancelled", "filled_qty": 0, "avg_price": 210.52}}
+{"event": "cancelled", "timestamp": 1771099775.9361122, "data": {"order_id": "order_10"}}
+{"event": "submitted", "timestamp": 1771099775.999664, "data": {"order_id": "order_11", "side": "sell", "price": 210.255, "qty": 10, "timestamp": 1770740760.0}}
+{"event": "execution", "timestamp": 1771099775.9997911, "data": {"order_id": "order_11", "status": "filled", "filled_qty": 10, "avg_price": 210.255}}
+{"event": "submitted", "timestamp": 1771099776.023962, "data": {"order_id": "order_12", "side": "buy", "price": 209.9, "qty": 1, "timestamp": 1770741180.0}}
+{"event": "execution", "timestamp": 1771099776.02417, "data": {"order_id": "order_12", "status": "filled", "filled_qty": 1, "avg_price": 209.9}}
+{"event": "submitted", "timestamp": 1771099776.031138, "data": {"order_id": "order_13", "side": "sell", "price": 210.11, "qty": 10, "timestamp": 1770741300.0}}
+{"event": "execution", "timestamp": 1771099776.031231, "data": {"order_id": "order_13", "status": "filled", "filled_qty": 10, "avg_price": 210.11}}
+{"event": "submitted", "timestamp": 1771099776.064767, "data": {"order_id": "order_14", "side": "sell", "price": 210.39, "qty": 1, "timestamp": 1770741900.0}}
+{"event": "execution", "timestamp": 1771099776.06495, "data": {"order_id": "order_14", "status": "filled", "filled_qty": 1, "avg_price": 210.39}}
+{"event": "submitted", "timestamp": 1771099776.081564, "data": {"order_id": "order_15", "side": "buy", "price": 210.195, "qty": 10, "timestamp": 1770742200.0}}
+{"event": "execution", "timestamp": 1771099776.081694, "data": {"order_id": "order_15", "status": "partial", "filled_qty": 1, "avg_price": 210.195}}
+{"event": "submitted", "timestamp": 1771099776.1047418, "data": {"order_id": "order_16", "side": "buy", "price": 209.93, "qty": 1, "timestamp": 1770742620.0}}
+{"event": "execution", "timestamp": 1771099776.1048791, "data": {"order_id": "order_16", "status": "cancelled", "filled_qty": 0, "avg_price": 209.93}}
+{"event": "cancelled", "timestamp": 1771099776.1049302, "data": {"order_id": "order_16"}}
+{"event": "submitted", "timestamp": 1771099776.144316, "data": {"order_id": "order_17", "side": "sell", "price": 209.99, "qty": 10, "timestamp": 1770743340.0}}
+{"event": "execution", "timestamp": 1771099776.144454, "data": {"order_id": "order_17", "status": "filled", "filled_qty": 10, "avg_price": 209.99}}
+{"event": "submitted", "timestamp": 1771099776.161806, "data": {"order_id": "order_18", "side": "sell", "price": 210.23, "qty": 1, "timestamp": 1770743640.0}}
+{"event": "execution", "timestamp": 1771099776.1619499, "data": {"order_id": "order_18", "status": "filled", "filled_qty": 1, "avg_price": 210.23}}
+{"event": "submitted", "timestamp": 1771099776.189157, "data": {"order_id": "order_19", "side": "buy", "price": 209.845, "qty": 10, "timestamp": 1770744120.0}}
+{"event": "execution", "timestamp": 1771099776.189395, "data": {"order_id": "order_19", "status": "filled", "filled_qty": 10, "avg_price": 209.845}}
+{"event": "submitted", "timestamp": 1771099776.223318, "data": {"order_id": "order_20", "side": "sell", "price": 210.405, "qty": 1, "timestamp": 1770744720.0}}
+{"event": "execution", "timestamp": 1771099776.2234921, "data": {"order_id": "order_20", "status": "filled", "filled_qty": 1, "avg_price": 210.405}}
+{"event": "submitted", "timestamp": 1771099776.247937, "data": {"order_id": "order_21", "side": "buy", "price": 210.025, "qty": 10, "timestamp": 1770745140.0}}
+{"event": "execution", "timestamp": 1771099776.248107, "data": {"order_id": "order_21", "status": "filled", "filled_qty": 10, "avg_price": 210.025}}
+{"event": "submitted", "timestamp": 1771099776.281903, "data": {"order_id": "order_22", "side": "buy", "price": 209.805, "qty": 1, "timestamp": 1770745740.0}}
+{"event": "execution", "timestamp": 1771099776.282062, "data": {"order_id": "order_22", "status": "partial", "filled_qty": 1, "avg_price": 209.805}}
+{"event": "submitted", "timestamp": 1771099776.39358, "data": {"order_id": "order_23", "side": "sell", "price": 208.7, "qty": 10, "timestamp": 1770747720.0}}
+{"event": "execution", "timestamp": 1771099776.393783, "data": {"order_id": "order_23", "status": "filled", "filled_qty": 10, "avg_price": 208.7}}
+{"event": "submitted", "timestamp": 1771099776.4148312, "data": {"order_id": "order_24", "side": "buy", "price": 207.955, "qty": 1, "timestamp": 1770748080.0}}
+{"event": "execution", "timestamp": 1771099776.4149802, "data": {"order_id": "order_24", "status": "partial", "filled_qty": 1, "avg_price": 207.955}}
+{"event": "submitted", "timestamp": 1771099776.447138, "data": {"order_id": "order_25", "side": "sell", "price": 207.98, "qty": 10, "timestamp": 1770748620.0}}
+{"event": "execution", "timestamp": 1771099776.447325, "data": {"order_id": "order_25", "status": "filled", "filled_qty": 10, "avg_price": 207.98}}
+{"event": "submitted", "timestamp": 1771099776.472899, "data": {"order_id": "order_26", "side": "sell", "price": 208.34, "qty": 1, "timestamp": 1770749040.0}}
+{"event": "execution", "timestamp": 1771099776.47312, "data": {"order_id": "order_26", "status": "filled", "filled_qty": 1, "avg_price": 208.34}}
+{"event": "submitted", "timestamp": 1771099776.507954, "data": {"order_id": "order_27", "side": "buy", "price": 208.22, "qty": 10, "timestamp": 1770749580.0}}
+{"event": "execution", "timestamp": 1771099776.508211, "data": {"order_id": "order_27", "status": "partial", "filled_qty": 7, "avg_price": 208.22}}
+{"event": "submitted", "timestamp": 1771099776.520134, "data": {"order_id": "order_28", "side": "sell", "price": 208.69, "qty": 1, "timestamp": 1770749760.0}}
+{"event": "execution", "timestamp": 1771099776.520364, "data": {"order_id": "order_28", "status": "filled", "filled_qty": 1, "avg_price": 208.69}}
+{"event": "submitted", "timestamp": 1771099776.549939, "data": {"order_id": "order_29", "side": "buy", "price": 208.4, "qty": 10, "timestamp": 1770750240.0}}
+{"event": "execution", "timestamp": 1771099776.550129, "data": {"order_id": "order_29", "status": "partial", "filled_qty": 8, "avg_price": 208.4}}
+{"event": "rejected", "timestamp": 1771099776.557745, "data": {"order_id": "order_30", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099776.572202, "data": {"order_id": "order_31", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099776.6495922, "data": {"order_id": "order_32", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099776.710909, "data": {"order_id": "order_33", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099776.73763, "data": {"order_id": "order_34", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099776.768098, "data": {"order_id": "order_35", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099776.776445, "data": {"order_id": "order_36", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099776.7876348, "data": {"order_id": "order_37", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099776.795208, "data": {"order_id": "order_38", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099776.813409, "data": {"order_id": "order_39", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099776.8796391, "data": {"order_id": "order_40", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099776.942475, "data": {"order_id": "order_41", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099776.9612758, "data": {"order_id": "order_42", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099776.9763231, "data": {"order_id": "order_43", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.111157, "data": {"order_id": "order_44", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.1227908, "data": {"order_id": "order_45", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.141906, "data": {"order_id": "order_46", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.164736, "data": {"order_id": "order_47", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.187558, "data": {"order_id": "order_48", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.206679, "data": {"order_id": "order_49", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.218248, "data": {"order_id": "order_50", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.2757819, "data": {"order_id": "order_51", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.291969, "data": {"order_id": "order_52", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.312059, "data": {"order_id": "order_53", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.3901482, "data": {"order_id": "order_54", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.4462988, "data": {"order_id": "order_55", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.489612, "data": {"order_id": "order_56", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.5505779, "data": {"order_id": "order_57", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.585881, "data": {"order_id": "order_58", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.661908, "data": {"order_id": "order_59", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.6735969, "data": {"order_id": "order_60", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.7051709, "data": {"order_id": "order_61", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.7245739, "data": {"order_id": "order_62", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.7630239, "data": {"order_id": "order_63", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.7823958, "data": {"order_id": "order_64", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.840418, "data": {"order_id": "order_65", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.8523, "data": {"order_id": "order_66", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.887352, "data": {"order_id": "order_67", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099777.9224908, "data": {"order_id": "order_68", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099778.0202508, "data": {"order_id": "order_69", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099778.067671, "data": {"order_id": "order_70", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099778.088727, "data": {"order_id": "order_71", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099778.105418, "data": {"order_id": "order_72", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099778.142765, "data": {"order_id": "order_73", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099778.167702, "data": {"order_id": "order_74", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099778.192694, "data": {"order_id": "order_75", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099778.221923, "data": {"order_id": "order_76", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099778.242888, "data": {"order_id": "order_77", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099778.284777, "data": {"order_id": "order_78", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099778.326865, "data": {"order_id": "order_79", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099778.352234, "data": {"order_id": "order_80", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099778.407113, "data": {"order_id": "order_81", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099778.436954, "data": {"order_id": "order_82", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099778.505069, "data": {"order_id": "order_83", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099778.518085, "data": {"order_id": "order_84", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099778.561069, "data": {"order_id": "order_85", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099778.713797, "data": {"order_id": "order_86", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099778.768537, "data": {"order_id": "order_87", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099778.7951849, "data": {"order_id": "order_88", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099778.812852, "data": {"order_id": "order_89", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099778.856707, "data": {"order_id": "order_90", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099778.9006531, "data": {"order_id": "order_91", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099778.9052339, "data": {"order_id": "order_92", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099779.0731552, "data": {"order_id": "order_93", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099779.1804428, "data": {"order_id": "order_94", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099779.20306, "data": {"order_id": "order_95", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099779.281188, "data": {"order_id": "order_96", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099779.477358, "data": {"order_id": "order_97", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099779.550907, "data": {"order_id": "order_98", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099779.601803, "data": {"order_id": "order_99", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099779.662001, "data": {"order_id": "order_100", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099779.680727, "data": {"order_id": "order_101", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099779.694825, "data": {"order_id": "order_102", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099779.741368, "data": {"order_id": "order_103", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099779.774109, "data": {"order_id": "order_104", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099779.778971, "data": {"order_id": "order_105", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099779.807157, "data": {"order_id": "order_106", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099779.8636749, "data": {"order_id": "order_107", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099779.897056, "data": {"order_id": "order_108", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099779.920869, "data": {"order_id": "order_109", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099779.982319, "data": {"order_id": "order_110", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.005538, "data": {"order_id": "order_111", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.070107, "data": {"order_id": "order_112", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.07955, "data": {"order_id": "order_113", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.1028538, "data": {"order_id": "order_114", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.1909199, "data": {"order_id": "order_115", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.2422771, "data": {"order_id": "order_116", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.2936919, "data": {"order_id": "order_117", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.31728, "data": {"order_id": "order_118", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.350252, "data": {"order_id": "order_119", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.380086, "data": {"order_id": "order_120", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.414558, "data": {"order_id": "order_121", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.559954, "data": {"order_id": "order_122", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.609138, "data": {"order_id": "order_123", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.662098, "data": {"order_id": "order_124", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.667076, "data": {"order_id": "order_125", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.671998, "data": {"order_id": "order_126", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.6864781, "data": {"order_id": "order_127", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.6914198, "data": {"order_id": "order_128", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.74888, "data": {"order_id": "order_129", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.777951, "data": {"order_id": "order_130", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.808377, "data": {"order_id": "order_131", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.834347, "data": {"order_id": "order_132", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.86911, "data": {"order_id": "order_133", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.888714, "data": {"order_id": "order_134", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.922839, "data": {"order_id": "order_135", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099780.9911768, "data": {"order_id": "order_136", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099781.114114, "data": {"order_id": "order_137", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099781.18896, "data": {"order_id": "order_138", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099781.209066, "data": {"order_id": "order_139", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099781.2391858, "data": {"order_id": "order_140", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099781.244363, "data": {"order_id": "order_141", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099781.264472, "data": {"order_id": "order_142", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099781.279674, "data": {"order_id": "order_143", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099781.2898471, "data": {"order_id": "order_144", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099781.3457541, "data": {"order_id": "order_145", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099781.36121, "data": {"order_id": "order_146", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099781.416734, "data": {"order_id": "order_147", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099781.464847, "data": {"order_id": "order_148", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099781.55258, "data": {"order_id": "order_149", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099781.6008902, "data": {"order_id": "order_150", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099781.61675, "data": {"order_id": "order_151", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099781.683018, "data": {"order_id": "order_152", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099781.705419, "data": {"order_id": "order_153", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099781.7754948, "data": {"order_id": "order_154", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099781.8180008, "data": {"order_id": "order_155", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099781.8918579, "data": {"order_id": "order_156", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099781.923914, "data": {"order_id": "order_157", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099781.9296482, "data": {"order_id": "order_158", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099781.957067, "data": {"order_id": "order_159", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099782.0052521, "data": {"order_id": "order_160", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099782.010782, "data": {"order_id": "order_161", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099782.032253, "data": {"order_id": "order_162", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099782.043071, "data": {"order_id": "order_163", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099782.053947, "data": {"order_id": "order_164", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099782.1674838, "data": {"order_id": "order_165", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099782.1837351, "data": {"order_id": "order_166", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099782.205099, "data": {"order_id": "order_167", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099782.2105951, "data": {"order_id": "order_168", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099782.2265851, "data": {"order_id": "order_169", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099782.242631, "data": {"order_id": "order_170", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099782.3225238, "data": {"order_id": "order_171", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099782.354491, "data": {"order_id": "order_172", "reason": "Order rate limit exceeded"}}
+{"event": "submitted", "timestamp": 1771099791.561322, "data": {"order_id": "order_0", "side": "buy", "price": 412.52, "qty": 1, "timestamp": 1770669300.0}}
+{"event": "execution", "timestamp": 1771099791.561791, "data": {"order_id": "order_0", "status": "filled", "filled_qty": 1, "avg_price": 412.52}}
+{"event": "submitted", "timestamp": 1771099791.572028, "data": {"order_id": "order_1", "side": "sell", "price": 413.04, "qty": 10, "timestamp": 1770669480.0}}
+{"event": "execution", "timestamp": 1771099791.572155, "data": {"order_id": "order_1", "status": "filled", "filled_qty": 10, "avg_price": 413.04}}
+{"event": "submitted", "timestamp": 1771099791.5867891, "data": {"order_id": "order_2", "side": "sell", "price": 413.32, "qty": 1, "timestamp": 1770669720.0}}
+{"event": "execution", "timestamp": 1771099791.5869892, "data": {"order_id": "order_2", "status": "cancelled", "filled_qty": 0, "avg_price": 413.32}}
+{"event": "cancelled", "timestamp": 1771099791.5870569, "data": {"order_id": "order_2"}}
+{"event": "submitted", "timestamp": 1771099791.623702, "data": {"order_id": "order_3", "side": "buy", "price": 413.47, "qty": 10, "timestamp": 1770670380.0}}
+{"event": "execution", "timestamp": 1771099791.62388, "data": {"order_id": "order_3", "status": "partial", "filled_qty": 1, "avg_price": 413.47}}
+{"event": "submitted", "timestamp": 1771099791.726621, "data": {"order_id": "order_4", "side": "sell", "price": 418.69, "qty": 1, "timestamp": 1770734940.0}}
+{"event": "execution", "timestamp": 1771099791.726826, "data": {"order_id": "order_4", "status": "filled", "filled_qty": 1, "avg_price": 418.69}}
+{"event": "submitted", "timestamp": 1771099791.801068, "data": {"order_id": "order_5", "side": "buy", "price": 422.095, "qty": 10, "timestamp": 1770736320.0}}
+{"event": "execution", "timestamp": 1771099791.801307, "data": {"order_id": "order_5", "status": "partial", "filled_qty": 4, "avg_price": 422.095}}
+{"event": "submitted", "timestamp": 1771099791.815136, "data": {"order_id": "order_6", "side": "buy", "price": 420.385, "qty": 1, "timestamp": 1770736560.0}}
+{"event": "execution", "timestamp": 1771099791.8153028, "data": {"order_id": "order_6", "status": "filled", "filled_qty": 1, "avg_price": 420.385}}
+{"event": "submitted", "timestamp": 1771099791.8512352, "data": {"order_id": "order_7", "side": "sell", "price": 420.97, "qty": 10, "timestamp": 1770737220.0}}
+{"event": "execution", "timestamp": 1771099791.851438, "data": {"order_id": "order_7", "status": "filled", "filled_qty": 10, "avg_price": 420.97}}
+{"event": "submitted", "timestamp": 1771099791.864768, "data": {"order_id": "order_8", "side": "sell", "price": 421.795, "qty": 1, "timestamp": 1770737460.0}}
+{"event": "execution", "timestamp": 1771099791.864914, "data": {"order_id": "order_8", "status": "filled", "filled_qty": 1, "avg_price": 421.795}}
+{"event": "submitted", "timestamp": 1771099791.891382, "data": {"order_id": "order_9", "side": "buy", "price": 421.16, "qty": 10, "timestamp": 1770737940.0}}
+{"event": "execution", "timestamp": 1771099791.891561, "data": {"order_id": "order_9", "status": "filled", "filled_qty": 10, "avg_price": 421.16}}
+{"event": "submitted", "timestamp": 1771099791.944588, "data": {"order_id": "order_10", "side": "sell", "price": 422.2, "qty": 1, "timestamp": 1770738900.0}}
+{"event": "execution", "timestamp": 1771099791.944781, "data": {"order_id": "order_10", "status": "filled", "filled_qty": 1, "avg_price": 422.2}}
+{"event": "submitted", "timestamp": 1771099791.9481852, "data": {"order_id": "order_11", "side": "buy", "price": 421.42, "qty": 10, "timestamp": 1770738960.0}}
+{"event": "execution", "timestamp": 1771099791.9482539, "data": {"order_id": "order_11", "status": "filled", "filled_qty": 10, "avg_price": 421.42}}
+{"event": "submitted", "timestamp": 1771099791.975442, "data": {"order_id": "order_12", "side": "sell", "price": 422.5, "qty": 1, "timestamp": 1770739440.0}}
+{"event": "execution", "timestamp": 1771099791.975626, "data": {"order_id": "order_12", "status": "partial", "filled_qty": 1, "avg_price": 422.5}}
+{"event": "submitted", "timestamp": 1771099791.9822872, "data": {"order_id": "order_13", "side": "buy", "price": 421.9, "qty": 10, "timestamp": 1770739560.0}}
+{"event": "execution", "timestamp": 1771099791.982404, "data": {"order_id": "order_13", "status": "filled", "filled_qty": 10, "avg_price": 421.9}}
+{"event": "submitted", "timestamp": 1771099791.98982, "data": {"order_id": "order_14", "side": "sell", "price": 422.32, "qty": 1, "timestamp": 1770739680.0}}
+{"event": "execution", "timestamp": 1771099791.989994, "data": {"order_id": "order_14", "status": "filled", "filled_qty": 1, "avg_price": 422.32}}
+{"event": "submitted", "timestamp": 1771099791.993525, "data": {"order_id": "order_15", "side": "buy", "price": 421.73, "qty": 10, "timestamp": 1770739740.0}}
+{"event": "execution", "timestamp": 1771099791.993619, "data": {"order_id": "order_15", "status": "partial", "filled_qty": 4, "avg_price": 421.73}}
+{"event": "submitted", "timestamp": 1771099792.0303528, "data": {"order_id": "order_16", "side": "buy", "price": 421.06, "qty": 1, "timestamp": 1770740340.0}}
+{"event": "execution", "timestamp": 1771099792.030601, "data": {"order_id": "order_16", "status": "filled", "filled_qty": 1, "avg_price": 421.06}}
+{"event": "submitted", "timestamp": 1771099792.086355, "data": {"order_id": "order_17", "side": "sell", "price": 420.495, "qty": 10, "timestamp": 1770741300.0}}
+{"event": "execution", "timestamp": 1771099792.0866141, "data": {"order_id": "order_17", "status": "filled", "filled_qty": 10, "avg_price": 420.495}}
+{"event": "submitted", "timestamp": 1771099792.107564, "data": {"order_id": "order_18", "side": "sell", "price": 420.6, "qty": 1, "timestamp": 1770741660.0}}
+{"event": "execution", "timestamp": 1771099792.107759, "data": {"order_id": "order_18", "status": "filled", "filled_qty": 1, "avg_price": 420.6}}
+{"event": "submitted", "timestamp": 1771099792.11127, "data": {"order_id": "order_19", "side": "buy", "price": 420.29, "qty": 10, "timestamp": 1770741720.0}}
+{"event": "execution", "timestamp": 1771099792.1113422, "data": {"order_id": "order_19", "status": "filled", "filled_qty": 10, "avg_price": 420.29}}
+{"event": "submitted", "timestamp": 1771099792.121297, "data": {"order_id": "order_20", "side": "sell", "price": 420.605, "qty": 1, "timestamp": 1770741900.0}}
+{"event": "execution", "timestamp": 1771099792.121381, "data": {"order_id": "order_20", "status": "filled", "filled_qty": 1, "avg_price": 420.605}}
+{"event": "submitted", "timestamp": 1771099792.128268, "data": {"order_id": "order_21", "side": "buy", "price": 420.33, "qty": 10, "timestamp": 1770742020.0}}
+{"event": "execution", "timestamp": 1771099792.128427, "data": {"order_id": "order_21", "status": "filled", "filled_qty": 10, "avg_price": 420.33}}
+{"event": "submitted", "timestamp": 1771099792.142736, "data": {"order_id": "order_22", "side": "buy", "price": 420.015, "qty": 1, "timestamp": 1770742260.0}}
+{"event": "execution", "timestamp": 1771099792.1428962, "data": {"order_id": "order_22", "status": "filled", "filled_qty": 1, "avg_price": 420.015}}
+{"event": "submitted", "timestamp": 1771099792.149973, "data": {"order_id": "order_23", "side": "sell", "price": 420.315, "qty": 10, "timestamp": 1770742380.0}}
+{"event": "execution", "timestamp": 1771099792.150058, "data": {"order_id": "order_23", "status": "partial", "filled_qty": 6, "avg_price": 420.315}}
+{"event": "submitted", "timestamp": 1771099792.183938, "data": {"order_id": "order_24", "side": "buy", "price": 419.97, "qty": 1, "timestamp": 1770742980.0}}
+{"event": "execution", "timestamp": 1771099792.184135, "data": {"order_id": "order_24", "status": "filled", "filled_qty": 1, "avg_price": 419.97}}
+{"event": "submitted", "timestamp": 1771099792.202037, "data": {"order_id": "order_25", "side": "sell", "price": 420.16, "qty": 10, "timestamp": 1770743280.0}}
+{"event": "execution", "timestamp": 1771099792.202219, "data": {"order_id": "order_25", "status": "partial", "filled_qty": 1, "avg_price": 420.16}}
+{"event": "submitted", "timestamp": 1771099792.233433, "data": {"order_id": "order_26", "side": "sell", "price": 420.43, "qty": 1, "timestamp": 1770743820.0}}
+{"event": "execution", "timestamp": 1771099792.233603, "data": {"order_id": "order_26", "status": "filled", "filled_qty": 1, "avg_price": 420.43}}
+{"event": "submitted", "timestamp": 1771099792.249365, "data": {"order_id": "order_27", "side": "buy", "price": 420.125, "qty": 10, "timestamp": 1770744060.0}}
+{"event": "execution", "timestamp": 1771099792.249534, "data": {"order_id": "order_27", "status": "filled", "filled_qty": 10, "avg_price": 420.125}}
+{"event": "submitted", "timestamp": 1771099792.2870789, "data": {"order_id": "order_28", "side": "buy", "price": 420.02, "qty": 1, "timestamp": 1770744660.0}}
+{"event": "execution", "timestamp": 1771099792.287304, "data": {"order_id": "order_28", "status": "filled", "filled_qty": 1, "avg_price": 420.02}}
+{"event": "submitted", "timestamp": 1771099792.291362, "data": {"order_id": "order_29", "side": "sell", "price": 420.37, "qty": 10, "timestamp": 1770744720.0}}
+{"event": "execution", "timestamp": 1771099792.2914891, "data": {"order_id": "order_29", "status": "filled", "filled_qty": 10, "avg_price": 420.37}}
+{"event": "rejected", "timestamp": 1771099792.305741, "data": {"order_id": "order_30", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099792.3914628, "data": {"order_id": "order_31", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099792.4254, "data": {"order_id": "order_32", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099792.516045, "data": {"order_id": "order_33", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099792.526674, "data": {"order_id": "order_34", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099792.543835, "data": {"order_id": "order_35", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099792.574862, "data": {"order_id": "order_36", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099792.613504, "data": {"order_id": "order_37", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099792.635473, "data": {"order_id": "order_38", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099792.672383, "data": {"order_id": "order_39", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099792.708607, "data": {"order_id": "order_40", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099792.7196002, "data": {"order_id": "order_41", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099792.723389, "data": {"order_id": "order_42", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099792.770396, "data": {"order_id": "order_43", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099792.817825, "data": {"order_id": "order_44", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099792.905633, "data": {"order_id": "order_45", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099792.920529, "data": {"order_id": "order_46", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099792.942782, "data": {"order_id": "order_47", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099792.9986129, "data": {"order_id": "order_48", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099793.0359979, "data": {"order_id": "order_49", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099793.05108, "data": {"order_id": "order_50", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099793.066185, "data": {"order_id": "order_51", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099793.164129, "data": {"order_id": "order_52", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099793.2986398, "data": {"order_id": "order_53", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099793.314375, "data": {"order_id": "order_54", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099793.337685, "data": {"order_id": "order_55", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099793.376277, "data": {"order_id": "order_56", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099793.384182, "data": {"order_id": "order_57", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099793.415246, "data": {"order_id": "order_58", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099793.458115, "data": {"order_id": "order_59", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099793.4894369, "data": {"order_id": "order_60", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099793.512989, "data": {"order_id": "order_61", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099793.524906, "data": {"order_id": "order_62", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099793.568238, "data": {"order_id": "order_63", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099793.635405, "data": {"order_id": "order_64", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099793.679144, "data": {"order_id": "order_65", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099793.6991801, "data": {"order_id": "order_66", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099793.803306, "data": {"order_id": "order_67", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099793.819638, "data": {"order_id": "order_68", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099793.8722858, "data": {"order_id": "order_69", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099793.884588, "data": {"order_id": "order_70", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099793.957702, "data": {"order_id": "order_71", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099793.970142, "data": {"order_id": "order_72", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099794.159269, "data": {"order_id": "order_73", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099794.1844091, "data": {"order_id": "order_74", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099794.2137668, "data": {"order_id": "order_75", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099794.23901, "data": {"order_id": "order_76", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099794.260125, "data": {"order_id": "order_77", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099794.289681, "data": {"order_id": "order_78", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099794.370068, "data": {"order_id": "order_79", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099794.412817, "data": {"order_id": "order_80", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099794.442941, "data": {"order_id": "order_81", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099794.4860249, "data": {"order_id": "order_82", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099794.4948301, "data": {"order_id": "order_83", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099794.5208251, "data": {"order_id": "order_84", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099794.559874, "data": {"order_id": "order_85", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099794.607664, "data": {"order_id": "order_86", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099794.616508, "data": {"order_id": "order_87", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099794.8310559, "data": {"order_id": "order_88", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099794.849089, "data": {"order_id": "order_89", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099794.858133, "data": {"order_id": "order_90", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099794.915911, "data": {"order_id": "order_91", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099794.9649699, "data": {"order_id": "order_92", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.000857, "data": {"order_id": "order_93", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.03684, "data": {"order_id": "order_94", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.1402812, "data": {"order_id": "order_95", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.15401, "data": {"order_id": "order_96", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.181277, "data": {"order_id": "order_97", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.1860008, "data": {"order_id": "order_98", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.259014, "data": {"order_id": "order_99", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.272929, "data": {"order_id": "order_100", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.295888, "data": {"order_id": "order_101", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.346473, "data": {"order_id": "order_102", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.3880708, "data": {"order_id": "order_103", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.4310641, "data": {"order_id": "order_104", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.5288498, "data": {"order_id": "order_105", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.5429308, "data": {"order_id": "order_106", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.552314, "data": {"order_id": "order_107", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.622229, "data": {"order_id": "order_108", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.6317382, "data": {"order_id": "order_109", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.636578, "data": {"order_id": "order_110", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.660037, "data": {"order_id": "order_111", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.664862, "data": {"order_id": "order_112", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.725753, "data": {"order_id": "order_113", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.7540889, "data": {"order_id": "order_114", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.787107, "data": {"order_id": "order_115", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.7967339, "data": {"order_id": "order_116", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.9056041, "data": {"order_id": "order_117", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.915339, "data": {"order_id": "order_118", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.9345138, "data": {"order_id": "order_119", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.953748, "data": {"order_id": "order_120", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099795.992107, "data": {"order_id": "order_121", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099796.0162518, "data": {"order_id": "order_122", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099796.06426, "data": {"order_id": "order_123", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099796.112402, "data": {"order_id": "order_124", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099796.122229, "data": {"order_id": "order_125", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099796.175402, "data": {"order_id": "order_126", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099796.185228, "data": {"order_id": "order_127", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099796.199875, "data": {"order_id": "order_128", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099796.258199, "data": {"order_id": "order_129", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099796.2782872, "data": {"order_id": "order_130", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099796.355484, "data": {"order_id": "order_131", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099796.389461, "data": {"order_id": "order_132", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099796.476816, "data": {"order_id": "order_133", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099796.540321, "data": {"order_id": "order_134", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099796.555167, "data": {"order_id": "order_135", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099796.771331, "data": {"order_id": "order_136", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099796.79693, "data": {"order_id": "order_137", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099796.837709, "data": {"order_id": "order_138", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099796.883053, "data": {"order_id": "order_139", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099796.898272, "data": {"order_id": "order_140", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099796.9685178, "data": {"order_id": "order_141", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.049492, "data": {"order_id": "order_142", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.0548759, "data": {"order_id": "order_143", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.0703921, "data": {"order_id": "order_144", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.0807931, "data": {"order_id": "order_145", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.1013792, "data": {"order_id": "order_146", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.14786, "data": {"order_id": "order_147", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.1892722, "data": {"order_id": "order_148", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.350223, "data": {"order_id": "order_149", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.371386, "data": {"order_id": "order_150", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.402987, "data": {"order_id": "order_151", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.4386392, "data": {"order_id": "order_152", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.4538891, "data": {"order_id": "order_153", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.464101, "data": {"order_id": "order_154", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.504435, "data": {"order_id": "order_155", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.52975, "data": {"order_id": "order_156", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.6158369, "data": {"order_id": "order_157", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.6212108, "data": {"order_id": "order_158", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.646859, "data": {"order_id": "order_159", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.697788, "data": {"order_id": "order_160", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.7030752, "data": {"order_id": "order_161", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.723604, "data": {"order_id": "order_162", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.810493, "data": {"order_id": "order_163", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.825989, "data": {"order_id": "order_164", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.867143, "data": {"order_id": "order_165", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.975971, "data": {"order_id": "order_166", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099797.99698, "data": {"order_id": "order_167", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099798.0645041, "data": {"order_id": "order_168", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099798.106206, "data": {"order_id": "order_169", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099798.14281, "data": {"order_id": "order_170", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099798.273576, "data": {"order_id": "order_171", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099798.315661, "data": {"order_id": "order_172", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099798.34245, "data": {"order_id": "order_173", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099798.374122, "data": {"order_id": "order_174", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099798.4908988, "data": {"order_id": "order_175", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099798.523026, "data": {"order_id": "order_176", "reason": "Order rate limit exceeded"}}
+{"event": "submitted", "timestamp": 1771099965.623873, "data": {"order_id": "order_0", "side": "buy", "price": 95130.587, "qty": 0, "timestamp": 1768687200.0}}
+{"event": "execution", "timestamp": 1771099965.6248262, "data": {"order_id": "order_0", "status": "filled", "filled_qty": 0, "avg_price": 95130.587}}
+{"event": "submitted", "timestamp": 1771099965.659371, "data": {"order_id": "order_1", "side": "sell", "price": 95224.65, "qty": 10, "timestamp": 1768726800.0}}
+{"event": "execution", "timestamp": 1771099965.659511, "data": {"order_id": "order_1", "status": "filled", "filled_qty": 10, "avg_price": 95224.65}}
+{"event": "submitted", "timestamp": 1771099965.675528, "data": {"order_id": "order_2", "side": "buy", "price": 94915.113, "qty": 0, "timestamp": 1768744800.0}}
+{"event": "execution", "timestamp": 1771099965.675668, "data": {"order_id": "order_2", "status": "cancelled", "filled_qty": 0, "avg_price": 94915.113}}
+{"event": "cancelled", "timestamp": 1771099965.6757288, "data": {"order_id": "order_2"}}
+{"event": "submitted", "timestamp": 1771099965.682004, "data": {"order_id": "order_3", "side": "sell", "price": 95123.13, "qty": 10, "timestamp": 1768752000.0}}
+{"event": "execution", "timestamp": 1771099965.682082, "data": {"order_id": "order_3", "status": "partial", "filled_qty": 4, "avg_price": 95123.13}}
+{"event": "submitted", "timestamp": 1771099965.69008, "data": {"order_id": "order_4", "side": "sell", "price": 95405.975, "qty": 0, "timestamp": 1768759200.0}}
+{"event": "execution", "timestamp": 1771099965.6903071, "data": {"order_id": "order_4", "status": "cancelled", "filled_qty": 0, "avg_price": 95405.975}}
+{"event": "cancelled", "timestamp": 1771099965.690377, "data": {"order_id": "order_4"}}
+{"event": "submitted", "timestamp": 1771099965.707537, "data": {"order_id": "order_5", "side": "buy", "price": 93621.97, "qty": 0, "timestamp": 1768777200.0}}
+{"event": "execution", "timestamp": 1771099965.7077582, "data": {"order_id": "order_5", "status": "partial", "filled_qty": 1, "avg_price": 93621.97}}
+{"event": "submitted", "timestamp": 1771099965.7681448, "data": {"order_id": "order_6", "side": "sell", "price": 93197.416, "qty": 10, "timestamp": 1768842000.0}}
+{"event": "execution", "timestamp": 1771099965.768416, "data": {"order_id": "order_6", "status": "filled", "filled_qty": 10, "avg_price": 93197.416}}
+{"event": "submitted", "timestamp": 1771099965.7856681, "data": {"order_id": "order_7", "side": "buy", "price": 92477.31, "qty": 0, "timestamp": 1768860000.0}}
+{"event": "execution", "timestamp": 1771099965.7859032, "data": {"order_id": "order_7", "status": "filled", "filled_qty": 0, "avg_price": 92477.31}}
+{"event": "submitted", "timestamp": 1771099965.8918521, "data": {"order_id": "order_8", "side": "sell", "price": 89860.34, "qty": 10, "timestamp": 1768971600.0}}
+{"event": "execution", "timestamp": 1771099965.89211, "data": {"order_id": "order_8", "status": "partial", "filled_qty": 4, "avg_price": 89860.34}}
+{"event": "submitted", "timestamp": 1771099965.925449, "data": {"order_id": "order_9", "side": "sell", "price": 90192.6185, "qty": 0, "timestamp": 1769007600.0}}
+{"event": "execution", "timestamp": 1771099965.925678, "data": {"order_id": "order_9", "status": "filled", "filled_qty": 0, "avg_price": 90192.6185}}
+{"event": "submitted", "timestamp": 1771099965.929128, "data": {"order_id": "order_10", "side": "buy", "price": 87513.4085, "qty": 0, "timestamp": 1769011200.0}}
+{"event": "execution", "timestamp": 1771099965.9292061, "data": {"order_id": "order_10", "status": "filled", "filled_qty": 0, "avg_price": 87513.4085}}
+{"event": "submitted", "timestamp": 1771099965.9391968, "data": {"order_id": "order_11", "side": "sell", "price": 90282.1695, "qty": 0, "timestamp": 1769022000.0}}
+{"event": "execution", "timestamp": 1771099965.9392908, "data": {"order_id": "order_11", "status": "filled", "filled_qty": 0, "avg_price": 90282.1695}}
+{"event": "submitted", "timestamp": 1771099965.998177, "data": {"order_id": "order_12", "side": "buy", "price": 89540.195, "qty": 10, "timestamp": 1769086800.0}}
+{"event": "execution", "timestamp": 1771099965.9983501, "data": {"order_id": "order_12", "status": "filled", "filled_qty": 10, "avg_price": 89540.195}}
+{"event": "submitted", "timestamp": 1771099966.065279, "data": {"order_id": "order_13", "side": "buy", "price": 88853.38, "qty": 0, "timestamp": 1769158800.0}}
+{"event": "execution", "timestamp": 1771099966.065471, "data": {"order_id": "order_13", "status": "cancelled", "filled_qty": 0, "avg_price": 88853.38}}
+{"event": "cancelled", "timestamp": 1771099966.065543, "data": {"order_id": "order_13"}}
+{"event": "submitted", "timestamp": 1771099966.0861871, "data": {"order_id": "order_14", "side": "sell", "price": 89634.0565, "qty": 10, "timestamp": 1769180400.0}}
+{"event": "execution", "timestamp": 1771099966.08638, "data": {"order_id": "order_14", "status": "filled", "filled_qty": 10, "avg_price": 89634.0565}}
+{"event": "submitted", "timestamp": 1771099966.090166, "data": {"order_id": "order_15", "side": "sell", "price": 90010.9895, "qty": 0, "timestamp": 1769184000.0}}
+{"event": "execution", "timestamp": 1771099966.090246, "data": {"order_id": "order_15", "status": "cancelled", "filled_qty": 0, "avg_price": 90010.9895}}
+{"event": "cancelled", "timestamp": 1771099966.090302, "data": {"order_id": "order_15"}}
+{"event": "submitted", "timestamp": 1771099966.104181, "data": {"order_id": "order_16", "side": "buy", "price": 89406.2075, "qty": 10, "timestamp": 1769198400.0}}
+{"event": "execution", "timestamp": 1771099966.104351, "data": {"order_id": "order_16", "status": "filled", "filled_qty": 10, "avg_price": 89406.2075}}
+{"event": "submitted", "timestamp": 1771099966.230884, "data": {"order_id": "order_17", "side": "buy", "price": 88517.0, "qty": 0, "timestamp": 1769335200.0}}
+{"event": "execution", "timestamp": 1771099966.231115, "data": {"order_id": "order_17", "status": "filled", "filled_qty": 0, "avg_price": 88517.0}}
+{"event": "submitted", "timestamp": 1771099966.292832, "data": {"order_id": "order_18", "side": "sell", "price": 87613.315, "qty": 10, "timestamp": 1769400000.0}}
+{"event": "execution", "timestamp": 1771099966.293083, "data": {"order_id": "order_18", "status": "filled", "filled_qty": 10, "avg_price": 87613.315}}
+{"event": "submitted", "timestamp": 1771099966.342193, "data": {"order_id": "order_19", "side": "sell", "price": 88323.716, "qty": 0, "timestamp": 1769450400.0}}
+{"event": "execution", "timestamp": 1771099966.342391, "data": {"order_id": "order_19", "status": "filled", "filled_qty": 0, "avg_price": 88323.716}}
+{"event": "submitted", "timestamp": 1771099966.349548, "data": {"order_id": "order_20", "side": "buy", "price": 87549.495, "qty": 10, "timestamp": 1769457600.0}}
+{"event": "execution", "timestamp": 1771099966.349647, "data": {"order_id": "order_20", "status": "filled", "filled_qty": 10, "avg_price": 87549.495}}
+{"event": "submitted", "timestamp": 1771099966.360516, "data": {"order_id": "order_21", "side": "sell", "price": 88265.7235, "qty": 0, "timestamp": 1769468400.0}}
+{"event": "execution", "timestamp": 1771099966.3606431, "data": {"order_id": "order_21", "status": "filled", "filled_qty": 0, "avg_price": 88265.7235}}
+{"event": "submitted", "timestamp": 1771099966.392638, "data": {"order_id": "order_22", "side": "buy", "price": 88041.601, "qty": 10, "timestamp": 1769500800.0}}
+{"event": "execution", "timestamp": 1771099966.3928251, "data": {"order_id": "order_22", "status": "filled", "filled_qty": 10, "avg_price": 88041.601}}
+{"event": "submitted", "timestamp": 1771099966.424234, "data": {"order_id": "order_23", "side": "buy", "price": 87416.755, "qty": 0, "timestamp": 1769533200.0}}
+{"event": "execution", "timestamp": 1771099966.424385, "data": {"order_id": "order_23", "status": "filled", "filled_qty": 0, "avg_price": 87416.755}}
+{"event": "submitted", "timestamp": 1771099966.427949, "data": {"order_id": "order_24", "side": "sell", "price": 88170.6, "qty": 10, "timestamp": 1769536800.0}}
+{"event": "execution", "timestamp": 1771099966.42802, "data": {"order_id": "order_24", "status": "partial", "filled_qty": 4, "avg_price": 88170.6}}
+{"event": "submitted", "timestamp": 1771099966.4354281, "data": {"order_id": "order_25", "side": "sell", "price": 89297.5595, "qty": 0, "timestamp": 1769544000.0}}
+{"event": "execution", "timestamp": 1771099966.4355452, "data": {"order_id": "order_25", "status": "partial", "filled_qty": 1, "avg_price": 89297.5595}}
+{"event": "submitted", "timestamp": 1771099966.515028, "data": {"order_id": "order_26", "side": "buy", "price": 89263.295, "qty": 10, "timestamp": 1769626800.0}}
+{"event": "execution", "timestamp": 1771099966.515193, "data": {"order_id": "order_26", "status": "filled", "filled_qty": 10, "avg_price": 89263.295}}
+{"event": "submitted", "timestamp": 1771099966.536546, "data": {"order_id": "order_27", "side": "buy", "price": 88466.979, "qty": 0, "timestamp": 1769648400.0}}
+{"event": "execution", "timestamp": 1771099966.536709, "data": {"order_id": "order_27", "status": "cancelled", "filled_qty": 0, "avg_price": 88466.979}}
+{"event": "cancelled", "timestamp": 1771099966.5367758, "data": {"order_id": "order_27"}}
+{"event": "submitted", "timestamp": 1771099966.65439, "data": {"order_id": "order_28", "side": "sell", "price": 83002.6165, "qty": 10, "timestamp": 1769770800.0}}
+{"event": "execution", "timestamp": 1771099966.654572, "data": {"order_id": "order_28", "status": "partial", "filled_qty": 3, "avg_price": 83002.6165}}
+{"event": "submitted", "timestamp": 1771099966.682555, "data": {"order_id": "order_29", "side": "sell", "price": 84107.255, "qty": 0, "timestamp": 1769799600.0}}
+{"event": "execution", "timestamp": 1771099966.6827672, "data": {"order_id": "order_29", "status": "cancelled", "filled_qty": 0, "avg_price": 84107.255}}
+{"event": "cancelled", "timestamp": 1771099966.682834, "data": {"order_id": "order_29"}}
+{"event": "rejected", "timestamp": 1771099966.690284, "data": {"order_id": "order_30", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099966.701169, "data": {"order_id": "order_31", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099966.7253902, "data": {"order_id": "order_32", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099966.742686, "data": {"order_id": "order_33", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099966.903399, "data": {"order_id": "order_34", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099966.917877, "data": {"order_id": "order_35", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099966.964052, "data": {"order_id": "order_36", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099967.026588, "data": {"order_id": "order_37", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099967.0671349, "data": {"order_id": "order_38", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099967.09284, "data": {"order_id": "order_39", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099967.24354, "data": {"order_id": "order_40", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099967.2774038, "data": {"order_id": "order_41", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099967.33283, "data": {"order_id": "order_42", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099967.428606, "data": {"order_id": "order_43", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099967.454678, "data": {"order_id": "order_44", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099967.5177321, "data": {"order_id": "order_45", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099967.547712, "data": {"order_id": "order_46", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099967.60025, "data": {"order_id": "order_47", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099967.6379719, "data": {"order_id": "order_48", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099967.679647, "data": {"order_id": "order_49", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099967.740535, "data": {"order_id": "order_50", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099967.797919, "data": {"order_id": "order_51", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099967.8172932, "data": {"order_id": "order_52", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771099967.821301, "data": {"order_id": "order_53", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099967.859999, "data": {"order_id": "order_54", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099967.9035652, "data": {"order_id": "order_55", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771099968.024854, "data": {"order_id": "order_56", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771100143.924468, "data": {"order_id": "order_0", "side": "buy", "price": 95130.587, "qty": 0, "timestamp": 1768687200.0}}
+{"event": "execution", "timestamp": 1771100143.924952, "data": {"order_id": "order_0", "status": "filled", "filled_qty": 0, "avg_price": 95130.587}}
+{"event": "submitted", "timestamp": 1771100143.959014, "data": {"order_id": "order_1", "side": "sell", "price": 95224.65, "qty": 10, "timestamp": 1768726800.0}}
+{"event": "execution", "timestamp": 1771100143.9591072, "data": {"order_id": "order_1", "status": "filled", "filled_qty": 10, "avg_price": 95224.65}}
+{"event": "submitted", "timestamp": 1771100143.975446, "data": {"order_id": "order_2", "side": "buy", "price": 94915.113, "qty": 0, "timestamp": 1768744800.0}}
+{"event": "execution", "timestamp": 1771100143.97559, "data": {"order_id": "order_2", "status": "partial", "filled_qty": 1, "avg_price": 94915.113}}
+{"event": "submitted", "timestamp": 1771100143.982839, "data": {"order_id": "order_3", "side": "sell", "price": 95123.13, "qty": 10, "timestamp": 1768752000.0}}
+{"event": "execution", "timestamp": 1771100143.983021, "data": {"order_id": "order_3", "status": "filled", "filled_qty": 10, "avg_price": 95123.13}}
+{"event": "submitted", "timestamp": 1771100143.9897442, "data": {"order_id": "order_4", "side": "sell", "price": 95405.975, "qty": 0, "timestamp": 1768759200.0}}
+{"event": "execution", "timestamp": 1771100143.989826, "data": {"order_id": "order_4", "status": "cancelled", "filled_qty": 0, "avg_price": 95405.975}}
+{"event": "cancelled", "timestamp": 1771100143.9898791, "data": {"order_id": "order_4"}}
+{"event": "submitted", "timestamp": 1771100144.005913, "data": {"order_id": "order_5", "side": "buy", "price": 93621.97, "qty": 0, "timestamp": 1768777200.0}}
+{"event": "execution", "timestamp": 1771100144.006104, "data": {"order_id": "order_5", "status": "partial", "filled_qty": 1, "avg_price": 93621.97}}
+{"event": "submitted", "timestamp": 1771100144.0671601, "data": {"order_id": "order_6", "side": "sell", "price": 93197.416, "qty": 10, "timestamp": 1768842000.0}}
+{"event": "execution", "timestamp": 1771100144.0673852, "data": {"order_id": "order_6", "status": "filled", "filled_qty": 10, "avg_price": 93197.416}}
+{"event": "submitted", "timestamp": 1771100144.084517, "data": {"order_id": "order_7", "side": "buy", "price": 92477.31, "qty": 0, "timestamp": 1768860000.0}}
+{"event": "execution", "timestamp": 1771100144.084727, "data": {"order_id": "order_7", "status": "filled", "filled_qty": 0, "avg_price": 92477.31}}
+{"event": "submitted", "timestamp": 1771100144.184194, "data": {"order_id": "order_8", "side": "sell", "price": 89860.34, "qty": 10, "timestamp": 1768971600.0}}
+{"event": "execution", "timestamp": 1771100144.184441, "data": {"order_id": "order_8", "status": "filled", "filled_qty": 10, "avg_price": 89860.34}}
+{"event": "submitted", "timestamp": 1771100144.217155, "data": {"order_id": "order_9", "side": "sell", "price": 90192.6185, "qty": 0, "timestamp": 1769007600.0}}
+{"event": "execution", "timestamp": 1771100144.217343, "data": {"order_id": "order_9", "status": "filled", "filled_qty": 0, "avg_price": 90192.6185}}
+{"event": "submitted", "timestamp": 1771100144.220664, "data": {"order_id": "order_10", "side": "buy", "price": 87513.4085, "qty": 0, "timestamp": 1769011200.0}}
+{"event": "execution", "timestamp": 1771100144.220732, "data": {"order_id": "order_10", "status": "filled", "filled_qty": 0, "avg_price": 87513.4085}}
+{"event": "submitted", "timestamp": 1771100144.230858, "data": {"order_id": "order_11", "side": "sell", "price": 90282.1695, "qty": 0, "timestamp": 1769022000.0}}
+{"event": "execution", "timestamp": 1771100144.2309692, "data": {"order_id": "order_11", "status": "filled", "filled_qty": 0, "avg_price": 90282.1695}}
+{"event": "submitted", "timestamp": 1771100144.2893682, "data": {"order_id": "order_12", "side": "buy", "price": 89540.195, "qty": 10, "timestamp": 1769086800.0}}
+{"event": "execution", "timestamp": 1771100144.2895029, "data": {"order_id": "order_12", "status": "filled", "filled_qty": 10, "avg_price": 89540.195}}
+{"event": "submitted", "timestamp": 1771100144.357074, "data": {"order_id": "order_13", "side": "buy", "price": 88853.38, "qty": 0, "timestamp": 1769158800.0}}
+{"event": "execution", "timestamp": 1771100144.357305, "data": {"order_id": "order_13", "status": "filled", "filled_qty": 0, "avg_price": 88853.38}}
+{"event": "submitted", "timestamp": 1771100144.377492, "data": {"order_id": "order_14", "side": "sell", "price": 89634.0565, "qty": 10, "timestamp": 1769180400.0}}
+{"event": "execution", "timestamp": 1771100144.377585, "data": {"order_id": "order_14", "status": "filled", "filled_qty": 10, "avg_price": 89634.0565}}
+{"event": "submitted", "timestamp": 1771100144.381046, "data": {"order_id": "order_15", "side": "sell", "price": 90010.9895, "qty": 0, "timestamp": 1769184000.0}}
+{"event": "execution", "timestamp": 1771100144.381116, "data": {"order_id": "order_15", "status": "filled", "filled_qty": 0, "avg_price": 90010.9895}}
+{"event": "submitted", "timestamp": 1771100144.394751, "data": {"order_id": "order_16", "side": "buy", "price": 89406.2075, "qty": 10, "timestamp": 1769198400.0}}
+{"event": "execution", "timestamp": 1771100144.39487, "data": {"order_id": "order_16", "status": "cancelled", "filled_qty": 0, "avg_price": 89406.2075}}
+{"event": "cancelled", "timestamp": 1771100144.394921, "data": {"order_id": "order_16"}}
+{"event": "submitted", "timestamp": 1771100144.521708, "data": {"order_id": "order_17", "side": "buy", "price": 88517.0, "qty": 0, "timestamp": 1769335200.0}}
+{"event": "execution", "timestamp": 1771100144.5219378, "data": {"order_id": "order_17", "status": "filled", "filled_qty": 0, "avg_price": 88517.0}}
+{"event": "submitted", "timestamp": 1771100144.5829608, "data": {"order_id": "order_18", "side": "sell", "price": 87613.315, "qty": 10, "timestamp": 1769400000.0}}
+{"event": "execution", "timestamp": 1771100144.5832078, "data": {"order_id": "order_18", "status": "filled", "filled_qty": 10, "avg_price": 87613.315}}
+{"event": "submitted", "timestamp": 1771100144.631208, "data": {"order_id": "order_19", "side": "sell", "price": 88323.716, "qty": 0, "timestamp": 1769450400.0}}
+{"event": "execution", "timestamp": 1771100144.631386, "data": {"order_id": "order_19", "status": "filled", "filled_qty": 0, "avg_price": 88323.716}}
+{"event": "submitted", "timestamp": 1771100144.6382248, "data": {"order_id": "order_20", "side": "buy", "price": 87549.495, "qty": 10, "timestamp": 1769457600.0}}
+{"event": "execution", "timestamp": 1771100144.638304, "data": {"order_id": "order_20", "status": "partial", "filled_qty": 3, "avg_price": 87549.495}}
+{"event": "submitted", "timestamp": 1771100144.6490839, "data": {"order_id": "order_21", "side": "sell", "price": 88265.7235, "qty": 0, "timestamp": 1769468400.0}}
+{"event": "execution", "timestamp": 1771100144.64923, "data": {"order_id": "order_21", "status": "filled", "filled_qty": 0, "avg_price": 88265.7235}}
+{"event": "submitted", "timestamp": 1771100144.680566, "data": {"order_id": "order_22", "side": "buy", "price": 88041.601, "qty": 10, "timestamp": 1769500800.0}}
+{"event": "execution", "timestamp": 1771100144.680738, "data": {"order_id": "order_22", "status": "filled", "filled_qty": 10, "avg_price": 88041.601}}
+{"event": "submitted", "timestamp": 1771100144.712456, "data": {"order_id": "order_23", "side": "buy", "price": 87416.755, "qty": 0, "timestamp": 1769533200.0}}
+{"event": "execution", "timestamp": 1771100144.7126882, "data": {"order_id": "order_23", "status": "cancelled", "filled_qty": 0, "avg_price": 87416.755}}
+{"event": "cancelled", "timestamp": 1771100144.712759, "data": {"order_id": "order_23"}}
+{"event": "submitted", "timestamp": 1771100144.716466, "data": {"order_id": "order_24", "side": "sell", "price": 88170.6, "qty": 10, "timestamp": 1769536800.0}}
+{"event": "execution", "timestamp": 1771100144.716545, "data": {"order_id": "order_24", "status": "partial", "filled_qty": 6, "avg_price": 88170.6}}
+{"event": "submitted", "timestamp": 1771100144.723818, "data": {"order_id": "order_25", "side": "sell", "price": 89297.5595, "qty": 0, "timestamp": 1769544000.0}}
+{"event": "execution", "timestamp": 1771100144.723907, "data": {"order_id": "order_25", "status": "filled", "filled_qty": 0, "avg_price": 89297.5595}}
+{"event": "submitted", "timestamp": 1771100144.804685, "data": {"order_id": "order_26", "side": "buy", "price": 89263.295, "qty": 10, "timestamp": 1769626800.0}}
+{"event": "execution", "timestamp": 1771100144.804899, "data": {"order_id": "order_26", "status": "filled", "filled_qty": 10, "avg_price": 89263.295}}
+{"event": "submitted", "timestamp": 1771100144.826463, "data": {"order_id": "order_27", "side": "buy", "price": 88466.979, "qty": 0, "timestamp": 1769648400.0}}
+{"event": "execution", "timestamp": 1771100144.826623, "data": {"order_id": "order_27", "status": "partial", "filled_qty": 1, "avg_price": 88466.979}}
+{"event": "submitted", "timestamp": 1771100144.9454541, "data": {"order_id": "order_28", "side": "sell", "price": 83002.6165, "qty": 10, "timestamp": 1769770800.0}}
+{"event": "execution", "timestamp": 1771100144.9456818, "data": {"order_id": "order_28", "status": "filled", "filled_qty": 10, "avg_price": 83002.6165}}
+{"event": "submitted", "timestamp": 1771100144.9748638, "data": {"order_id": "order_29", "side": "sell", "price": 84107.255, "qty": 0, "timestamp": 1769799600.0}}
+{"event": "execution", "timestamp": 1771100144.975035, "data": {"order_id": "order_29", "status": "filled", "filled_qty": 0, "avg_price": 84107.255}}
+{"event": "rejected", "timestamp": 1771100144.982697, "data": {"order_id": "order_30", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100144.993739, "data": {"order_id": "order_31", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100145.018749, "data": {"order_id": "order_32", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100145.03658, "data": {"order_id": "order_33", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100145.19933, "data": {"order_id": "order_34", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100145.213956, "data": {"order_id": "order_35", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100145.2615979, "data": {"order_id": "order_36", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100145.324925, "data": {"order_id": "order_37", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100145.365099, "data": {"order_id": "order_38", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100145.390697, "data": {"order_id": "order_39", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100145.5424798, "data": {"order_id": "order_40", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100145.5765388, "data": {"order_id": "order_41", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100145.632252, "data": {"order_id": "order_42", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100145.73024, "data": {"order_id": "order_43", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100145.756751, "data": {"order_id": "order_44", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100145.8206878, "data": {"order_id": "order_45", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100145.8513339, "data": {"order_id": "order_46", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100145.9046872, "data": {"order_id": "order_47", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100145.9433699, "data": {"order_id": "order_48", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100145.9860501, "data": {"order_id": "order_49", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100146.048248, "data": {"order_id": "order_50", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100146.1067479, "data": {"order_id": "order_51", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100146.126845, "data": {"order_id": "order_52", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100146.1310441, "data": {"order_id": "order_53", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100146.170826, "data": {"order_id": "order_54", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100146.222645, "data": {"order_id": "order_55", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100146.3540149, "data": {"order_id": "order_56", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100212.507745, "data": {"order_id": "order_0", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771100212.5437949, "data": {"order_id": "order_1", "side": "sell", "price": 95224.65, "qty": 10, "timestamp": 1768726800.0}}
+{"event": "execution", "timestamp": 1771100212.543919, "data": {"order_id": "order_1", "status": "cancelled", "filled_qty": 0, "avg_price": 95224.65}}
+{"event": "cancelled", "timestamp": 1771100212.543979, "data": {"order_id": "order_1"}}
+{"event": "rejected", "timestamp": 1771100212.5599658, "data": {"order_id": "order_2", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771100212.566476, "data": {"order_id": "order_3", "side": "sell", "price": 95123.13, "qty": 10, "timestamp": 1768752000.0}}
+{"event": "execution", "timestamp": 1771100212.566546, "data": {"order_id": "order_3", "status": "filled", "filled_qty": 10, "avg_price": 95123.13}}
+{"event": "submitted", "timestamp": 1771100212.573152, "data": {"order_id": "order_4", "side": "sell", "price": 95405.975, "qty": 1, "timestamp": 1768759200.0}}
+{"event": "execution", "timestamp": 1771100212.573222, "data": {"order_id": "order_4", "status": "filled", "filled_qty": 1, "avg_price": 95405.975}}
+{"event": "submitted", "timestamp": 1771100212.5903108, "data": {"order_id": "order_5", "side": "buy", "price": 93621.97, "qty": 1, "timestamp": 1768777200.0}}
+{"event": "execution", "timestamp": 1771100212.590485, "data": {"order_id": "order_5", "status": "filled", "filled_qty": 1, "avg_price": 93621.97}}
+{"event": "submitted", "timestamp": 1771100212.651167, "data": {"order_id": "order_6", "side": "sell", "price": 93197.416, "qty": 10, "timestamp": 1768842000.0}}
+{"event": "execution", "timestamp": 1771100212.6514041, "data": {"order_id": "order_6", "status": "partial", "filled_qty": 4, "avg_price": 93197.416}}
+{"event": "submitted", "timestamp": 1771100212.667659, "data": {"order_id": "order_7", "side": "buy", "price": 92477.31, "qty": 1, "timestamp": 1768860000.0}}
+{"event": "execution", "timestamp": 1771100212.667843, "data": {"order_id": "order_7", "status": "partial", "filled_qty": 1, "avg_price": 92477.31}}
+{"event": "submitted", "timestamp": 1771100212.7684212, "data": {"order_id": "order_8", "side": "sell", "price": 89860.34, "qty": 10, "timestamp": 1768971600.0}}
+{"event": "execution", "timestamp": 1771100212.768666, "data": {"order_id": "order_8", "status": "filled", "filled_qty": 10, "avg_price": 89860.34}}
+{"event": "submitted", "timestamp": 1771100212.801358, "data": {"order_id": "order_9", "side": "sell", "price": 90192.6185, "qty": 1, "timestamp": 1769007600.0}}
+{"event": "execution", "timestamp": 1771100212.801575, "data": {"order_id": "order_9", "status": "partial", "filled_qty": 1, "avg_price": 90192.6185}}
+{"event": "submitted", "timestamp": 1771100212.804957, "data": {"order_id": "order_10", "side": "buy", "price": 87513.4085, "qty": 1, "timestamp": 1769011200.0}}
+{"event": "execution", "timestamp": 1771100212.8050292, "data": {"order_id": "order_10", "status": "filled", "filled_qty": 1, "avg_price": 87513.4085}}
+{"event": "submitted", "timestamp": 1771100212.815392, "data": {"order_id": "order_11", "side": "sell", "price": 90282.1695, "qty": 1, "timestamp": 1769022000.0}}
+{"event": "execution", "timestamp": 1771100212.815534, "data": {"order_id": "order_11", "status": "filled", "filled_qty": 1, "avg_price": 90282.1695}}
+{"event": "submitted", "timestamp": 1771100212.8741891, "data": {"order_id": "order_12", "side": "buy", "price": 89540.195, "qty": 10, "timestamp": 1769086800.0}}
+{"event": "execution", "timestamp": 1771100212.8744042, "data": {"order_id": "order_12", "status": "filled", "filled_qty": 10, "avg_price": 89540.195}}
+{"event": "submitted", "timestamp": 1771100212.9408052, "data": {"order_id": "order_13", "side": "buy", "price": 88853.38, "qty": 1, "timestamp": 1769158800.0}}
+{"event": "execution", "timestamp": 1771100212.940982, "data": {"order_id": "order_13", "status": "filled", "filled_qty": 1, "avg_price": 88853.38}}
+{"event": "submitted", "timestamp": 1771100212.9615731, "data": {"order_id": "order_14", "side": "sell", "price": 89634.0565, "qty": 10, "timestamp": 1769180400.0}}
+{"event": "execution", "timestamp": 1771100212.961805, "data": {"order_id": "order_14", "status": "filled", "filled_qty": 10, "avg_price": 89634.0565}}
+{"event": "submitted", "timestamp": 1771100212.965399, "data": {"order_id": "order_15", "side": "sell", "price": 90010.9895, "qty": 1, "timestamp": 1769184000.0}}
+{"event": "execution", "timestamp": 1771100212.965478, "data": {"order_id": "order_15", "status": "filled", "filled_qty": 1, "avg_price": 90010.9895}}
+{"event": "submitted", "timestamp": 1771100212.97894, "data": {"order_id": "order_16", "side": "buy", "price": 89406.2075, "qty": 10, "timestamp": 1769198400.0}}
+{"event": "execution", "timestamp": 1771100212.9790862, "data": {"order_id": "order_16", "status": "partial", "filled_qty": 4, "avg_price": 89406.2075}}
+{"event": "submitted", "timestamp": 1771100213.105516, "data": {"order_id": "order_17", "side": "buy", "price": 88517.0, "qty": 1, "timestamp": 1769335200.0}}
+{"event": "execution", "timestamp": 1771100213.105765, "data": {"order_id": "order_17", "status": "cancelled", "filled_qty": 0, "avg_price": 88517.0}}
+{"event": "cancelled", "timestamp": 1771100213.106028, "data": {"order_id": "order_17"}}
+{"event": "submitted", "timestamp": 1771100213.166652, "data": {"order_id": "order_18", "side": "sell", "price": 87613.315, "qty": 10, "timestamp": 1769400000.0}}
+{"event": "execution", "timestamp": 1771100213.1668942, "data": {"order_id": "order_18", "status": "filled", "filled_qty": 10, "avg_price": 87613.315}}
+{"event": "submitted", "timestamp": 1771100213.2153358, "data": {"order_id": "order_19", "side": "sell", "price": 88323.716, "qty": 1, "timestamp": 1769450400.0}}
+{"event": "execution", "timestamp": 1771100213.215543, "data": {"order_id": "order_19", "status": "filled", "filled_qty": 1, "avg_price": 88323.716}}
+{"event": "submitted", "timestamp": 1771100213.222604, "data": {"order_id": "order_20", "side": "buy", "price": 87549.495, "qty": 10, "timestamp": 1769457600.0}}
+{"event": "execution", "timestamp": 1771100213.2227032, "data": {"order_id": "order_20", "status": "partial", "filled_qty": 4, "avg_price": 87549.495}}
+{"event": "submitted", "timestamp": 1771100213.232928, "data": {"order_id": "order_21", "side": "sell", "price": 88265.7235, "qty": 1, "timestamp": 1769468400.0}}
+{"event": "execution", "timestamp": 1771100213.2330189, "data": {"order_id": "order_21", "status": "filled", "filled_qty": 1, "avg_price": 88265.7235}}
+{"event": "submitted", "timestamp": 1771100213.26472, "data": {"order_id": "order_22", "side": "buy", "price": 88041.601, "qty": 10, "timestamp": 1769500800.0}}
+{"event": "execution", "timestamp": 1771100213.264917, "data": {"order_id": "order_22", "status": "filled", "filled_qty": 10, "avg_price": 88041.601}}
+{"event": "submitted", "timestamp": 1771100213.296754, "data": {"order_id": "order_23", "side": "buy", "price": 87416.755, "qty": 1, "timestamp": 1769533200.0}}
+{"event": "execution", "timestamp": 1771100213.2969642, "data": {"order_id": "order_23", "status": "filled", "filled_qty": 1, "avg_price": 87416.755}}
+{"event": "submitted", "timestamp": 1771100213.300645, "data": {"order_id": "order_24", "side": "sell", "price": 88170.6, "qty": 10, "timestamp": 1769536800.0}}
+{"event": "execution", "timestamp": 1771100213.300719, "data": {"order_id": "order_24", "status": "filled", "filled_qty": 10, "avg_price": 88170.6}}
+{"event": "submitted", "timestamp": 1771100213.308042, "data": {"order_id": "order_25", "side": "sell", "price": 89297.5595, "qty": 1, "timestamp": 1769544000.0}}
+{"event": "execution", "timestamp": 1771100213.308206, "data": {"order_id": "order_25", "status": "cancelled", "filled_qty": 0, "avg_price": 89297.5595}}
+{"event": "cancelled", "timestamp": 1771100213.308268, "data": {"order_id": "order_25"}}
+{"event": "submitted", "timestamp": 1771100213.3875232, "data": {"order_id": "order_26", "side": "buy", "price": 89263.295, "qty": 10, "timestamp": 1769626800.0}}
+{"event": "execution", "timestamp": 1771100213.387729, "data": {"order_id": "order_26", "status": "filled", "filled_qty": 10, "avg_price": 89263.295}}
+{"event": "submitted", "timestamp": 1771100213.408946, "data": {"order_id": "order_27", "side": "buy", "price": 88466.979, "qty": 1, "timestamp": 1769648400.0}}
+{"event": "execution", "timestamp": 1771100213.4091089, "data": {"order_id": "order_27", "status": "partial", "filled_qty": 1, "avg_price": 88466.979}}
+{"event": "submitted", "timestamp": 1771100213.528796, "data": {"order_id": "order_28", "side": "sell", "price": 83002.6165, "qty": 10, "timestamp": 1769770800.0}}
+{"event": "execution", "timestamp": 1771100213.5289888, "data": {"order_id": "order_28", "status": "filled", "filled_qty": 10, "avg_price": 83002.6165}}
+{"event": "submitted", "timestamp": 1771100213.5578601, "data": {"order_id": "order_29", "side": "sell", "price": 84107.255, "qty": 1, "timestamp": 1769799600.0}}
+{"event": "execution", "timestamp": 1771100213.5580711, "data": {"order_id": "order_29", "status": "filled", "filled_qty": 1, "avg_price": 84107.255}}
+{"event": "submitted", "timestamp": 1771100213.565396, "data": {"order_id": "order_30", "side": "buy", "price": 84142.28, "qty": 10, "timestamp": 1769806800.0}}
+{"event": "execution", "timestamp": 1771100213.565506, "data": {"order_id": "order_30", "status": "filled", "filled_qty": 10, "avg_price": 84142.28}}
+{"event": "submitted", "timestamp": 1771100213.576789, "data": {"order_id": "order_31", "side": "sell", "price": 83938.05, "qty": 1, "timestamp": 1769817600.0}}
+{"event": "execution", "timestamp": 1771100213.5769641, "data": {"order_id": "order_31", "status": "partial", "filled_qty": 1, "avg_price": 83938.05}}
+{"event": "rejected", "timestamp": 1771100213.602544, "data": {"order_id": "order_32", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100213.620845, "data": {"order_id": "order_33", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100213.7812061, "data": {"order_id": "order_34", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100213.795905, "data": {"order_id": "order_35", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100213.842462, "data": {"order_id": "order_36", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100213.903459, "data": {"order_id": "order_37", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100213.944382, "data": {"order_id": "order_38", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100213.9696069, "data": {"order_id": "order_39", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100214.1203232, "data": {"order_id": "order_40", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100214.153415, "data": {"order_id": "order_41", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100214.209507, "data": {"order_id": "order_42", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100214.3063931, "data": {"order_id": "order_43", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100214.332746, "data": {"order_id": "order_44", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100214.3966138, "data": {"order_id": "order_45", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100214.42699, "data": {"order_id": "order_46", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100214.4810188, "data": {"order_id": "order_47", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100214.52045, "data": {"order_id": "order_48", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100214.563923, "data": {"order_id": "order_49", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100214.627477, "data": {"order_id": "order_50", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100214.6858351, "data": {"order_id": "order_51", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100214.705256, "data": {"order_id": "order_52", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100214.709281, "data": {"order_id": "order_53", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100214.7481768, "data": {"order_id": "order_54", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100214.790942, "data": {"order_id": "order_55", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100214.9079008, "data": {"order_id": "order_56", "reason": "Order rate limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100502.4945128, "data": {"order_id": "order_0", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771100502.530994, "data": {"order_id": "order_1", "side": "sell", "price": 95224.65, "qty": 10, "timestamp": 1768726800.0}}
+{"event": "execution", "timestamp": 1771100502.531109, "data": {"order_id": "order_1", "status": "filled", "filled_qty": 10, "avg_price": 95224.65}}
+{"event": "rejected", "timestamp": 1771100502.546866, "data": {"order_id": "order_2", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771100502.5539572, "data": {"order_id": "order_3", "side": "sell", "price": 95123.13, "qty": 10, "timestamp": 1768752000.0}}
+{"event": "execution", "timestamp": 1771100502.5540879, "data": {"order_id": "order_3", "status": "filled", "filled_qty": 10, "avg_price": 95123.13}}
+{"event": "rejected", "timestamp": 1771100502.5604732, "data": {"order_id": "order_4", "reason": "Position limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100502.5777879, "data": {"order_id": "order_5", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771100502.6357918, "data": {"order_id": "order_6", "side": "sell", "price": 93197.416, "qty": 10, "timestamp": 1768842000.0}}
+{"event": "execution", "timestamp": 1771100502.635985, "data": {"order_id": "order_6", "status": "partial", "filled_qty": 4, "avg_price": 93197.416}}
+{"event": "rejected", "timestamp": 1771100502.652374, "data": {"order_id": "order_7", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771100502.8005672, "data": {"order_id": "order_8", "side": "sell", "price": 89860.34, "qty": 10, "timestamp": 1768971600.0}}
+{"event": "execution", "timestamp": 1771100502.800889, "data": {"order_id": "order_8", "status": "filled", "filled_qty": 10, "avg_price": 89860.34}}
+{"event": "rejected", "timestamp": 1771100502.83642, "data": {"order_id": "order_9", "reason": "Position limit exceeded"}}
+{"event": "rejected", "timestamp": 1771100502.839927, "data": {"order_id": "order_10", "reason": "Not enough capital"}}
+{"event": "rejected", "timestamp": 1771100502.8495722, "data": {"order_id": "order_11", "reason": "Position limit exceeded"}}
+{"event": "submitted", "timestamp": 1771100502.907202, "data": {"order_id": "order_12", "side": "buy", "price": 89540.195, "qty": 10, "timestamp": 1769086800.0}}
+{"event": "execution", "timestamp": 1771100502.9074402, "data": {"order_id": "order_12", "status": "partial", "filled_qty": 2, "avg_price": 89540.195}}
+{"event": "rejected", "timestamp": 1771100502.974535, "data": {"order_id": "order_13", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771100502.994266, "data": {"order_id": "order_14", "side": "sell", "price": 89634.0565, "qty": 10, "timestamp": 1769180400.0}}
+{"event": "execution", "timestamp": 1771100502.994393, "data": {"order_id": "order_14", "status": "filled", "filled_qty": 10, "avg_price": 89634.0565}}
+{"event": "rejected", "timestamp": 1771100502.997799, "data": {"order_id": "order_15", "reason": "Position limit exceeded"}}
+{"event": "submitted", "timestamp": 1771100503.0112371, "data": {"order_id": "order_16", "side": "buy", "price": 89406.2075, "qty": 10, "timestamp": 1769198400.0}}
+{"event": "execution", "timestamp": 1771100503.011352, "data": {"order_id": "order_16", "status": "filled", "filled_qty": 10, "avg_price": 89406.2075}}
+{"event": "rejected", "timestamp": 1771100503.138484, "data": {"order_id": "order_17", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771100503.19952, "data": {"order_id": "order_18", "side": "sell", "price": 87613.315, "qty": 10, "timestamp": 1769400000.0}}
+{"event": "execution", "timestamp": 1771100503.199699, "data": {"order_id": "order_18", "status": "partial", "filled_qty": 4, "avg_price": 87613.315}}
+{"event": "rejected", "timestamp": 1771100503.2478552, "data": {"order_id": "order_19", "reason": "Position limit exceeded"}}
+{"event": "submitted", "timestamp": 1771100503.25517, "data": {"order_id": "order_20", "side": "buy", "price": 87549.495, "qty": 10, "timestamp": 1769457600.0}}
+{"event": "execution", "timestamp": 1771100503.255285, "data": {"order_id": "order_20", "status": "cancelled", "filled_qty": 0, "avg_price": 87549.495}}
+{"event": "cancelled", "timestamp": 1771100503.2553449, "data": {"order_id": "order_20"}}
+{"event": "rejected", "timestamp": 1771100503.2659059, "data": {"order_id": "order_21", "reason": "Position limit exceeded"}}
+{"event": "submitted", "timestamp": 1771100503.296876, "data": {"order_id": "order_22", "side": "buy", "price": 88041.601, "qty": 10, "timestamp": 1769500800.0}}
+{"event": "execution", "timestamp": 1771100503.297001, "data": {"order_id": "order_22", "status": "filled", "filled_qty": 10, "avg_price": 88041.601}}
+{"event": "rejected", "timestamp": 1771100503.328074, "data": {"order_id": "order_23", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771100503.3319628, "data": {"order_id": "order_24", "side": "sell", "price": 88170.6, "qty": 10, "timestamp": 1769536800.0}}
+{"event": "execution", "timestamp": 1771100503.3320699, "data": {"order_id": "order_24", "status": "filled", "filled_qty": 10, "avg_price": 88170.6}}
+{"event": "rejected", "timestamp": 1771100503.3394098, "data": {"order_id": "order_25", "reason": "Position limit exceeded"}}
+{"event": "submitted", "timestamp": 1771100503.419647, "data": {"order_id": "order_26", "side": "buy", "price": 89263.295, "qty": 10, "timestamp": 1769626800.0}}
+{"event": "execution", "timestamp": 1771100503.419816, "data": {"order_id": "order_26", "status": "filled", "filled_qty": 10, "avg_price": 89263.295}}
+{"event": "rejected", "timestamp": 1771100503.441479, "data": {"order_id": "order_27", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771100503.559466, "data": {"order_id": "order_28", "side": "sell", "price": 83002.6165, "qty": 10, "timestamp": 1769770800.0}}
+{"event": "execution", "timestamp": 1771100503.5596821, "data": {"order_id": "order_28", "status": "filled", "filled_qty": 10, "avg_price": 83002.6165}}
+{"event": "rejected", "timestamp": 1771100503.588835, "data": {"order_id": "order_29", "reason": "Position limit exceeded"}}
+{"event": "submitted", "timestamp": 1771100503.596056, "data": {"order_id": "order_30", "side": "buy", "price": 84142.28, "qty": 10, "timestamp": 1769806800.0}}
+{"event": "execution", "timestamp": 1771100503.5961668, "data": {"order_id": "order_30", "status": "filled", "filled_qty": 10, "avg_price": 84142.28}}
+{"event": "rejected", "timestamp": 1771100503.606977, "data": {"order_id": "order_31", "reason": "Position limit exceeded"}}
+{"event": "submitted", "timestamp": 1771100503.6322849, "data": {"order_id": "order_32", "side": "buy", "price": 83384.5, "qty": 10, "timestamp": 1769842800.0}}
+{"event": "execution", "timestamp": 1771100503.632449, "data": {"order_id": "order_32", "status": "filled", "filled_qty": 10, "avg_price": 83384.5}}
+{"event": "rejected", "timestamp": 1771100503.6507142, "data": {"order_id": "order_33", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771100503.8106391, "data": {"order_id": "order_34", "side": "sell", "price": 77625.985, "qty": 10, "timestamp": 1770022800.0}}
+{"event": "execution", "timestamp": 1771100503.810883, "data": {"order_id": "order_34", "status": "filled", "filled_qty": 10, "avg_price": 77625.985}}
+{"event": "rejected", "timestamp": 1771100503.82597, "data": {"order_id": "order_35", "reason": "Position limit exceeded"}}
+{"event": "submitted", "timestamp": 1771100503.87276, "data": {"order_id": "order_36", "side": "buy", "price": 77721.281, "qty": 10, "timestamp": 1770084000.0}}
+{"event": "execution", "timestamp": 1771100503.87292, "data": {"order_id": "order_36", "status": "filled", "filled_qty": 10, "avg_price": 77721.281}}
+{"event": "rejected", "timestamp": 1771100503.935893, "data": {"order_id": "order_37", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771100503.975841, "data": {"order_id": "order_38", "side": "sell", "price": 76566.98, "qty": 10, "timestamp": 1770184800.0}}
+{"event": "execution", "timestamp": 1771100503.975959, "data": {"order_id": "order_38", "status": "filled", "filled_qty": 10, "avg_price": 76566.98}}
+{"event": "rejected", "timestamp": 1771100504.002443, "data": {"order_id": "order_39", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771100504.1549141, "data": {"order_id": "order_40", "side": "sell", "price": 64901.685, "qty": 10, "timestamp": 1770357600.0}}
+{"event": "execution", "timestamp": 1771100504.155086, "data": {"order_id": "order_40", "status": "cancelled", "filled_qty": 0, "avg_price": 64901.685}}
+{"event": "cancelled", "timestamp": 1771100504.155356, "data": {"order_id": "order_40"}}
+{"event": "rejected", "timestamp": 1771100504.18942, "data": {"order_id": "order_41", "reason": "Position limit exceeded"}}
+{"event": "submitted", "timestamp": 1771100504.2452412, "data": {"order_id": "order_42", "side": "buy", "price": 68728.4, "qty": 10, "timestamp": 1770444000.0}}
+{"event": "execution", "timestamp": 1771100504.245481, "data": {"order_id": "order_42", "status": "partial", "filled_qty": 8, "avg_price": 68728.4}}
+{"event": "rejected", "timestamp": 1771100504.345088, "data": {"order_id": "order_43", "reason": "Position limit exceeded"}}
+{"event": "submitted", "timestamp": 1771100504.372303, "data": {"order_id": "order_44", "side": "buy", "price": 71138.43, "qty": 10, "timestamp": 1770562800.0}}
+{"event": "execution", "timestamp": 1771100504.372419, "data": {"order_id": "order_44", "status": "filled", "filled_qty": 10, "avg_price": 71138.43}}
+{"event": "rejected", "timestamp": 1771100504.438506, "data": {"order_id": "order_45", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771100504.468908, "data": {"order_id": "order_46", "side": "sell", "price": 70054.5275, "qty": 10, "timestamp": 1770652800.0}}
+{"event": "execution", "timestamp": 1771100504.469032, "data": {"order_id": "order_46", "status": "cancelled", "filled_qty": 0, "avg_price": 70054.5275}}
+{"event": "cancelled", "timestamp": 1771100504.46909, "data": {"order_id": "order_46"}}
+{"event": "rejected", "timestamp": 1771100504.522489, "data": {"order_id": "order_47", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771100504.561097, "data": {"order_id": "order_48", "side": "sell", "price": 69490.285, "qty": 10, "timestamp": 1770739200.0}}
+{"event": "execution", "timestamp": 1771100504.561219, "data": {"order_id": "order_48", "status": "filled", "filled_qty": 10, "avg_price": 69490.285}}
+{"event": "rejected", "timestamp": 1771100504.6051059, "data": {"order_id": "order_49", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771100504.667167, "data": {"order_id": "order_50", "side": "sell", "price": 67526.2355, "qty": 10, "timestamp": 1770836400.0}}
+{"event": "execution", "timestamp": 1771100504.6673229, "data": {"order_id": "order_50", "status": "filled", "filled_qty": 10, "avg_price": 67526.2355}}
+{"event": "rejected", "timestamp": 1771100504.726295, "data": {"order_id": "order_51", "reason": "Position limit exceeded"}}
+{"event": "submitted", "timestamp": 1771100504.745884, "data": {"order_id": "order_52", "side": "buy", "price": 67108.8, "qty": 10, "timestamp": 1770908400.0}}
+{"event": "execution", "timestamp": 1771100504.7459881, "data": {"order_id": "order_52", "status": "cancelled", "filled_qty": 0, "avg_price": 67108.8}}
+{"event": "cancelled", "timestamp": 1771100504.746044, "data": {"order_id": "order_52"}}
+{"event": "rejected", "timestamp": 1771100504.7500641, "data": {"order_id": "order_53", "reason": "Not enough capital"}}
+{"event": "submitted", "timestamp": 1771100504.7891068, "data": {"order_id": "order_54", "side": "sell", "price": 66607.305, "qty": 10, "timestamp": 1770948000.0}}
+{"event": "execution", "timestamp": 1771100504.789204, "data": {"order_id": "order_54", "status": "filled", "filled_qty": 10, "avg_price": 66607.305}}
+{"event": "rejected", "timestamp": 1771100504.83366, "data": {"order_id": "order_55", "reason": "Position limit exceeded"}}
+{"event": "submitted", "timestamp": 1771100504.952551, "data": {"order_id": "order_56", "side": "buy", "price": 69858.0, "qty": 10, "timestamp": 1771095600.0}}
+{"event": "execution", "timestamp": 1771100504.952727, "data": {"order_id": "order_56", "status": "filled", "filled_qty": 10, "avg_price": 69858.0}}
