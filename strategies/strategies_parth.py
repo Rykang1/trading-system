@@ -140,12 +140,12 @@ class DemoOptionsStrategy(Strategy):
 
 
 # =============================================================================
-#  MEAN REVERSION + VOLATILITY STRATEGY FOR CRYPTO
+#  MEAN REVERSION + VOLATILITY STRATEGY FOR STOCKS/ETFS
 # =============================================================================
 
 class DeltaHedgedVolStrategy(Strategy):
     """
-    Mean-Reversion Strategy with SMA + Volatility Filter for Crypto.
+    Mean-Reversion Strategy with SMA + Volatility Filter for Stocks/ETFs.
 
     Core idea:
       Price tends to revert to its moving average. When price deviates
@@ -162,27 +162,30 @@ class DeltaHedgedVolStrategy(Strategy):
       - ATR volatility filter: only trade when ATR is in a "goldilocks"
         zone (above median = enough movement to profit, but below
         extreme = not a breakout that will keep running)
-      - SMA slope filter: avoid fighting strong trends. Only take mean-
-        reversion trades when the SMA is relatively flat.
+      - Volume filter: confirm moves with above-average volume
+      - Trend filter: avoid mean reversion during strong trends
 
     Designed for:
-      - Crypto (BTC/ETH) on 1Min to 1Hour timeframes
-      - Works on any spot data from Alpaca
+      - Stocks/ETFs (SPY, QQQ, AAPL, MSFT, etc.) on 1Hour to Daily timeframes
+      - Works best with liquid large-cap equities
+      - Mean reversion is cleaner in equity markets than crypto
     """
-class DeltaHedgedVolStrategy(Strategy):
     
     def __init__(
         self,
-        sma_window: int = 24,          # 1 day of hourly bars
-        z_window: int = 24,            # Z-score over 1 day
-        atr_window: int = 24,          # ATR over 1 day
-        entry_z: float = 0.8,          # enter when |Z| > this (slightly aggressive)
-        exit_z: float = 0.2,           # exit when |Z| < this (tight profit-taking)
-        atr_filter_mult: float = 3.0,  # crypto is volatile, allow wider range
-        position_size: float = 5000.0,  # $5K USD per trade (notional for live crypto)
-        max_position: float = 15000.0,  # max $15K exposure (15% of $100K account)
-        delta_min: float = 0.30,
-        delta_max: float = 0.70,
+        sma_window: int = 50,          # 50-period SMA (classic for daily/hourly)
+        z_window: int = 20,            # Z-score over 20 periods
+        atr_window: int = 14,          # Standard 14-period ATR
+        entry_z: float = 1.5,          # More conservative entry (stocks less volatile)
+        exit_z: float = 0.3,           # Exit when back toward mean
+        atr_filter_min: float = 0.5,  # Min ATR ratio (avoid dead zones)
+        atr_filter_max: float = 2.0,  # Max ATR ratio (avoid breakouts) - tighter for stocks
+        volume_filter: bool = True,    # Require above-avg volume
+        trend_filter: bool = True,     # Check for strong trends
+        position_size: float = 10000.0, # $10K notional per trade
+        max_position: float = 30000.0,  # Max $30K exposure
+        delta_min: float = 0.4,        # For options strategies
+        delta_max: float = 0.6,
     ):
         if z_window < 3:
             raise ValueError("z_window must be at least 3.")
@@ -190,12 +193,18 @@ class DeltaHedgedVolStrategy(Strategy):
             raise ValueError("position_size must be positive.")
         if entry_z <= exit_z:
             raise ValueError("entry_z must be greater than exit_z.")
+        if atr_filter_min >= atr_filter_max:
+            raise ValueError("atr_filter_min must be less than atr_filter_max.")
+        
         self.sma_window = sma_window
         self.z_window = z_window
         self.atr_window = atr_window
         self.entry_z = entry_z
         self.exit_z = exit_z
-        self.atr_filter_mult = atr_filter_mult
+        self.atr_filter_min = atr_filter_min
+        self.atr_filter_max = atr_filter_max
+        self.volume_filter = volume_filter
+        self.trend_filter = trend_filter
         self.position_size = position_size
         self.max_position = max_position
         self.delta_min = delta_min
@@ -226,9 +235,26 @@ class DeltaHedgedVolStrategy(Strategy):
         atr_median = df["ATR"].rolling(self.atr_window * 3, min_periods=2).median()
         df["ATR_ratio"] = df["ATR"] / atr_median.replace(0, 1e-10)
 
-        # --- SMA slope: is the trend flat enough for mean-reversion? ---
-        sma_pct_change = df["SMA"].pct_change(5).abs().fillna(0)
-        df["SMA_flat"] = sma_pct_change < 0.005  # less than 0.5% move over 5 bars
+        # --- Volume Filter (if available) ---
+        if "Volume" in df.columns and self.volume_filter:
+            vol_ma = df["Volume"].rolling(20, min_periods=2).mean()
+            df["volume_ok"] = df["Volume"] > vol_ma
+        else:
+            df["volume_ok"] = True
+
+        # --- Trend Filter: ADX-like logic or simple slope ---
+        if self.trend_filter:
+            # Calculate trend strength via price dispersion
+            close_std = df["Close"].rolling(20, min_periods=2).std()
+            close_mean = df["Close"].rolling(20, min_periods=2).mean()
+            df["trend_strength"] = close_std / close_mean.replace(0, 1e-10)
+            # Mean reversion works best when trend is weak (low dispersion)
+            df["trend_ok"] = df["trend_strength"] < 0.02  # < 2% normalized std
+        else:
+            df["trend_ok"] = True
+
+        # --- Distance from SMA (for additional filtering) ---
+        df["distance_from_sma"] = ((df["Close"] - df["SMA"]) / df["SMA"]).fillna(0)
 
         return df
 
@@ -249,15 +275,19 @@ class DeltaHedgedVolStrategy(Strategy):
         last = df.iloc[-1]
         z = last["Z_score"]
         atr_ratio = last["ATR_ratio"]
-        sma_flat = last["SMA_flat"]
+        volume_ok = last["volume_ok"]
+        trend_ok = last["trend_ok"]
 
-        # Volatility filter: ATR must be above 0.5x median (enough movement)
-        # but below our multiplier (not a breakout)
-        vol_ok = (atr_ratio > 0.2) and (atr_ratio < self.atr_filter_mult)
+        # Volatility filter: ATR must be in goldilocks zone
+        # For stocks: tight range because breakouts are more persistent
+        vol_ok = (atr_ratio > self.atr_filter_min) and (atr_ratio < self.atr_filter_max)
+
+        # Combine all filters
+        conditions_met = vol_ok and volume_ok and trend_ok
 
         desired = 0
 
-        if vol_ok:
+        if conditions_met:
             # --- ENTRY LOGIC ---
             if z < -self.entry_z:
                 # Price far below mean -> BUY (expect reversion up)
@@ -277,9 +307,9 @@ class DeltaHedgedVolStrategy(Strategy):
                 # Hold current position
                 desired = self._prev_signal
         else:
-            # Volatility outside goldilocks zone — flatten or stay flat
+            # Conditions not met — flatten or stay flat
             if self._prev_signal != 0:
-                desired = 0  # exit if vol becomes extreme
+                desired = 0  # exit if conditions deteriorate
             else:
                 desired = 0
 
