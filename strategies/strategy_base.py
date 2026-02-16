@@ -235,8 +235,8 @@ class DemoStrategy(Strategy):
 
 #def skibidi(int): yessir Bro bro bro
 
-class MyStrategy(Strategy):
-     
+class MyStrategy(Strategy): 
+
     def __init__(
         self,
         sma_window: int = 20,          # SMA lookback for mean
@@ -372,3 +372,4 @@ class MyStrategy(Strategy):
         df.iloc[-1, df.columns.get_loc("target_qty")] = min(qty, self.max_position)
 
         return df
+

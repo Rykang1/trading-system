@@ -248,8 +248,8 @@ class DemoStrategy(Strategy):
 ## To use your strategy:
 ##   python run_live.py --symbol AAPL --strategy mystrategy --live
     
-class MyStrategy(Strategy): 
-    
+class RyanStrategy(Strategy): 
+
     def __init__(
         self,
         sma_window: int = 20,          # SMA lookback for mean

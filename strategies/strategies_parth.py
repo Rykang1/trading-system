@@ -184,8 +184,6 @@ class DeltaHedgedVolStrategy(Strategy):
         trend_filter: bool = True,     # Check for strong trends
         position_size: float = 10000.0, # $10K notional per trade
         max_position: float = 30000.0,  # Max $30K exposure
-        delta_min: float = 0.4,        # For options strategies
-        delta_max: float = 0.6,
     ):
         if z_window < 3:
             raise ValueError("z_window must be at least 3.")
@@ -207,8 +205,6 @@ class DeltaHedgedVolStrategy(Strategy):
         self.trend_filter = trend_filter
         self.position_size = position_size
         self.max_position = max_position
-        self.delta_min = delta_min
-        self.delta_max = delta_max
         self._prev_signal = 0
 
     def add_indicators(self, df):
