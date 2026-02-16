@@ -35,10 +35,6 @@ from strategies import (
     TemplateStrategy,
     CryptoTrendStrategy,
     DemoStrategy,
-    MovingAverageOptionsStrategy,
-    TemplateOptionsStrategy,
-    CryptoTrendOptionsStrategy,
-    DemoOptionsStrategy,
     get_strategy_class,
     list_strategies,
 )
@@ -114,27 +110,27 @@ def main() -> None:
         strategy = DemoStrategy(
             position_size=args.position_size,
         )
-    elif strategy_cls is MovingAverageOptionsStrategy:
-        strategy = MovingAverageOptionsStrategy(
+    elif strategy_cls is MovingAverageStrategy:
+        strategy = MovingAverageStrategy(
             short_window=args.short_window,
             long_window=args.long_window,
             position_size=args.position_size,
         )
-    elif strategy_cls is TemplateOptionsStrategy:
-        strategy = TemplateOptionsStrategy(
+    elif strategy_cls is TemplateStrategy:
+        strategy = TemplateStrategy(
             lookback=args.momentum_lookback,
             position_size=args.position_size,
             buy_threshold=args.buy_threshold,
             sell_threshold=args.sell_threshold,
         )
-    elif strategy_cls is CryptoTrendOptionsStrategy:
-        strategy = CryptoTrendOptionsStrategy(
+    elif strategy_cls is CryptoTrendStrategy:
+        strategy = CryptoTrendStrategy(
             short_window=args.short_window,
             long_window=args.long_window,
             position_size=args.position_size,
         )
-    elif strategy_cls is DemoOptionsStrategy:
-        strategy = DemoOptionsStrategy(
+    elif strategy_cls is DemoStrategy:
+        strategy = DemoStrategy(
             position_size=args.position_size,
         )
     else:
