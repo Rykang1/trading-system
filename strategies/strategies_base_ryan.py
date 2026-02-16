@@ -247,108 +247,142 @@ class DemoStrategy(Strategy):
 ##
 ## To use your strategy:
 ##   python run_live.py --symbol AAPL --strategy mystrategy --live
-
-class MyStrategy(Strategy):
-    """
-    Volatility-based straddle strategy.
-    Buys ATM straddles (call + put) when implied volatility is low,
-    expecting a volatility expansion. Exits when volatility spikes.
-    """
+    
+class MyStrategy(Strategy): 
+    
     def __init__(
         self,
-        vol_lookback: int = 30,
-        vol_entry_threshold: float = 0.8,  # Enter when IV is 80% of average
-        vol_exit_threshold: float = 1.2,   # Exit when IV is 120% of average
-        position_size: float = 1.0,
-        delta_min: float = 0.45,
-        delta_max: float = 0.55,
+        sma_window: int = 20,          # SMA lookback for mean
+        z_window: int = 20,            # Z-score lookback
+        atr_window: int = 14,          # ATR lookback
+        entry_z: float = 1.5,          # enter when |Z| > this
+        exit_z: float = 0.3,           # exit when |Z| < this (reverted)
+        atr_filter_mult: float = 1.5,  # max ATR vs median (reject breakouts)
+        position_size: float = 5000.0,
+        max_position: float = 15000.0,
     ):
+        if z_window < 3:
+            raise ValueError("z_window must be at least 3.")
         if position_size <= 0:
             raise ValueError("position_size must be positive.")
-        if vol_entry_threshold >= vol_exit_threshold:
-            raise ValueError("vol_entry_threshold must be less than vol_exit_threshold.")
-        
-        self.vol_lookback = vol_lookback
-        self.vol_entry_threshold = vol_entry_threshold
-        self.vol_exit_threshold = vol_exit_threshold
+        if entry_z <= exit_z:
+            raise ValueError("entry_z must be greater than exit_z.")
+        self.sma_window = sma_window
+        self.z_window = z_window
+        self.atr_window = atr_window
+        self.entry_z = entry_z
+        self.exit_z = exit_z
+        self.atr_filter_mult = atr_filter_mult
         self.position_size = position_size
-        self.delta_min = delta_min
-        self.delta_max = delta_max
+        self.max_position = max_position
+        self._prev_signal = 0
 
-    def add_indicators(self, df: pd.DataFrame) -> pd.DataFrame:
-        """
-        Calculate volatility indicators.
-        Assumes df has 'implied_volatility' column for each option.
-        """
-        # Average implied volatility over lookback period
-        df["IV_avg"] = df["implied_volatility"].rolling(self.vol_lookback, min_periods=1).mean()
+    def add_indicators(self, df):
+        # --- Simple Moving Average (the "mean" we revert to) ---
+        df["SMA"] = df["Close"].rolling(self.sma_window, min_periods=2).mean()
+
+        # --- Z-score: how many std devs price is from SMA ---
+        rolling_mean = df["Close"].rolling(self.z_window, min_periods=2).mean()
+        rolling_std = df["Close"].rolling(self.z_window, min_periods=2).std()
+        df["Z_score"] = (df["Close"] - rolling_mean) / rolling_std.replace(0, 1e-10)
+
+        # --- ATR: Average True Range (volatility measure) ---
+        high = df["High"]
+        low = df["Low"]
+        prev_close = df["Close"].shift(1)
         
-        # Current IV as ratio of average IV
-        df["IV_ratio"] = df["implied_volatility"] / df["IV_avg"]
-        
-        # Also calculate historical volatility (realized vol) from price
-        df["returns"] = df["Close"].pct_change()
-        df["HV"] = df["returns"].rolling(self.vol_lookback).std() * np.sqrt(252)  # Annualized
-        
-        # Optional: IV rank (percentile over lookback period)
-        df["IV_rank"] = df["implied_volatility"].rolling(self.vol_lookback).apply(
-            lambda x: pd.Series(x).rank(pct=True).iloc[-1] if len(x) > 0 else 0
-        )
-        
+        #Calculation of ATR --> measure of max volatility essentially
+        tr = pd.concat([
+            (high - low).abs(),
+            (high - prev_close).abs(),
+            (low - prev_close).abs(),
+        ], axis=1).max(axis=1)
+
+        #Creates column of rolling ATR
+        df["ATR"] = tr.rolling(self.atr_window, min_periods=2).mean().fillna(0)
+
+        # ATR relative to its rolling median — tells us if vol is normal or extreme
+        atr_median = df["ATR"].rolling(self.atr_window * 3, min_periods=2).median()
+        df["ATR_ratio"] = df["ATR"] / atr_median.replace(0, 1e-10)
+
+        # --- SMA slope: is the trend flat enough for mean-reversion? ---
+        # Returns boolean --> If SMA flat, mean reversion else not mean reversion
+        sma_pct_change = df["SMA"].pct_change(5).abs().fillna(0)
+        df["SMA_flat"] = sma_pct_change < 0.005  # less than 0.5% move over 5 bars
+
         return df
 
-    def generate_signals(self, df: pd.DataFrame) -> pd.DataFrame:
+    def generate_signals(self, df):
         """
-        Generate straddle entry/exit signals based on volatility levels.
+        Incremental signal generation for the backtester.
+        Only computes signal for the last row.
         """
         df["signal"] = 0
-        
-        # Identify near-ATM options (delta close to ±0.5)
-        near_atm_call = (
-            (df["option_type"] == "call") &
-            (df["delta"] >= self.delta_min) &
-            (df["delta"] <= self.delta_max)
-        )
-        
-        near_atm_put = (
-            (df["option_type"] == "put") &
-            (df["delta"] >= -self.delta_max) &
-            (df["delta"] <= -self.delta_min)
-        )
-        
-        # Volatility conditions
-        low_vol = df["IV_ratio"] < self.vol_entry_threshold  # IV is compressed
-        high_vol = df["IV_ratio"] > self.vol_exit_threshold  # IV has expanded
-        
-        # Detect when volatility crosses thresholds
-        vol_just_compressed = (
-            (df["IV_ratio"].shift(1) >= self.vol_entry_threshold) &
-            (df["IV_ratio"] < self.vol_entry_threshold)
-        )
-        
-        vol_just_expanded = (
-            (df["IV_ratio"].shift(1) <= self.vol_exit_threshold) &
-            (df["IV_ratio"] > self.vol_exit_threshold)
-        )
-        
-        # ENTRY SIGNALS: Buy straddle when volatility compresses
-        # Signal = 1 for calls, -1 for puts (both are BUYS in a straddle)
-        df.loc[vol_just_compressed & near_atm_call, "signal"] = 1   # Buy call leg
-        df.loc[vol_just_compressed & near_atm_put, "signal"] = -1   # Buy put leg
-        
-        # EXIT SIGNALS: Close straddle when volatility expands
-        # Signal = -1 for calls (sell), 1 for puts (sell) - opposite of entry
-        df.loc[vol_just_expanded & near_atm_call, "signal"] = -1   # Sell call leg
-        df.loc[vol_just_expanded & near_atm_put, "signal"] = 1     # Sell put leg
-        
-        # POSITION STATE: Hold both legs while in low vol regime
         df["position"] = 0
-        df.loc[low_vol & near_atm_call, "position"] = 1   # Hold call leg
-        df.loc[low_vol & near_atm_put, "position"] = -1   # Hold put leg
-        
-        # When high vol, position = 0 (flat, no straddle)
-        
-        # Position size (1 contract of each leg)
-        df["target_qty"] = self.position_size
-        
+        df["target_qty"] = 0.0
+
+        # Need enough data for indicators to warm up
+        min_bars = max(self.sma_window, self.z_window, self.atr_window) + 5
+        if len(df) < min_bars:
+            return df
+
+        #Capturing data of last row --> point we are trading at
+        last = df.iloc[-1]
+        z = last["Z_score"]
+        atr_ratio = last["ATR_ratio"]
+        sma_flat = last["SMA_flat"]
+
+        # Volatility filter: ATR must be above 0.5x median (enough movement)
+        # but below our multiplier (not a breakout)
+        vol_ok = (atr_ratio > 0.5) and (atr_ratio < self.atr_filter_mult)
+
+        #Desired tells us what we want to do based off our current position
+
+        desired = 0
+
+        if vol_ok:
+            # --- ENTRY LOGIC ---
+            if z < -self.entry_z:
+                # Price far below mean -> BUY (expect reversion up)
+                desired = 1
+            elif z > self.entry_z:
+                # Price far above mean -> SELL (expect reversion down)
+                desired = -1
+
+            # --- EXIT LOGIC ---
+            # If we're long and Z crossed back above exit threshold -> close
+            elif self._prev_signal == 1 and z > -self.exit_z:
+                desired = 0  # will flatten
+            # If we're short and Z crossed back below exit threshold -> close
+            elif self._prev_signal == -1 and z < self.exit_z:
+                desired = 0  # will flatten
+            else:
+                # Hold current position
+                desired = self._prev_signal
+        else:
+            # Volatility outside goldilocks zone — flatten or stay flat
+            if self._prev_signal != 0:
+                desired = 0  # exit if vol becomes extreme
+            else:
+                desired = 0
+
+        # Emit signal only on changes
+        if desired != self._prev_signal:
+            if desired == 0:
+                # Exit signal: emit opposite of current position
+                df.iloc[-1, df.columns.get_loc("signal")] = -self._prev_signal
+            else:
+                df.iloc[-1, df.columns.get_loc("signal")] = desired
+            self._prev_signal = desired
+
+        # Position and sizing
+        df.iloc[-1, df.columns.get_loc("position")] = self._prev_signal
+
+        # Scale size by Z-score magnitude — bigger deviation = more conviction
+        z_abs = min(abs(z), 3.0)
+        size_mult = 0.5 + (z_abs / 3.0) * 1.5  # ranges from 0.5x to 2.0x
+        qty = abs(self._prev_signal) * self.position_size * size_mult
+        df.iloc[-1, df.columns.get_loc("target_qty")] = min(qty, self.max_position)
+
         return df
+

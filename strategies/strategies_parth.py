@@ -169,7 +169,8 @@ class DeltaHedgedVolStrategy(Strategy):
       - Crypto (BTC/ETH) on 1Min to 1Hour timeframes
       - Works on any spot data from Alpaca
     """
-
+class DeltaHedgedVolStrategy(Strategy):
+    
     def __init__(
         self,
         sma_window: int = 24,          # 1 day of hourly bars
