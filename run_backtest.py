@@ -101,7 +101,7 @@ def main() -> None:
         order_book=order_book,
         matching_engine=matching_engine,
         logger=logger,
-        default_position_size=int(max(1, args.position_size)),
+        default_position_size=float(args.position_size),
     )
 
     equity_df = backtester.run()

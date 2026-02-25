@@ -161,29 +161,48 @@ def fetch_crypto_bars(
     limit: int = 1000,
     fallback_days: int = DEFAULT_FALLBACK_DAYS,
     api: Optional[tradeapi.REST] = None,
+    max_retries: int = 5,
 ) -> pd.DataFrame:
+    import time
+    from requests.exceptions import ConnectionError
+
     api = api or get_rest()
     tf = _parse_timeframe(timeframe)
-    if hasattr(api, "get_crypto_bars"):
-        bars = api.get_crypto_bars(symbol, tf, limit=limit).df
-    else:
+    if not hasattr(api, "get_crypto_bars"):
         raise RuntimeError("alpaca_trade_api does not support get_crypto_bars in this version.")
+
+    def _fetch_with_retry(fetch_fn):
+        for attempt in range(max_retries):
+            try:
+                return fetch_fn()
+            except (ConnectionError, OSError) as e:
+                wait = min(2 ** attempt * 5, 120)
+                print(f"Connection failed (attempt {attempt+1}/{max_retries}): {e}")
+                print(f"Retrying in {wait}s...")
+                time.sleep(wait) 
+        raise ConnectionError(f"Failed after {max_retries} retries")
+
+    bars = _fetch_with_retry(
+        lambda: api.get_crypto_bars(symbol, tf, limit=limit).df
+    )
     df = _normalize_bars(bars, symbol)
+
     if df.empty and fallback_days > 0:
         end = pd.Timestamp.now(tz="UTC")
         start = end - pd.Timedelta(days=fallback_days)
-        bars = api.get_crypto_bars(
-            symbol,
-            tf,
-            start=_to_rfc3339(start),
-            end=_to_rfc3339(end),
-            limit=limit,
-        ).df
+        bars = _fetch_with_retry(
+            lambda: api.get_crypto_bars(
+                symbol, tf,
+                start=_to_rfc3339(start),
+                end=_to_rfc3339(end),
+                limit=limit,
+            ).df
+        )
         df = _normalize_bars(bars, symbol)
+
     if df.empty:
         raise ValueError(f"No crypto bars returned for {symbol}.")
     return df
-
 
 def save_bars(df: pd.DataFrame, symbol: str, timeframe: str, asset_class: str) -> Path:
     DATA_DIR.mkdir(parents=True, exist_ok=True)

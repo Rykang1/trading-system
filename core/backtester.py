@@ -22,7 +22,7 @@ class TradeRecord:
     timestamp: pd.Timestamp
     side: str
     price: float
-    qty: int
+    qty: float
     status: str
     pnl: float
 
@@ -41,7 +41,7 @@ class Backtester:
         order_book: OrderBook,
         matching_engine: MatchingEngine,
         logger: Optional[OrderLoggingGateway] = None,
-        default_position_size: int = 10,
+        default_position_size: float = 0.0001,
         verbose: bool = True,
     ):
         self.data_gateway = data_gateway
@@ -76,7 +76,7 @@ class Backtester:
         self._order_counter += 1
         return order_id
 
-    def _create_order(self, signal: int, price: float, timestamp: pd.Timestamp, qty: int) -> Order:
+    def _create_order(self, signal: int, price: float, timestamp: pd.Timestamp, qty: float) -> Order:
         return Order(
             order_id=self._next_order_id(),
             side="buy" if signal > 0 else "sell",
@@ -91,7 +91,7 @@ class Backtester:
         self.cash_history.append(self.order_manager.cash)
         self.position_history.append(self.order_manager.net_position)
 
-    def _apply_fill(self, order: Order, filled_qty: int, price: float) -> float:
+    def _apply_fill(self, order: Order, filled_qty: float, price: float) -> float:
         """
         Update inventory tracking for realized PnL statistics.
         """
@@ -131,7 +131,7 @@ class Backtester:
     def _print_trade(
         self,
         order: Order,
-        filled_qty: int,
+        filled_qty: float,
         price: float,
         timestamp: pd.Timestamp,
         status: str,
@@ -225,12 +225,12 @@ class Backtester:
 
                 if bid_active and pd.notna(bid_price):
                     bid_qty_val = latest.get("bid_qty", self.default_position_size)
-                    bid_qty = int(bid_qty_val) if pd.notna(bid_qty_val) and bid_qty_val > 0 else self.default_position_size
+                    bid_qty = float(bid_qty_val) if pd.notna(bid_qty_val) and bid_qty_val > 0 else self.default_position_size
                     orders_to_submit.append((1, float(bid_price), bid_qty))
 
                 if ask_active and pd.notna(ask_price):
                     ask_qty_val = latest.get("ask_qty", self.default_position_size)
-                    ask_qty = int(ask_qty_val) if pd.notna(ask_qty_val) and ask_qty_val > 0 else self.default_position_size
+                    ask_qty = float(ask_qty_val) if pd.notna(ask_qty_val) and ask_qty_val > 0 else self.default_position_size
                     orders_to_submit.append((-1, float(ask_price), ask_qty))
 
                 for sig, px, qty in orders_to_submit:
@@ -254,7 +254,7 @@ class Backtester:
             limit_price = latest.get("limit_price", latest["Close"])
             price = float(limit_price) if pd.notna(limit_price) else float(latest["Close"])
             qty_value = latest.get("target_qty", self.default_position_size)
-            qty = int(qty_value) if pd.notna(qty_value) and qty_value > 0 else self.default_position_size
+            qty = float(qty_value) / price if pd.notna(qty_value) and qty_value > 0 else self.default_position_size
 
             order = self._create_order(signal, price, timestamp, qty)
             valid, reason = self.order_manager.validate(order)
