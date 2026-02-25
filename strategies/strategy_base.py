@@ -248,7 +248,7 @@ class MyStrategy(Strategy):
         trailing_sma_window: int   = 10,
         hard_stop_atr_mult: float  = 2.0,
         max_hold_bars: int         = 30,
-        cooldown_bars: int         = 3,
+        cooldown_bars: int         = 5,
         risk_per_trade_pct: float  = 0.02,   # risk 2% of capital per trade
         capital: float             = 100000.0,
     ):
@@ -275,8 +275,10 @@ class MyStrategy(Strategy):
         high  = df["High"]
         low   = df["Low"]
 
+        #Calculate EMA
         df["EMA"] = close.ewm(span=self.ema_window, adjust=False).mean()
 
+        #Calculte ATR
         prev = close.shift(1)
         tr   = pd.concat([
             (high - low).abs(),
@@ -286,6 +288,7 @@ class MyStrategy(Strategy):
         df["ATR"]     = tr.rolling(self.atr_window, min_periods=2).mean().fillna(0)
         df["ATR_SMA"] = df["ATR"].rolling(self.atr_sma_window, min_periods=2).mean().fillna(0)
 
+        #
         df["swing_high"] = high.shift(1).rolling(self.breakout_window, min_periods=2).max()
         df["swing_low"]  = low.shift(1).rolling(self.breakout_window, min_periods=2).min()
         df["trail_SMA"]  = close.rolling(self.trailing_sma_window, min_periods=2).mean()
