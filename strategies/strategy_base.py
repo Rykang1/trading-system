@@ -246,11 +246,11 @@ class MyStrategy(Strategy):
         rsi_period: int            = 14,
         rsi_max_long: float        = 75.0,
         trailing_sma_window: int   = 10,
-        hard_stop_atr_mult: float  = 3.0,
-        max_hold_bars: int         = 60,
-        cooldown_bars: int         = 20,
+        hard_stop_atr_mult: float  = 2.0,
+        max_hold_bars: int         = 30,
+        cooldown_bars: int         = 3,
         risk_per_trade_pct: float  = 0.02,   # risk 2% of capital per trade
-        capital: float             = 50000.0,
+        capital: float             = 100000.0,
     ):
         self.ema_window          = ema_window
         self.atr_window          = atr_window
