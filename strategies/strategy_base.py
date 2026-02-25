@@ -288,17 +288,19 @@ class MyStrategy(Strategy):
         df["ATR"]     = tr.rolling(self.atr_window, min_periods=2).mean().fillna(0)
         df["ATR_SMA"] = df["ATR"].rolling(self.atr_sma_window, min_periods=2).mean().fillna(0)
 
-        #
+        # Calculating the high of SMA for past 8 rows of ATR
         df["swing_high"] = high.shift(1).rolling(self.breakout_window, min_periods=2).max()
-        df["swing_low"]  = low.shift(1).rolling(self.breakout_window, min_periods=2).min()
+        #Average of last 10 rows
         df["trail_SMA"]  = close.rolling(self.trailing_sma_window, min_periods=2).mean()
 
+        #Calculating RSI
         delta = close.diff()
         gain  = delta.clip(lower=0).rolling(self.rsi_period, min_periods=2).mean()
         loss  = (-delta.clip(upper=0)).rolling(self.rsi_period, min_periods=2).mean()
         rs    = gain / loss.replace(0, 1e-10)
         df["RSI"] = (100.0 - 100.0 / (1.0 + rs)).fillna(50.0)
 
+        #Determining if volatility increasing/expanding
         df["atr_expanding"] = (
             (df["ATR"] > df["ATR_SMA"]) &
             (df["ATR"].shift(1) <= df["ATR_SMA"].shift(1))
@@ -310,6 +312,7 @@ class MyStrategy(Strategy):
         df["position"]   = 0
         df["target_qty"] = 0.0
 
+        #Creates minimum amount of data so that we have enough data to analyze
         min_bars = max(self.ema_window, self.atr_sma_window,
                        self.breakout_window, self.rsi_period,
                        self.trailing_sma_window) + 5
@@ -331,12 +334,14 @@ class MyStrategy(Strategy):
             swing_low  = float(row["swing_low"])
             atr_cross  = bool(row["atr_expanding"])
 
+            # Counts how many days since trade; auto exits at 30
             if self._position != 0:
                 self._bars_in_trade += 1
             self._bars_since_exit += 1
 
             desired = self._position
 
+            #Only runs if in a trade. Look at exit conditions
             if self._position != 0:
                 if self._position == 1 and price <= self._hard_stop:
                     desired = 0
@@ -349,11 +354,11 @@ class MyStrategy(Strategy):
                 elif self._bars_in_trade >= self.max_hold_bars:
                     desired = 0
 
+            #If not in trade, see entry conditions are good
             if desired == 0 and self._position == 0:
                 if self._bars_since_exit >= self.cooldown_bars and atr_cross:
                     if above_ema and price > swing_high and rsi < self.rsi_max_long:
                         desired = 1
-
             if desired != self._position:
                 if desired == 0:
                     df.iloc[i, sig_col]   = -self._position
@@ -377,11 +382,7 @@ class MyStrategy(Strategy):
 
             df.iloc[i, pos_col] = self._position
             if self._position != 0:
-                # Risk-based sizing: risk 2% of capital per trade
-                # qty = (capital × risk_pct) / (atr × hard_stop_mult)
-                # This gives us the number of coins where a 1-stop loss = 2% capital
-                # target_qty = USD notional (Alpaca live trader converts to coins)
-                # Risk 2% of capital per trade
+                #Makes each bet have a max risk of $2,000
                 stop_dist = self.hard_stop_atr_mult * atr
                 if stop_dist > 0:
                     dollar_risk = self.capital * self.risk_per_trade_pct
