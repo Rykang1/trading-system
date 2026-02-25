@@ -235,141 +235,154 @@ class DemoStrategy(Strategy):
 
 #def skibidi(int): yessir Bro bro bro
 
-class MyStrategy(Strategy): 
+class MyStrategy(Strategy):
 
     def __init__(
         self,
-        sma_window: int = 20,          # SMA lookback for mean
-        z_window: int = 20,            # Z-score lookback
-        atr_window: int = 14,          # ATR lookback
-        entry_z: float = 1.5,          # enter when |Z| > this
-        exit_z: float = 0.3,           # exit when |Z| < this (reverted)
-        atr_filter_mult: float = 1.5,  # max ATR vs median (reject breakouts)
-        position_size: float = 5000.0,
-        max_position: float = 15000.0,
+        ema_window: int            = 20,
+        atr_window: int            = 14,
+        atr_sma_window: int        = 8,
+        breakout_window: int       = 8,
+        rsi_period: int            = 14,
+        rsi_max_long: float        = 75.0,
+        trailing_sma_window: int   = 10,
+        hard_stop_atr_mult: float  = 3.0,
+        max_hold_bars: int         = 60,
+        cooldown_bars: int         = 20,
+        risk_per_trade_pct: float  = 0.02,   # risk 2% of capital per trade
+        capital: float             = 50000.0,
     ):
-        if z_window < 3:
-            raise ValueError("z_window must be at least 3.")
-        if position_size <= 0:
-            raise ValueError("position_size must be positive.")
-        if entry_z <= exit_z:
-            raise ValueError("entry_z must be greater than exit_z.")
-        self.sma_window = sma_window
-        self.z_window = z_window
-        self.atr_window = atr_window
-        self.entry_z = entry_z
-        self.exit_z = exit_z
-        self.atr_filter_mult = atr_filter_mult
-        self.position_size = position_size
-        self.max_position = max_position
-        self._prev_signal = 0
+        self.ema_window          = ema_window
+        self.atr_window          = atr_window
+        self.atr_sma_window      = atr_sma_window
+        self.breakout_window     = breakout_window
+        self.rsi_period          = rsi_period
+        self.rsi_max_long        = rsi_max_long
+        self.trailing_sma_window = trailing_sma_window
+        self.hard_stop_atr_mult  = hard_stop_atr_mult
+        self.max_hold_bars       = max_hold_bars
+        self.cooldown_bars       = cooldown_bars
+        self.risk_per_trade_pct  = risk_per_trade_pct
+        self.capital             = capital
+        self._position           = 0
+        self._entry_price        = 0.0
+        self._hard_stop          = 0.0
+        self._bars_in_trade      = 0
+        self._bars_since_exit    = 999
 
-    def add_indicators(self, df):
-        # --- Simple Moving Average (the "mean" we revert to) ---
-        df["SMA"] = df["Close"].rolling(self.sma_window, min_periods=2).mean()
+    def add_indicators(self, df: pd.DataFrame) -> pd.DataFrame:
+        close = df["Close"]
+        high  = df["High"]
+        low   = df["Low"]
 
-        # --- Z-score: how many std devs price is from SMA ---
-        rolling_mean = df["Close"].rolling(self.z_window, min_periods=2).mean()
-        rolling_std = df["Close"].rolling(self.z_window, min_periods=2).std()
-        df["Z_score"] = (df["Close"] - rolling_mean) / rolling_std.replace(0, 1e-10)
+        df["EMA"] = close.ewm(span=self.ema_window, adjust=False).mean()
 
-        # --- ATR: Average True Range (volatility measure) ---
-        high = df["High"]
-        low = df["Low"]
-        prev_close = df["Close"].shift(1)
-        
-        #Calculation of ATR --> measure of max volatility essentially
-        tr = pd.concat([
+        prev = close.shift(1)
+        tr   = pd.concat([
             (high - low).abs(),
-            (high - prev_close).abs(),
-            (low - prev_close).abs(),
+            (high - prev).abs(),
+            (low  - prev).abs(),
         ], axis=1).max(axis=1)
+        df["ATR"]     = tr.rolling(self.atr_window, min_periods=2).mean().fillna(0)
+        df["ATR_SMA"] = df["ATR"].rolling(self.atr_sma_window, min_periods=2).mean().fillna(0)
 
-        #Creates column of rolling ATR
-        df["ATR"] = tr.rolling(self.atr_window, min_periods=2).mean().fillna(0)
+        df["swing_high"] = high.shift(1).rolling(self.breakout_window, min_periods=2).max()
+        df["swing_low"]  = low.shift(1).rolling(self.breakout_window, min_periods=2).min()
+        df["trail_SMA"]  = close.rolling(self.trailing_sma_window, min_periods=2).mean()
 
-        # ATR relative to its rolling median — tells us if vol is normal or extreme
-        atr_median = df["ATR"].rolling(self.atr_window * 3, min_periods=2).median()
-        df["ATR_ratio"] = df["ATR"] / atr_median.replace(0, 1e-10)
+        delta = close.diff()
+        gain  = delta.clip(lower=0).rolling(self.rsi_period, min_periods=2).mean()
+        loss  = (-delta.clip(upper=0)).rolling(self.rsi_period, min_periods=2).mean()
+        rs    = gain / loss.replace(0, 1e-10)
+        df["RSI"] = (100.0 - 100.0 / (1.0 + rs)).fillna(50.0)
 
-        # --- SMA slope: is the trend flat enough for mean-reversion? ---
-        # Returns boolean --> If SMA flat, mean reversion else not mean reversion
-        sma_pct_change = df["SMA"].pct_change(5).abs().fillna(0)
-        df["SMA_flat"] = sma_pct_change < 0.005  # less than 0.5% move over 5 bars
-
+        df["atr_expanding"] = (
+            (df["ATR"] > df["ATR_SMA"]) &
+            (df["ATR"].shift(1) <= df["ATR_SMA"].shift(1))
+        )
         return df
 
-    def generate_signals(self, df):
-        """
-        Incremental signal generation for the backtester.
-        Only computes signal for the last row.
-        """
-        df["signal"] = 0
-        df["position"] = 0
+    def generate_signals(self, df: pd.DataFrame) -> pd.DataFrame:
+        df["signal"]     = 0
+        df["position"]   = 0
         df["target_qty"] = 0.0
 
-        # Need enough data for indicators to warm up
-        min_bars = max(self.sma_window, self.z_window, self.atr_window) + 5
+        min_bars = max(self.ema_window, self.atr_sma_window,
+                       self.breakout_window, self.rsi_period,
+                       self.trailing_sma_window) + 5
         if len(df) < min_bars:
             return df
 
-        #Capturing data of last row --> point we are trading at
-        last = df.iloc[-1]
-        z = last["Z_score"]
-        atr_ratio = last["ATR_ratio"]
-        sma_flat = last["SMA_flat"]
+        sig_col = df.columns.get_loc("signal")
+        pos_col = df.columns.get_loc("position")
+        qty_col = df.columns.get_loc("target_qty")
 
-        # Volatility filter: ATR must be above 0.5x median (enough movement)
-        # but below our multiplier (not a breakout)
-        vol_ok = (atr_ratio > 0.5) and (atr_ratio < self.atr_filter_mult)
+        for i in range(min_bars, len(df)):
+            row        = df.iloc[i]
+            price      = float(row["Close"])
+            atr        = float(row["ATR"])
+            trail_sma  = float(row["trail_SMA"])
+            rsi        = float(row["RSI"])
+            above_ema  = price > float(row["EMA"])
+            swing_high = float(row["swing_high"])
+            swing_low  = float(row["swing_low"])
+            atr_cross  = bool(row["atr_expanding"])
 
-        #Desired tells us what we want to do based off our current position
+            if self._position != 0:
+                self._bars_in_trade += 1
+            self._bars_since_exit += 1
 
-        desired = 0
+            desired = self._position
 
-        if vol_ok:
-            # --- ENTRY LOGIC ---
-            if z < -self.entry_z:
-                # Price far below mean -> BUY (expect reversion up)
-                desired = 1
-            elif z > self.entry_z:
-                # Price far above mean -> SELL (expect reversion down)
-                desired = -1
+            if self._position != 0:
+                if self._position == 1 and price <= self._hard_stop:
+                    desired = 0
+                elif self._position == -1 and price >= self._hard_stop:
+                    desired = 0
+                elif self._position == 1 and price <= trail_sma:
+                    desired = 0
+                elif self._position == -1 and price >= trail_sma:
+                    desired = 0
+                elif self._bars_in_trade >= self.max_hold_bars:
+                    desired = 0
 
-            # --- EXIT LOGIC ---
-            # If we're long and Z crossed back above exit threshold -> close
-            elif self._prev_signal == 1 and z > -self.exit_z:
-                desired = 0  # will flatten
-            # If we're short and Z crossed back below exit threshold -> close
-            elif self._prev_signal == -1 and z < self.exit_z:
-                desired = 0  # will flatten
-            else:
-                # Hold current position
-                desired = self._prev_signal
-        else:
-            # Volatility outside goldilocks zone — flatten or stay flat
-            if self._prev_signal != 0:
-                desired = 0  # exit if vol becomes extreme
-            else:
-                desired = 0
+            if desired == 0 and self._position == 0:
+                if self._bars_since_exit >= self.cooldown_bars and atr_cross:
+                    if above_ema and price > swing_high and rsi < self.rsi_max_long:
+                        desired = 1
 
-        # Emit signal only on changes
-        if desired != self._prev_signal:
-            if desired == 0:
-                # Exit signal: emit opposite of current position
-                df.iloc[-1, df.columns.get_loc("signal")] = -self._prev_signal
-            else:
-                df.iloc[-1, df.columns.get_loc("signal")] = desired
-            self._prev_signal = desired
+            if desired != self._position:
+                if desired == 0:
+                    df.iloc[i, sig_col]   = -self._position
+                    if self._entry_price > 0 and atr > 0:
+                        stop_dist   = self.hard_stop_atr_mult * atr
+                        dollar_risk = self.capital * self.risk_per_trade_pct
+                        notional    = dollar_risk / (stop_dist / self._entry_price)
+                        df.iloc[i, qty_col] = min(notional, self.capital * 0.20)
+                    self._position        = 0
+                    self._entry_price     = 0.0
+                    self._hard_stop       = 0.0
+                    self._bars_in_trade   = 0
+                    self._bars_since_exit = 0
+                else:
+                    df.iloc[i, sig_col] = desired
+                    self._position      = desired
+                    self._entry_price   = price
+                    self._bars_in_trade = 0
+                    stop_dist           = self.hard_stop_atr_mult * atr
+                    self._hard_stop     = price - stop_dist if desired == 1 else price + stop_dist
 
-        # Position and sizing
-        df.iloc[-1, df.columns.get_loc("position")] = self._prev_signal
-
-        # Scale size by Z-score magnitude — bigger deviation = more conviction
-        z_abs = min(abs(z), 3.0)
-        size_mult = 0.5 + (z_abs / 3.0) * 1.5  # ranges from 0.5x to 2.0x
-        qty = abs(self._prev_signal) * self.position_size * size_mult
-        df.iloc[-1, df.columns.get_loc("target_qty")] = min(qty, self.max_position)
+            df.iloc[i, pos_col] = self._position
+            if self._position != 0:
+                # Risk-based sizing: risk 2% of capital per trade
+                # qty = (capital × risk_pct) / (atr × hard_stop_mult)
+                # This gives us the number of coins where a 1-stop loss = 2% capital
+                # target_qty = USD notional (Alpaca live trader converts to coins)
+                # Risk 2% of capital per trade
+                stop_dist = self.hard_stop_atr_mult * atr
+                if stop_dist > 0:
+                    dollar_risk = self.capital * self.risk_per_trade_pct
+                    notional = dollar_risk / (stop_dist / price)
+                    df.iloc[i, qty_col] = min(notional, self.capital * 0.20)
 
         return df
-

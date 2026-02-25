@@ -12,7 +12,7 @@ import pandas as pd
 from strategies.strategy_base import Strategy
 
 
-class MyStrategy(Strategy):
+class ParthStrategy(Strategy):
 
     def __init__(
         self,

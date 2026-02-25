@@ -14,7 +14,7 @@ from .strategy_base import (
     TemplateStrategy,
 )
 
-from .strategies_parth import (
+from .strategy_base import (
     MyStrategy,
 )
 
